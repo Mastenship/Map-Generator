@@ -1,0 +1,2959 @@
+=== SECTION: COT_PHYSICS ===
+
+[[LLM_INSTRUCTION]]: Use this template to define the universal, non-negotiable physical laws of the setting. It establishes the "rules of reality" for the map being generated, based on principles from astrophysics, geology, and atmospheric science.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these fundamental scientific frameworks as the basis for all physical parameters.
+
+[Scientific Models]
+Planetary_Formation_Theory:
+Core accretion model, planetary differentiation, and the establishment of a celestial body's place in its solar system.
+Atmospheric_Evolution:
+Models of primary/secondary atmosphere formation, atmospheric composition based on planetary mass and distance from star.
+Gravitational_Physics:
+Newton's law of universal gravitation and its impact on planetary geology and biological evolution.
+Hydrologic_Cycle:
+The continuous movement of water on, above, and below the surface of the Earth, driven by solar energy.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining the desired physical world.]
+Geological_Age:
+[The age of the primary terrain features. e.g., "Young," "Mature," "Ancient."]
+Scale_Context:
+[The regional scale of the map, e.g., "Barony-level, 1-mile/square".]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. Format the output as a structured data block for use by subsequent COTs.
+
+[Output_Data]
+Gravity_State:
+[Standard / Low / High / Microgravity / Zero-G]
+Description:
+[User-friendly description of gravitational effects on geology, biology, and construction.]
+Star_Type:
+[G-type / K-type / F-type / Binary_System / etc.]
+Description:
+[Astronomical description of the star system and its effects on the world.]
+Atmosphere_Profile:
+Composition:
+[Nitrogen/Oxygen mix / Carbon Dioxide / Methane / Toxic / None]
+Pressure:
+[Standard / High / Thin / None]
+Quality:
+[Clean / Polluted / Corrosive / Variable]
+Description:
+[A narrative description of the air and its effects on life and materials.]
+Hydrology_Principle:
+Dominant_Liquid:
+[H2O (Water) / CH4 (Methane) / Ammonia / Molten Rock / None]
+Cycle:
+[Constant / Seasonal / None / Geothermal_Vents / Tidal]
+Description:
+[A description of how the dominant liquid behaves and moves through the environment.]
+Geological_State:
+Age:
+[The value from the Geological_Age input parameter.]
+Description:
+[A narrative description of how the geological age manifests in the terrain. e.g., "Ancient mountains, heavily weathered and rounded, with deep, sediment-rich valleys." or "A sharp, jagged mountain range of recent tectonic uplift, with steep cliffs and sparse soil."]
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Physics_Block:
+Write the complete [Output_Data] block to the GENERATED_PHYSICS section of the Map Generator Scratchpad.
+Generation_Log_Update:
+Append a new entry to the Generation_Log in the Scratchpad noting the execution of COT_Physics.
+State_Reset:
+Clear all COT-specific internal variables.
+Verification:
+Ensure all fields are populated with valid, non-null values.
+Ensure the output is formatted according to the LLM Formatting Guide.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_TERRAIN_GENERATOR ===
+
+[[LLM_INSTRUCTION]]: Use this template to generate the raw terrain grid for the region. It simulates large-scale geological processes like tectonics and erosion to create a believable topography and substrate map, based on principles from geology and geomorphology.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these scientific frameworks as the basis for terrain generation.
+
+[Scientific Models]
+Plate_Tectonics_Theory:
+The theory of a body's lithosphere being divided into plates that move, causing mountain formation, rift valleys, and other large-scale geological features.
+Erosion_Models:
+Fluvial (water), glacial, and Aeolian (wind) erosion models that shape terrain over geological time.
+Isostasy:
+The gravitational equilibrium between a body's crust and mantle, influencing the relative height of land and sea level over time.
+Rock_Cycle:
+The transformation of igneous, sedimentary, and metamorphic rocks through melting, solidification, weathering, and pressure.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining the desired terrain.]
+Scale_Context:
+[The regional scale of the map, determining the complexity of the terrain simulation.]
+Physics_Data:
+[The complete data block from the GENERATED_PHYSICS section of the Map Generator Scratchpad.]
+Grid_Dimensions:
+[The size of the grid to be generated, e.g., 20x20 squares.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. Format the output as a structured data block for use by subsequent COTs.
+
+[Output_Data]
+Terrain_Description:
+[A narrative summary of the region's topography, incorporating the effects of the geological age.]
+Elevation_Map:
+Grid_Size:
+[20x20]
+Data:
+[A grid representation where each square contains an elevation value. e.g., (0,0): Sea Level; (1,0): Sea Level; (2,0): 50m; (3,0): 500m; (4,0): 2500m; ... (15,10): 200m; ... (19,19): Sea Level.]
+Rock_Type_Map:
+Grid_Size:
+[20x20]
+Data:
+[A grid representation where each square contains the dominant rock type. e.g., (0,0): Sedimentary (Sandstone); (1,0): Sedimentary (Limestone); (2,0): Sedimentary (Sandstone); (3,0): Metamorphic (Schist); (4,0): Igneous (Granite); ...]
+Major_Features:
+Location:
+[Runs vertically through squares (4,0) through (4,19).]
+Description:
+[A description of the feature that explicitly references its geological state. e.g., "An ancient, heavily weathered mountain range composed primarily of granite. The peaks are rounded and the slopes are covered in a deep layer of their own eroded soil, creating rich valleys below."]
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Terrain_Block:
+Write the complete [Output_Data] block to the GENERATED_TERRAIN section of the Map Generator Scratchpad.
+Generation_Log_Update:
+Append a new entry to the Generation_Log in the Scratchpad noting the execution of COT_Terrain_Generator.
+State_Reset:
+Clear all COT-specific internal variables.
+Verification:
+Ensure the Terrain_Description and Major_Features logically incorporate the Geological_State from the Physics data.
+Ensure the output is formatted according to the LLM Formatting Guide.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_CLIMATE_GENERATOR ===
+
+[[LLM_INSTRUCTION]]: Use this template to generate the climate and precipitation patterns for the region. It applies atmospheric physics and geographical principles to the existing terrain to create a logical distribution of climate zones and weather patterns, based on principles from climatology and meteorology.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these scientific frameworks as the basis for climate generation.
+
+[Scientific Models]
+Atmospheric_Circulation_Models:
+The large-scale movement of air, including Hadley, Ferrel, and Polar cells, which drives prevailing winds.
+Orographic_Effect:
+The change in atmospheric conditions caused by a mountain range, forcing air to rise, cool, and release moisture, creating rain shadows.
+Water_Body_Thermal_Inertia:
+The principle that large bodies of water heat and cool more slowly than land, moderating coastal climates.
+Latitudinal_Climate_Zones:
+The concept that climate zones are fundamentally determined by latitude and the angle of solar incidence.
+Albedo_Effect:
+The reflection of solar radiation by surfaces like ice, deserts, and forests, which influences regional temperature.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining the desired climate.]
+Scale_Context:
+[The regional scale of the map, determining the resolution of climate patterns.]
+Physics_Data:
+[The complete data block from the GENERATED_PHYSICS section of the Map Generator Scratchpad.]
+Terrain_Data:
+[The complete data block from the GENERATED_TERRAIN section of the Map Generator Scratchpad.]
+Grid_Dimensions:
+[The size of the grid to be generated, e.g., 20x20 squares.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. Format the output as a structured data block for use by subsequent COTs.
+
+[Output_Data]
+Climate_Description:
+[A narrative summary of the region's climate. e.g., "A temperate climate with four distinct seasons. The western slopes of the mountains are mild and very rainy, while the eastern plains are drier with colder winters."]
+Climate_Zone_Grid:
+Grid_Size:
+[20x20]
+Data:
+[A grid representation where each square contains a climate classification. e.g., (0,0): Temperate Grassland; (3,0): Alpine Tundra; (4,0): Alpine Tundra; (5,0): Temperate Rainforest; ... (10,10): Humid Continental; ...]
+Precipitation_Map:
+Grid_Size:
+[20x20]
+Data:
+[A grid representation where each square contains a precipitation level. e.g., (0,0): Low; (3,0): Low; (4,0): Moderate; (5,0): High; (10,10): Moderate; ...]
+Prevailing_Winds:
+Direction:
+[e.g., Westerlies]
+Effects:
+[e.g., "Brings moisture from the western ocean, leading to high precipitation on the western slopes of the mountains before creating a dry rain shadow to the east."]
+Major_Features:
+Name:
+[The Weeping Vale]
+Location:
+[A low-lying area in squares (5,1) through (5,5) where constant rain from the mountains creates a boggy, marshy region.]
+Description:
+[A perpetually damp and mist-filled valley, difficult to traverse and home to unusual flora.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Climate_Block:
+- [ ] Write the complete [Output_Data] block to the [GENERATED_CLIMATE] section of the Map Generator Scratchpad.
+Generation_Log_Update:
+- [ ] Append a new entry to the [Generation_Log] in the Scratchpad noting the execution of COT_Climate_Generator.
+State_Reset:
+- [ ] Clear all COT-specific internal variables.
+Verification:
+- [ ] Ensure all grid squares in [Climate_Zone_Grid] and [Precipitation_Map] are populated.
+- [ ] Ensure the [Climate_Description] and [Prevailing_Winds] are logically consistent with the generated maps and terrain.
+- [ ] Ensure the output is formatted according to the LLM Formatting Guide.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_HYDROLOGY_GENERATOR ===
+
+[[LLM_INSTRUCTION]]: Use this template to generate all water features for the region. It analyzes the existing terrain and climate data to trace realistic watersheds, rivers, and lakes, defining them as sequences of connected grid side points, based on principles from hydrology and fluvial geomorphology.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these scientific frameworks as the basis for hydrology generation.
+
+[Scientific Models]
+Watershed_Delineation:
+The process of identifying the area of land where all precipitation collects and drains off into a common outlet, such as a river, bay, or other body of water.
+Stream_Order_Classification:
+A method of classifying streams based on their connectivity within a drainage network, from first-order streams to the main river.
+Fluvial_Geomorphology:
+The study of the interaction between flowing water and the Earth's surface, including processes like erosion, deposition, and the formation of valleys and floodplains.
+Lake_Formation_Models:
+The various geological processes that form lakes, such as tectonic activity, volcanic activity, glacial action, or river meandering (oxbow lakes).
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining the desired hydrology.]
+Scale_Context:
+[The regional scale of the map, determining the complexity of the water network.]
+Physics_Data:
+[The complete data block from the GENERATED_PHYSICS section of the Map Generator Scratchpad.]
+Terrain_Data:
+[The complete data block from the GENERATED_TERRAIN section of the Map Generator Scratchpad.]
+Climate_Data:
+[The complete data block from the GENERATED_CLIMATE section of the Map Generator Scratchpad.]
+Grid_Dimensions:
+[The size of the grid to be generated, e.g., 20x20 squares.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. Format the output as a structured data block for use by subsequent COTs.
+
+[Output_Data]
+Hydrology_Description:
+[A narrative summary of the region's waterways. e.g., "The region is dominated by the 'Silverstream River', which flows from the northern mountains down to the eastern sea, with several tributaries joining it from the western foothills."]
+Waterway_Networks:
+Waterway_Name:
+[Silverstream_River]
+Type:
+[Major_River]
+Path:
+[(4,5)[North] -> (4,6)[Center] -> (4,7)[South] -> (5,7)[East] -> (6,7)[Center] -> (6,8)[South]]
+Description:
+[A wide, fast-flowing river originating in the high mountains. Its path is generally eastward across the plains, with a natural bend near the center.]
+Properties:
+[Navigable by barge, prone to seasonal flooding in the lower plains.]
+Bodies_of_Water:
+Name:
+[MirrorLake]
+Location:
+[(6,8)[Center]]
+Type:
+[Oxbow_Lake]
+Description:
+[A crescent-shaped lake formed from a former bend in the Silverstream river. Water is calm and clear.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Hydrology_Block:
+Write the complete [Output_Data] block to the [GENERATED_HYDROLOGY] section of the Map Generator Scratchpad.
+Generation_Log_Update:
+Append a new entry to the [Generation_Log] in the Scratchpad noting the execution of COT_Hydrology_Generator.
+State_Reset:
+Clear all COT-specific internal variables.
+Verification:
+Ensure all rivers flow logically downhill according to the [Elevation_Map] from the Terrain_Data.
+Ensure no river path makes a 90-degree turn within a single square.
+Ensure no river path crosses any grid square's Center_Point unless that square is a Body_of_Water.
+Ensure precipitation levels from the Climate_Data are consistent with the waterway density.
+Ensure the output is formatted according to the LLM Formatting Guide.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_ASSET_LIBRARY_BUILDER ===
+
+[[LLM_INSTRUCTION]]: Use this template to create a complete Asset Library Dictionary for a specific region. It synthesizes user prompts with the generated environmental data to produce a coherent set of reusable cultural, architectural, and environmental asset definitions. These definitions, identified by a unique Asset_ID, serve as a sensory and contextual shorthand for the character system. This COT now incorporates principles of taphonomy, creating assets that reflect the passage of time and historical events.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these scientific frameworks as the basis for asset library generation.
+
+[Scientific Models]
+Environmental_Determinism:
+The theory that the physical environment, rather than social conditions, determines culture.
+Architectural_Anthropology:
+The study of the relationship between a culture's built environment and its social structure, values, and available materials.
+Resource-Based_Theory:
+A sociological theory that groups will form based on their ability to access and control material resources.
+Cultural_Materialism:
+A theoretical framework that prioritizes the material conditions of a society (technology, economy, environment) as the primary driver of social and cultural practices.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining the desired culture or theme. e.g., "Make a culture of isolationist hill people who live in giant fungi with a medieval tech level."]
+Physics_Data:
+[The complete data block from the GENERATED_PHYSICS section of the Map Generator Scratchpad.]
+Terrain_Data:
+[The complete data block from the GENERATED_TERRAIN section of the Map Generator Scratchpad.]
+Climate_Data:
+[The complete data block from the GENERATED_CLIMATE section of the Map Generator Scratchpad.]
+Hydrology_Data:
+[The complete data block from the GENERATED_HYDROLOGY section of the Map Generator Scratchpad.]
+Biome_Data:
+[The complete data block from the GENERATED_BIOME section of the Map Generator Scratchpad.]
+User_Overlays:
+[Any specific user-defined features to be integrated. e.g., "A giant fungus colony at (7,8)."]
+Historical_Depth:
+[The temporal scope of the world's history, e.g., "500 years", "Ancient", "Recent".]
+Geological_Age:
+[The age of the primary terrain features, from Physics_Data. e.g., "Ancient".]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. The output is the Asset Library Dictionary for the region, including historical asset variants.
+
+[Generated_Asset_Library_Dictionary]
+Asset_Library_Name:
+[Silverdale_Region_Assets]
+Source_Region:
+[The Silverstream Valley]
+Tech_Level:
+[Medieval]
+Historical_Depth:
+[~500 years of recorded history]
+Core_Concept:
+[A human culture of farmers and craftsmen who live in the shadow of an ancient, mysterious mountain range, with a reverence for the sky and stone.]
+[Historical_Asset_Parent_Chains]
+Current_Asset:
+[CTX_Silverdale_Town_Square]
+Parent_Asset:
+[CTX_Ancient_Stone_Circle_Ruin]
+Historical_Notes:
+[The current town square is built atop a much older, prehistoric site. The central well may be built on the old circle's foundation.]
+Current_Asset:
+[Silverdale_Culture_Structure_Timber]
+Parent_Asset:
+[Ancient_Growth_Oak]
+Historical_Notes:
+[Most timber buildings are constructed from second-growth oak, as the original ancient forests were heavily logged in the region's early history.]
+[Asset_Entries]
+Asset_ID:
+[CTX_Silverdale_Town_Square]
+Type:
+[Spatial_Context]
+Definition:
+Base_Description:
+[A bustling square of hard-packed earth, surrounded by timber-framed buildings. A central stone well provides water, and market stalls are set up during the day.]
+Base_Sensory_Data:
+Auditory:
+[Crowd chatter, distant blacksmith hammering, clopping of horses.]
+Olfactory:
+[Horse manure, baking bread, wet cobblestone, woodsmoke.]
+Tactile:
+[Uneven cobblestones, damp morning air.]
+Base_Immovables:
+[Central Stone Well, Market Stalls (variable)]
+Common_Moveables:
+[Barrels, Crates, Discarded Rags]
+Affordances:
+[Gather_Information, Trade, Access_Well, Socialize]
+Taphonomic_State:
+[Well_Maintained]
+Historical_Context:
+[Established ~200 years ago on a site of older significance.]
+Asset_ID:
+[CTX_Silverdale_Residential_Street]
+Type:
+[Spatial_Context]
+Definition:
+Base_Description:
+[A narrow dirt street lined with modest croft-style houses. Small kitchen gardens are fenced in next to each dwelling.]
+Base_Sensory_Data:
+Auditory:
+[Muffled conversations from inside homes, children playing, domestic animals.]
+Olfactory:
+[Cooking fires, drying laundry, manure from small pens.]
+Tactile:
+[Soft dirt underfoot, occasional loose stone.]
+Base_Immovables:
+[Timber-framed houses, picket fences, kitchen gardens.]
+Common_Moveables:
+[Wooden chairs, washtubs, stacked firewood.]
+Affordances:
+[Find_Shelter, Seek_Aid, Rest, Gather_Rumors]
+Taphonomic_State:
+[Maintained, showing signs of age.]
+Historical_Context:
+[Most homes are less than 100 years old, but some show foundations from older structures.]
+Asset_ID:
+[CTX_Temperate_Forest_Second_Growth]
+Type:
+[Spatial_Context]
+Definition:
+Base_Description:
+[A forest of younger, slender oak and birch trees. The undergrowth is thick with brambles and invasive species due to past clearing. The ground is softer, with less leaf litter and more grasses.]
+Base_Sensory_Data:
+Auditory:
+[Chirping of common birds, rustle of small animals in the underbrush.]
+Olfactory:
+[Damp earth, rotting leaves, faint smell of pine from distant stands.]
+Tactile:
+[Soft, loamy soil, thorny brambles.]
+Base_Immovables:
+[Young Oak Trees, Thorny Bushes, Fallen Logs in various states of decay.]
+Common_Moveables:
+[Animal tracks, broken branches, remnants of old charcoal pits.]
+Affordances:
+[Forage (common plants), Hunt (small game), Get_Lost, Hide]
+Taphonomic_State:
+[Actively recovering from past deforestation.]
+Historical_Context:
+[This area was clear-cut 200 years ago to feed the initial settlement boom.]
+Asset_ID:
+[MNT_Ancient_Fortress_Ruin]
+Type:
+[Landmark_Context]
+Definition:
+Base_Description:
+[The crumbling ruins of an old stone keep, little more than the foundation and a single, partial wall remaining. It is completely overgrown with moss and ivy.]
+Base_Sensory_Data:
+Auditory:
+[Wind whistling through gaps in stone, creak of shifting masonry.]
+Olfactory:
+[Damp stone, moss, rich soil.]
+Tactile:
+[Cold, rough stone, vertigo-inducing if climbed.]
+Base_Immovables:
+[Stone Foundation, Partial Wall, Overgrown Earthworks.]
+Common_Moveables:
+[Chunks of fallen masonry, animal bones, lost trinkets.]
+Affordances:
+[Gather_Scrap_Stone, Search_For_Loot, Historical_Investigation, Gain_Vantage_Point]
+Taphonomic_State:
+[Advanced Ruin. ~500 years abandoned.]
+Historical_Context:
+[A fortress from a pre-Silverdale culture, abandoned after a conflict or resource depletion.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Asset_Library_Block:
+Write the complete [Generated_Asset_Library_Dictionary] block to the [ACTIVE_ASSET_LIBRARY] section of the Map Generator Scratchpad.
+Generation_Log_Update:
+Append a new entry to the [Generation_Log] in the Scratchpad noting the execution of COT_Asset_Library_Builder.
+State_Reset:
+Clear all COT-specific internal variables.
+Verification:
+Ensure the [Historical_Depth] and [Geological_Age] inputs are explicitly used.
+Ensure [Asset_Entries] include [Taphonomic_State] and [Historical_Context] fields.
+Ensure [Historical_Asset_Parent_Chains] are logically derived.
+Ensure asset descriptions reflect the passage of time (e.g., second-growth forest, well-maintained square).
+Ensure the output is formatted according to the LLM Formatting Guide.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_BIOME_GENERATOR ===
+
+[[LLM_INSTRUCTION]]: Use this template to populate the region with its final ecological zones. It analyzes the generated terrain, climate, and hydrology data to assign a logical biome to each grid square and identify the natural resources available within each biome, based on principles from ecology and biogeography.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these scientific frameworks as the basis for biome generation.
+
+[Scientific Models]
+Holdridge_Life_Zones:
+A bioclassification system that determines ecological zones based on mean annual biotemperature and precipitation.
+Climate-Vegetation_Classification:
+The principle that dominant plant life (the biome) is primarily determined by climate (temperature and water availability).
+Soil_Science_Pedology:
+The study of soil formation and its relationship to parent material, climate, topography, and organisms, which dictates resource availability.
+Island_Biogeography:
+The principle that resource distribution and ecosystem complexity are influenced by the size and isolation of a region.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining the desired biomes.]
+Scale_Context:
+[The regional scale of the map, determining the resolution of biomes.]
+Physics_Data:
+[The complete data block from the GENERATED_PHYSICS section of the Map Generator Scratchpad.]
+Terrain_Data:
+[The complete data block from the GENERATED_TERRAIN section of the Map Generator Scratchpad.]
+Climate_Data:
+[The complete data block from the GENERATED_CLIMATE section of the Map Generator Scratchpad.]
+Hydrology_Data:
+[The complete data block from the GENERATED_HYDROLOGY section of the Map Generator Scratchpad.]
+Grid_Dimensions:
+[The size of the grid to be generated, e.g., 20x20 squares.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. Format the output as a structured data block for use by subsequent COTs.
+
+[Output_Data]
+Biome_Description:
+[A narrative summary of the region's ecology. e.g., "The region is a patchwork of dense deciduous forest in the lowlands and river valleys, giving way to alpine tundra on the highest peaks, with fertile temperate grassland dominating the plains."]
+Biome_Grid:
+Grid_Size:
+[20x20]
+Data:
+[A grid representation where each square contains a biome classification. e.g., (0,0): Temperate Rainforest; (5,5): Alpine Tundra; (10,10): Temperate Grassland.]
+Resource_Distribution:
+Grid_Location:
+[(0,0)]
+Biome:
+[Temperate Rainforest]
+Available_Resources:
+[Timber (hardwood), Fresh Water, Furbearing Animals, Berries]
+Notes:
+[Difficult to clear for large-scale agriculture due to dense undergrowth.]
+Grid_Location:
+[(4,0)]
+Biome:
+[Alpine Tundra]
+Available_Resources:
+[Stone (granite), Rare Metals (veins), Hardy Mountain Goats, Ice]
+Notes:
+[Harsh environment, scarce resources, difficult terrain for construction.]
+Grid_Location:
+[(0,0)]
+Biome:
+[Temperate Grassland]
+Available_Resources:
+[Fertile Soil, Fresh Water (from river), Grazing Animals, Clay (near river)]
+Notes:
+[Ideal for agriculture and settlement.]
+Major_Features:
+Name:
+[The_Great_Fen]
+Location:
+[(8,5) through (12,8)]
+Biome:
+[Freshwater Marsh]
+Description:
+[A vast, waterlogged bog created by high rainfall and poor drainage. Rich in peat and reeds, but difficult to traverse.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Biome_Block:
+Write the complete [Output_Data] block to the [GENERATED_BIOME] section of the Map Generator Scratchpad.
+Generation_Log_Update:
+Append a new entry to the [Generation_Log] in the Scratchpad noting the execution of COT_Biome_Generator.
+State_Reset:
+Clear all COT-specific internal variables.
+Verification:
+Ensure all biomes in the [Biome_Grid] are consistent with the corresponding squares in the [Climate_Zone_Grid], [Elevation_Map], and [Hydrology_Data].
+Ensure resources listed in [Resource_Distribution] are logical for the assigned biome and terrain rock type.
+Ensure the output is formatted according to the LLM Formatting Guide.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_SETTLEMENT_LOGIC ===
+
+[[LLM_INSTRUCTION]]: Use this template to place all settlements on the map. It analyzes the generated biome, resource, hydrology, and terrain data to identify logical settlement locations, and then populates them using the cultural assets from the active Asset Library, based on principles from geography and urban sociology.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these scientific frameworks as the basis for settlement placement.
+
+[Scientific Models]
+Central_Place_Theory:
+A geographical theory that seeks to explain the number, size, and location of human settlements in an urban system.
+Resource-Based_Settlement_Modeling:
+The principle that settlements are established near critical resources like fresh water, fertile land, and valuable minerals.
+Defensive_Site_Selection:
+The practice of choosing settlement locations with natural defensive advantages, such as on hills, river bends, or mountain passes.
+Topographic_Prominence:
+The concept of identifying locations that are easily accessible and dominate their surroundings, making them ideal for central places or defensive positions.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining the desired settlements. e.g., "Place one large town and three small villages."]
+Scale_Context:
+[The regional scale of the map, determining settlement size and density.]
+Asset_Library:
+[The complete data block from the ACTIVE_ASSET_LIBRARY section of the Map Generator Scratchpad.]
+Biome_Data:
+[The complete data block from the GENERATED_BIOME section of the Map Generator Scratchpad.]
+Hydrology_Data:
+[The complete data block from the GENERATED_HYDROLOGY section of the Map Generator Scratchpad.]
+Terrain_Data:
+[The complete data block from the GENERATED_TERRAIN section of the Map Generator Scratchpad.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. Format the output as a structured data block for use by subsequent COTs.
+
+[Output_Data]
+Settlement_Description:
+[A narrative summary of the region's population centers. e.g., "The primary settlement is the town of Stonebridge, located at a strategic river crossing. Three small farming villages are scattered in the fertile plains to the east."]
+Settlement_List:
+Name:
+[Stonebridge]
+Type:
+[Town / Large Town / City / Village / Hamlet / Fortress]
+Location:
+[(7,7)[Center]]
+Population:
+[e.g., ~2,500]
+Founding_Logic:
+[Founded at the only easily defensible and stable crossing of the Silverstream River, providing control over trade between the hills and plains.]
+Culture:
+[Uses 'Silverdale Culture' assets for buildings near the Sacred Grove, but with more standard timber and stone structures elsewhere.]
+Description:
+[A bustling town built around a central stone bridge. Its architecture is a mix of standard timber-framing and the local fungal-plank style.]
+Historical_Context:
+[Primary_Settlement, established ~200 years ago on a site of older significance.]
+Name:
+[Eastmoot]
+Type:
+[Village]
+Location:
+[(12,10)[Center]]
+Population:
+[e.g., ~200]
+Founding_Logic:
+[A farming community established on the fertile grasslands, taking advantage of the rich soil and proximity to the river for irrigation.]
+Culture:
+[Pure 'Silverdale Culture'.]
+Description:
+[A small cluster of homes carved into low fungal caps and made of woven fungal-fiber, surrounding communal spore-fields.]
+Historical_Context:
+[Supersession_Settlement, built on the site of an older, abandoned homestead.]
+Name:
+[Northwatch]
+Type:
+[Fortress]
+Location:
+[(4,2)[Center]]
+Population:
+[e.g., ~150 (garrison)]
+Founding_Logic:
+[A military outpost built on a high-elevation granite outcrop to watch for threats descending from the northern mountains and protect the mining operations there.]
+Culture:
+[Standard military architecture, built for function, not style.]
+Description:
+[A stark stone keep with high walls, positioned to command the northern mountain pass.]
+Historical_Context:
+[Supersedes a much older, ruined fort on the same site, with the new keep incorporating some of the old foundations.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Settlement_Block:
+Write the complete [Output_Data] block to the [GENERATED_SETTLEMENTS] section of the Map Generator Scratchpad.
+Generation_Log_Update:
+Append a new entry to the [Generation_Log] in the Scratchpad noting the execution of COT_Settlement_Logic.
+State_Reset:
+Clear all COT-specific internal variables.
+Verification:
+Ensure all settlement locations in [Settlement_List] are consistent with [Founding_Logic] based on available [Biome_Data] and [Resource_Distribution].
+Ensure settlement [Type] is appropriate for the [Scale_Context].
+Ensure [Culture] and [Description] draw elements from the [Asset_Library].
+Ensure the [Historical_Context] field is populated and logically consistent with the Asset Library's taphonomic data.
+Ensure the output is formatted according to the LLM Formatting Guide.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_INFRASTRUCTURE_LOGIC === [[LLM_INSTRUCTION]]: Use this template to generate the region's transportation network. It analyzes the placed settlements, waterways, and terrain to create a logical system of roads and bridges, defining them as sequences of connected grid side points, based on principles from transportation geography and civil engineering. === SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS === [[LLM_INSTRUCTION]]: Apply these scientific frameworks as the basis for infrastructure generation. [Scientific Models]
+
+Least-Cost_Path_Analysis: A model that calculates the most efficient route between two points, factoring in terrain slope, obstacles, and distance.
+Network_Analysis: The study of interconnected lines (roads, rivers) as a network, focusing on nodes (settlements, intersections) and links (roads).
+Technological_Determinism_in_Transport: The principle that the form of a transportation network is determined by the available technology for construction and travel (e.g., walking, carts, ships).
+Strategic_Routing_Logic: The concept that infrastructure is built not just for the shortest path, but for strategic reasons like controlling resources or defensive positioning. === SECTION_BREAK ===
+=== SECTION: INPUT_PARAMETERS === [[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution. User_Prompt: [The raw user input defining the desired infrastructure.] Scale_Context: [The regional scale of the map, determining road complexity.] Asset_Library: [The complete data block from the ACTIVE_ASSET_LIBRARY section of the Map Generator Scratchpad.] Settlement_Data: [The complete data block from the GENERATED_SETTLEMENTS section of the Map Generator Scratchpad.] Hydrology_Data: [The complete data block from the GENERATED_HYDROLOGY section of the Map Generator Scratchpad.] Terrain_Data: [The complete data block from the GENERATED_TERRAIN section of the Map Generator Scratchpad.] === SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA === [[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. Format the output as a structured data block for use by subsequent COTs. [Output_Data] Infrastructure_Description: [A narrative summary of the region's travel routes. e.g., "A single, well-maintained stone road, the 'King's Highway,' connects the major town of Stonebridge to the northern fortress of Northwatch. Smaller dirt paths branch off to the nearby villages and resources."] Road_Networks:
+
+Name: [Kings_Highway]
+Type: [Paved / Dirt / Cobblestone / Stone]
+Purpose: [Major_Trade_Route / Military_Road / Local_Path]
+Path: [(7,7)[North] -> (7,6)[Center] -> (7,5)[West] -> (6,5)[West] -> (5,5)[West] -> (4,5)[West] -> (4,4)[Center] -> (4,3)[West] -> (4,2)[West]]
+Connects: [Stonebridge (7,7) to Northwatch (4,2)]
+Description: [A strategically important road that makes a key turn west to avoid the high ground before heading north to the fortress.]
+Name: [Moot_Path]
+Type: [Dirt]
+Purpose: [Local_Path]
+Path: [(7,7)[East] -> (8,7)[East] -> (9,7)[East] -> (10,7)[East] -> (11,7)[East] -> (12,7)[East] -> (12,8)[South] -> (12,9)[South] -> (12,10)[South]]
+Connects: [Stonebridge (7,7) to Eastmoot (12,10)]
+Description: [A simple dirt path that takes the most direct, flat route across the grasslands to the farming village.] Bridges_and_Fords:
+Name: [Stonebridge]
+Type: [Stone_Bridge]
+Location: [(7,7)[Center], crossing Silverstream_River between (7,7)[East] and (8,7)[East]]
+Description: [A wide, sturdy stone arch bridge that gives the town its name. The primary crossing point for the Kings Highway.]
+Name: [Eastmoot_Ford]
+Type: [Shallow_Ford]
+Location: [Crossing a smaller stream between (11,10)[North] and (11,10)[South]]
+Description: [A simple, natural crossing point in the creek, passable on foot or by wagon in drier seasons.] === SECTION_BREAK ===
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES === [[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad. ((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD)) [Update_Checklist]
+
+Update_Infrastructure_Block:
+ Write the complete [Output_Data] block to the [GENERATED_INFRASTRUCTURE] section of the Map Generator Scratchpad.
+Generation_Log_Update:
+ Append a new entry to the [Generation_Log] in the Scratchpad noting the execution of COT_Infrastructure_Logic.
+State_Reset:
+ Clear all COT-specific internal variables.
+Verification:
+ Ensure all roads logically connect at least two [Settlement_List] locations or a settlement to a resource.
+ Ensure all road paths respect the base geometric rule: they do not cross any grid square's Center_Point.
+ Ensure road paths may use 90-degree turns, but prioritize straight lines or gentle curves unless dictated by terrain or purpose.
+ Ensure road paths are consistent with a least-cost path analysis based on [Terrain_Data] and obstacles like [Hydrology_Data].
+ Ensure all path sequences use the specified side-point format.
+ Ensure the output is formatted according to the LLM Formatting Guide. === SECTION_BREAK ===
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_LANDMARK_POPULATOR ===
+
+[[LLM_INSTRUCTION]]: Use this template to place the final, named points of interest that give the region its unique character and story. It analyzes all previous data layers to identify and name significant features, adding depth and adventure hooks to the map, based on principles from toponymy (the study of place names) and historical geography.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these scientific frameworks as the basis for landmark population.
+
+[Scientific Models]
+Toponymic_Principles:
+The study of how places are named, often based on their physical characteristics (e.g., "Red River"), historical events (e.g., "Battlefield Meadow"), or associated people/myths (e.g., "Mermaid's Point").
+Landscape_Interpretation:
+The process of identifying visually or functionally significant features within the terrain, such as unique rock formations, isolated groves, or strategic passes.
+Historical_Event_Modeling:
+The practice of placing markers or memorials on the landscape to commemorate significant events, which become permanent landmarks.
+Cultural_Significance_Placement:
+The principle of marking locations that are important to a culture's identity, such as sacred groves, ancestral burial grounds, or sites of religious visions.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining desired landmarks or themes.]
+Asset_Library:
+[The complete data block from the ACTIVE_ASSET_LIBRARY section of the Map Generator Scratchpad.]
+Terrain_Data:
+[The complete data block from the GENERATED_TERRAIN section of the Map Generator Scratchpad.]
+Biome_Data:
+[The complete data block from the GENERATED_BIOME section of the Map Generator Scratchpad.]
+Settlement_Data:
+[The complete data block from the GENERATED_SETTLEMENTS section of the Map Generator Scratchpad.]
+Infrastructure_Data:
+[The complete data block from the GENERATED_INFRASTRUCTURE section of the Map Generator Scratchpad.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. Format the output as a structured data block for use by subsequent COTs.
+
+[Output_Data]
+Landmark_Description:
+[A narrative summary of the region's most notable features. e.g., "The region is known for the ominous Dragon's Tooth peak, the sacred Whispering Falls, and the ancient, abandoned Watchtower of the First King, which stands as a silent sentinel over the plains."]
+Landmark_List:
+Name:
+[The_Dragon's_Tooth]
+Location:
+[(4,0)[Center]]
+Type:
+[Natural_Formation / Peak]
+Description:
+[A jagged, rock spire of granite that towers over the surrounding mountains. A prominent navigational landmark and features heavily in local folklore.]
+Name:
+[Whispering_Falls]
+Location:
+[(5,7)[Center], on Silverstream_River]
+Type:
+[Natural_Formation / Waterfall]
+Description:
+[A small but picturesque waterfall where Silverstream_River tumbles over a series of stone ledges. The constant sound of rushing water gives it its name. Considered a peaceful, meditative spot by locals.]
+Name:
+[The_Old_Watchtower]
+Location:
+[(4,2)[Center]]
+Type:
+[Man-Made_Structure / Ruin]
+Description:
+[The crumbling ruins of an old stone watchtower, overgrown with vines and moss. It is the last remaining structure of a forgotten kingdom and is said to be haunted.]
+Name:
+[Hangman's_Tree]
+Location:
+[(7,4)[Center]]
+Type:
+[Natural_Formation / Tree]
+Description:
+[A gnarled, ancient oak tree standing alone in a field near Stonebridge. A thick, weathered rope hangs from a large branch, giving the tree its grim name.]
+Name:
+[The_Sacred_Grove]
+Location:
+[(7,8)[Center]]
+Type:
+[Cultural_Site / Special_Feature]
+Description:
+[The heart of the giant fungus colony, as defined in the Asset Library. It is considered sacred ground by the Fungus Grove culture and is protected by a taboo against violence.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Landmark_Block:
+Write the complete [Output_Data] block to the [GENERATED_LANDMARKS] section of the Map Generator Scratchpad.
+Generation_Log_Update:
+Append a new entry to the [Generation_Log] in the Scratchpad noting the execution of COT_Landmark_Populator.
+State_Reset:
+Clear all COT-specific internal variables.
+Verification:
+Ensure landmark locations are consistent with the relevant data from [Terrain_Data], [Biome_Data], or [Infrastructure_Data].
+Ensure [Special_Features] from the [Asset_Library] are correctly placed and named.
+Ensure landmark [Type] classifications are logical.
+Ensure the output is formatted according to the LLM Formatting Guide.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: FINAL_MAP_DATA ===
+
+[[LLM_INSTRUCTION]]: This is the complete, self-contained data packet for the character's Map Parser. It contains a two-layered map for both efficiency and per-square data fidelity, and the scale is a critical variable for calculating perception range. It must be explicitly defined.
+
+[Map_Metadata]
+Map_Grid_Size:
+[20x20]
+Map_Scale:
+[1 square = 1 mile (1.6 km)]
+Map_Name:
+[The Silverstream Valley]
+
+=== SECTION_BREAK ===
+
+=== SECTION: Layer_1: Per-Square_Data_Grid ===
+
+[[LLM_INSTRUCTION]]: This layer contains the unique, non-repeating data for every single grid square. It is the source of truth for physical properties.
+
+[Per_Square_Grid]
+Coordinate:
+(0,0)
+Elevation:
+[Sea Level]
+Biome:
+[Temperate_Grassland_Open]
+Coordinate:
+(4,4)
+Elevation:
+[1500m]
+Biome:
+[Alpine_Tundra]
+Coordinate:
+(6,4)
+Elevation:
+[300m]
+Biome:
+[Temperate_Forest_Deep]
+Coordinate:
+(7,7)
+Elevation:
+[50m]
+Biome:
+[Temperate_Grassland_Open_Settled]
+Coordinate:
+(4,2)
+Elevation:
+[1200m]
+Biome:
+[Alpine_Tundra_Ruined]
+
+=== SECTION_BREAK ===
+
+=== SECTION: Layer_2: Efficient_Zone_Definitions ===
+
+[[LLM_INSTRUCTION]]: This layer provides efficient, human-readable definitions for cultural and asset contexts, which override the base biome.
+
+[Zone_List]
+Zone_ID:
+[Zone_Stonebridge_Town]
+Asset_Reference:
+[CTX_Silverdale_Town_Square]
+Vertices:
+[(7,7), (7,8), (8,8), (8,7)]
+Description:
+[The central town square and its immediate buildings.]
+Zone_ID:
+[Zone_Western_Forest]
+Asset_Reference:
+[CTX_Temperate_Forest_Deep]
+Vertices:
+[(0,8), (0,19), (5,19), (5,8)]
+Description:
+[A large, dense forest covering the entire western edge of the region.]
+Zone_ID:
+[Zone_Eastern_Plains]
+Asset_Reference:
+[CTX_Temperate_Grassland_Open]
+Vertices:
+[(6,0), (19,0), (19,7), (6,7)]
+Description:
+[Open plains suitable for farming and grazing.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: Individual_Square_Overrides ===
+
+[[LLM_INSTRUCTION]]: Squares that contain unique features not covered by the general zone are listed here. This is where landmarks and unique buildings are placed.
+
+[Square_Overrides]
+Coordinate:
+(6,4)
+Asset_Reference:
+[CTX_Temperate_Forest_Deep]
+Unique_Feature:
+[Starfall_Menhir at (6,4)[Center]]
+Coordinate:
+(7,9)
+Asset_Reference:
+[CTX_Silverdale_Craftsman_Shop]
+Description:
+[The workshop of the local blacksmith.]
+Coordinate:
+(4,2)
+Asset_Reference:
+[MNT_Ancient_Fortress_Ruin]
+Description:
+[The crumbling ruins of an old stone keep, overgrown with moss and ivy.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: Asset_Library_Dictionary ===
+
+[[LLM_INSTRUCTION]]: The complete dictionary of reusable asset definitions, referenced by the map grid. Assets include taphonomic state and historical context.
+
+[Asset_Entries]
+Asset_ID:
+[CTX_Silverdale_Town_Square]
+Type:
+[Spatial_Context]
+Definition:
+Base_Description:
+[A bustling square of hard-packed earth, surrounded by timber-framed buildings. A central stone well provides water.]
+Base_Sensory_Data:
+Auditory:
+[Crowd chatter, distant blacksmith hammering.]
+Olfactory:
+[Horse manure, baking bread.]
+Tactile:
+[Uneven cobblestones, damp morning air.]
+Base_Immovables:
+[Central Stone Well, Market Stalls (variable)]
+Affordances:
+[Gather_Information, Trade, Access_Well]
+Taphonomic_State:
+[Well_Maintained]
+Historical_Context:
+[Established ~200 years ago on a site of older significance.]
+Asset_ID:
+[CTX_Temperate_Forest_Deep]
+Type:
+[Spatial_Context]
+Definition:
+Base_Description:
+[Old-growth forest with tall oak trees and a thick, obscuring understory. The ground is soft with leaf litter.]
+Base_Sensory_Data:
+Auditory:
+[Birdsong, rustling of unseen animals.]
+Olfactory:
+[Damp earth, moss, decaying wood.]
+Tactile:
+[Soft leaf litter, rough bark, cool air.]
+Base_Immovables:
+[Large Oak Trees, Fallen Log]
+Affordances:
+[Forage, Hunt, Hide]
+Taphonomic_State:
+[Primordial/Ancient]
+Historical_Context:
+[This area has been forested for millennia, with only minor pockets of clearing in its recent history.]
+Asset_ID:
+[MNT_Ancient_Fortress_Ruin]
+Type:
+[Landmark_Context]
+Definition:
+Base_Description:
+[The crumbling ruins of an old stone keep, little more than the foundation and a single, partial wall remaining. It is completely overgrown with moss and ivy.]
+Base_Sensory_Data:
+Auditory:
+[Wind whistling through gaps in stone.]
+Olfactory:
+[Damp stone, moss.]
+Tactile:
+[Cold, rough stone.]
+Base_Immovables:
+[Stone Foundation, Partial Wall]
+Affordances:
+[Gather_Scrap_Stone, Search_For_Loot, Historical_Investigation]
+Taphonomic_State:
+[Advanced Ruin. ~500 years abandoned.]
+Historical_Context:
+[A fortress from a pre-Silverdale culture, abandoned after a conflict or resource depletion.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: Unique_Feature_Definitions ===
+
+[[LLM_INSTRUCTION]]: Definitions for features not covered by the Asset Library dictionary.
+
+[Feature_Definitions]
+Feature_Name:
+[Starfall_Menhir]
+Location:
+(6,4)[Center]
+Type:
+[Cultural_Landmark]
+Description:
+[A tall, ancient standing stone covered in faint astronomical carvings.]
+Affordances:
+[Inspect_Carvings, Perform_Ritual]
+
+=== SECTION_BREAK ===
+
+=== SECTION: Named_Transition_Network ===
+
+[[LLM_INSTRUCTION]]: The definition of all named linear features for navigation. All paths are sequences of side-point connections and do not cross any square's center point.
+
+[Transition_Networks]
+Name:
+[Silverstream_River]
+Type:
+[Waterway]
+Path:
+[(4,5)[North] -> (4,6)[South] -> (4,7)[South] -> (5,7)[East] -> (6,7)[East] -> (6,8)[South]]
+Name:
+[Kings_Highway]
+Type:
+[Road]
+Path:
+[(7,7)[North] -> (7,6)[North] -> (7,5)[West] -> (6,5)[West] -> (5,5)[West] -> (4,5)[West] -> (4,4)[North] -> (4,3)[West] -> (4,2)[West]]
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_INDOOR_FOUNDATIONAL_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Use this template to define the high-level, use-specific parameters for the indoor map. It establishes the building's purpose, scale, and ties to outdoor context, serving as the foundational input for all subsequent indoor COTs. This mirrors the outdoor high-level concepts but focuses on architectural intent, functional requirements, and historical integration.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these frameworks as the basis for parameter definition.
+
+[Scientific Models]
+Architectural_Functionalism:
+The principle that a building's form should follow its function, with spaces designed around intended use (e.g., workflow in a workshop, flow in a residence).
+Building_Science:
+The study of how materials, environment, and human factors interact in enclosed spaces, including ventilation, lighting, and structural integrity.
+Historical_Archaeology_of_Structures:
+The analysis of how buildings evolve over time, incorporating layers from past uses or cultures.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining the desired building, e.g., "Generate interior for blacksmith workshop at (7,9): single story with loft, medieval tech."]
+Outdoor_Context:
+[The complete data blocks from the Map Generator Scratchpad, including ACTIVE_ASSET_LIBRARY, GENERATED_SETTLEMENTS, and relevant coordinates.]
+Grid_Dimensions:
+[The size of the indoor grid to be generated, e.g., 15x20 squares.]
+Scale_Context:
+[Fixed: 1 square = 5 feet (1.5 m).]
+Historical_Depth:
+[Carried from outdoor GENERATION_PARAMETERS.]
+Geological_Age:
+[Carried from outdoor GENERATION_PARAMETERS.]
+Tech_Level:
+[Carried from outdoor GENERATION_PARAMETERS.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters. Format as a structured data block for use by subsequent indoor COTs.
+
+[Output_Data]
+Building_Description:
+[A narrative summary of the building's purpose and high-level layout, e.g., "A functional blacksmith workshop with attached living quarters, designed for efficient forging workflow, using local timber and stone materials."]
+Building_Type:
+[Workshop / Residence / Dungeon / Temple / Fortress_Interior / etc.]
+Location_Tie:
+[Outdoor coordinate (7,9)[Center], Zone_Stonebridge_Town.]
+Levels:
+[Single story with loft.]
+Grid_Size:
+[15x20]
+Scale:
+[1 square = 5 feet (1.5 m)]
+Core_Function:
+[Blacksmithing and repair, with secondary residential use.]
+Material_Base:
+[Timber-framed with stone foundation, carried from outdoor asset CTX_Silverdale_Craftsman_Shop.]
+Historical_Context:
+[Established ~150 years ago, built on older foundations from a prior structure.]
+Major_Requirements:
+[Forge area for hot work, storage for tools/materials, living space for family, secure door to outdoor square.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Indoor_Parameters_Block:
+Write the complete [Output_Data] block to the [INDOOR_GENERATED_PARAMETERS] section of the Map Generator Scratchpad.
+Generation_Log_Update:
+Append a new entry to the [Generation_Log] in the Scratchpad noting the execution of COT_Indoor_Foundational_Parameters.
+State_Reset:
+Clear all COT-specific internal variables.
+Verification:
+Ensure the Building_Type and Core_Function align with user prompt and outdoor context.
+Ensure scale is fixed at 1 square = 5 feet.
+Ensure historical and material ties reference outdoor data.
+Ensure the output is formatted according to the LLM Formatting Guide.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_INDOOR_STRUCTURAL_SHELL ===
+
+[[LLM_INSTRUCTION]]: Use this template to generate the basic structural shell of the indoor space. It defines the outer walls, major load-bearing/internal dividing walls, floor/ceiling materials, and any fixed structural features (e.g., central pillars, hearth bases, stairwells). This is the "terrain" equivalent for indoors: the fixed architectural skeleton before room functions, corridors, or furnishings are added. All walls and connections live on cell edges; centers are reserved for later non-structural features.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these frameworks as the basis for structural definition.
+
+[Scientific Models]
+Structural_Engineering_Principles:
+Load distribution, material strength, and stability in enclosed spaces (e.g., timber framing vs. stone masonry load paths).
+Building_Code_Historical_Equivalents:
+Medieval/ancient practices for wall thickness, fire separation, and foundation depth based on material and use.
+Architectural_Hierarchy:
+Primary structure (outer walls, major spans) vs. secondary partitions; functional zoning implied by load-bearing placement.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining the building interior.]
+Outdoor_Context:
+[The complete data blocks from the Map Generator Scratchpad, including ACTIVE_ASSET_LIBRARY and relevant outdoor asset at the tie-in coordinate.]
+Foundational_Parameters:
+[The complete [Output_Data] block from COT_Indoor_Foundational_Parameters.]
+Grid_Dimensions:
+[e.g., 15x20 squares]
+Scale_Context:
+[Fixed: 1 square = 5 feet (1.5 m).]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. Format as a structured data block for use by subsequent indoor COTs. Use edge-based wall states; do not place walls at centers.
+
+[Output_Data]
+Structural_Description:
+[A narrative summary of the building shell, e.g., "Timber-framed single-story structure with stone foundation and ground-floor forge area. Thick stone walls on the perimeter for fire safety, lighter timber partitions internally, with a small loft supported by oak beams."]
+Outer_Perimeter:
+[Description of outer walls, e.g., "Stone masonry 2–3 ft thick on all sides, with one main oak door on south face tying to outdoor (7,9)[South]."]
+Floor_Material_Default:
+[Flagstone near forge, wooden planks in living areas.]
+Ceiling_Material_Default:
+[Exposed timber beams with plaster infill; vaulted over forge.]
+Major_Structural_Walls:
+[List of key internal walls by edge states, e.g.,
+- North-South dividing wall from (5,0)[Center line] to (5,19): Solid_Stone (firebreak between forge and living quarters)
+- East-West cross wall from (0,10)[Center line] to (14,10): Timber_Partition]
+Structural_Features:
+[Fixed elements at centers or edges, e.g.,
+- Central forge hearth base at (4,5)[Center]: Raised stone platform
+- Loft support beams spanning (8,2) to (12,2) and (8,12) to (12,12)]
+Initial_Openings_Placeholders:
+[Any major doors/archways already implied by function, e.g., main entry door at (7,0)[South] (grid origin aligned to outdoor tie-in)]
+Wall_Material_Ties:
+[Primarily local stone foundation and second-growth oak framing, carried from outdoor CTX_Silverdale_Craftsman_Shop.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Structural_Shell_Block:
+Write the complete [Output_Data] block to the [INDOOR_GENERATED_STRUCTURAL_SHELL] section of the Map Generator Scratchpad.
+Generation_Log_Update:
+Append a new entry to the [Generation_Log] noting the execution of COT_Indoor_Structural_Shell.
+State_Reset:
+Clear all COT-specific internal variables.
+Verification:
+Ensure all wall placements are on cell edges only.
+Ensure perimeter and major walls align with building function and outdoor material context.
+Ensure scale remains fixed at 1 square = 5 feet.
+Ensure output follows LLM Formatting Guide (no pipes, proper blank lines, etc.).
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_INDOOR_ENVIRONMENTAL_CONDITIONS ===
+
+[[LLM_INSTRUCTION]]: Use this template to generate the environmental conditions across the indoor space. It applies building science and environmental physics to the structural shell to define lighting, temperature, humidity, air quality, ventilation, and other ambient factors. This is the "climate" equivalent for indoors: the pervasive atmosphere that influences comfort, visibility, sound propagation, and material wear before room functions or furnishings are assigned. Ensure full multi-modal sensory anchoring for every condition zone or gradient to support character perception parsing.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these scientific frameworks as the basis for condition generation.
+
+[Scientific Models]
+Building_Physics:
+Heat transfer (conduction, convection, radiation), moisture movement, and air flow in enclosed structures.
+Indoor_Air_Quality_Models:
+Sources and sinks of pollutants (smoke, mold, CO), ventilation rates, and stratification.
+Lighting_Design_Principles:
+Natural vs. artificial light distribution, shadow patterns, and flicker from flames/torches.
+Psychrometrics:
+Relationship between temperature, humidity, and human comfort in different functional zones.
+Acoustic_Propagation_in_Enclosed_Spaces:
+How materials and geometry affect sound reflection, absorption, and echo.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining environmental preferences or constraints.]
+Outdoor_Context:
+[Relevant outdoor climate and biome data carried forward.]
+Foundational_Parameters:
+[The complete [Output_Data] block from COT_Indoor_Foundational_Parameters.]
+Structural_Shell:
+[The complete [Output_Data] block from COT_Indoor_Structural_Shell.]
+Grid_Dimensions:
+[e.g., 15x20 squares]
+Scale_Context:
+[Fixed: 1 square = 5 feet (1.5 m).]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. Format as a structured data block for use by subsequent indoor COTs. Conditions can be per-zone, per-grid-square gradients, or point-source driven. Ensure every default, gradient, or feature includes full multi-modal Sensory_Data (Auditory, Olfactory, Tactile, Thermal, Visual) for complete embodiment anchoring and perception parsing.
+
+[Output_Data]
+Environmental_Description:
+[A narrative summary of the building's ambient atmosphere, e.g., "Warm and smoky near the forge with good natural light from south-facing windows, cooler and drier in living quarters, moderate ventilation via roof vents and open hearth."]
+Lighting_Grid_Default:
+[Grid_Size: 15x20]
+Data:
+[General pattern, e.g., (0,0) to (14,19): Dim natural light from small windows; brighter near south wall; torch-level artificial light at night.]
+Temperature_Default:
+[Grid_Size: 15x20]
+Data:
+[e.g., Forge area (2,3) to (6,7): 85–110°F near hearth; Living quarters: 65–75°F; Gradients radiate from heat sources.]
+Humidity_Default:
+[Moderate overall; higher near forge due to quenching water; lower in sleeping loft.]
+Air_Quality_Default:
+[Smoky / sooty near forge (poor when fire is active); fresher in living areas with open windows; mild mold risk in stone foundation corners.]
+Ventilation_Sources:
+[List of airflow features, e.g.,
+- Roof vents above forge at (4,2)[Center] and (4,8)[Center]: Updraft pulls smoke out
+- Small operable windows on south wall: Cross-breeze when open
+- Hearth chimney: Primary exhaust for forge]
+Acoustic_Properties:
+[Forge area: Reverberant with metallic echoes; Living quarters: Softer due to plaster and rugs (later); Overall: Moderate echo in main open spaces.]
+Major_Environmental_Features:
+[Point or zone sources, e.g.,
+- Forge hearth at (4,5)[Center]: Radiant heat + smoke plume
+  Sensory_Data:
+  Auditory: [Crackling coals, low roar of fire]
+  Olfactory: [Charcoal smoke, hot iron]
+  Tactile: [Intense radiant heat on skin]
+  Thermal: [85–110°F zone]
+  Visual: [Flickering orange glow, dancing shadows]
+- Damp stone foundation along perimeter: Minor condensation in cold weather
+  Sensory_Data:
+  Auditory: [Drip of water]
+  Olfactory: [Musty, mold]
+  Tactile: [Cold, clammy stone]
+  Thermal: [Cooler pockets]
+  Visual: [Dark wet patches, faint mold growth]
+- Loft level: Cooler air pocket, quieter]
+  Sensory_Data:
+  Auditory: [Muted sounds from below]
+  Olfactory: [Faint dust and old wood]
+  Tactile: [Cooler air, low ceiling brush]
+  Thermal: [60–70°F]
+  Visual: [Soft diffused light from small window]]
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Environmental_Conditions_Block:
+Write the complete [Output_Data] block to the [INDOOR_GENERATED_ENVIRONMENTAL_CONDITIONS] section of the Map Generator Scratchpad.
+Generation_Log_Update:
+Append a new entry to the [Generation_Log] noting the execution of COT_Indoor_Environmental_Conditions.
+State_Reset:
+Clear all COT-specific internal variables.
+Verification:
+Ensure conditions are consistent with structural shell materials and outdoor climate carry-forward.
+Ensure heat/smoke/ventilation logic aligns with building function (e.g., forge needs exhaust).
+Ensure every default, gradient, or major feature includes full multi-modal Sensory_Data (Auditory, Olfactory, Tactile, Thermal, Visual) for embodiment anchoring and perception parsing.
+Ensure scale remains fixed at 1 square = 5 feet.
+Ensure output follows LLM Formatting Guide (no pipes, proper blank lines, etc.).
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_INDOOR_PLUMBING_FLOWS ===
+
+[[LLM_INSTRUCTION]]: Use this template to generate all flow systems inside the building: water supply and drainage, ventilation ducts, chimney/smoke channels, secret passages, and any other conduit-like features. It analyzes the structural shell, environmental conditions, and building purpose to trace realistic paths, based on principles from hydraulics, ventilation engineering, and architectural concealment.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these scientific frameworks as the basis for flow generation.
+
+[Scientific Models]
+Hydraulics_and_Plumbing:
+Gravity-driven flow, slope requirements (minimum 1/4 inch per foot for drains), trap and vent systems to prevent sewer gas backflow.
+Natural_Ventilation_Models:
+Stack effect (warm air rises), cross-ventilation, and Bernoulli's principle for airflow through openings.
+Chimney_Effect:
+Thermal updraft in fireplaces and forges; proper height and diameter to ensure draft without backdraft.
+Concealment_Engineering:
+Principles of hidden passages in historical architecture (e.g., priest holes, escape tunnels) — alignment with structural elements to avoid detection.
+Fluid_Dynamics_in_Enclosed_Spaces:
+Stratification of smoke/heat, pressure differentials driving air movement.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining desired plumbing/flows or special conduits, e.g., "Include secret passages and good forge exhaust."]
+Outdoor_Context:
+[Relevant outdoor hydrology/climate data carried forward, e.g., proximity to well or river.]
+Foundational_Parameters:
+[The complete [Output_Data] block from COT_Indoor_Foundational_Parameters.]
+Structural_Shell:
+[The complete [Output_Data] block from COT_Indoor_Structural_Shell.]
+Environmental_Conditions:
+[The complete [Output_Data] block from COT_Indoor_Environmental_Conditions.]
+Grid_Dimensions:
+[e.g., 15x20 squares]
+Scale_Context:
+[Fixed: 1 square = 5 feet (1.5 m).]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. Format the output as a structured data block for use by subsequent indoor COTs. All flows are sequences of connected grid side points; no path crosses a cell's Center_Point unless the cell is a sink/source (e.g., cistern).
+
+[Output_Data]
+Flows_Description:
+[A narrative summary of the building's conduit systems, e.g., "A simple gravity-fed drain system from the forge quenching trough to an outdoor culvert, combined with roof vents and a main chimney for smoke extraction. One concealed passage links the forge to a hidden cellar exit."]
+Flow_Networks:
+Flow_Name:
+[Forge_Chimney_Stack]
+Type:
+[Chimney / Ventilation]
+Path:
+[(4,5)[North] -> (4,4)[North] -> (4,3)[North] -> Roof_Exit (4,2)[Center]]
+Description:
+[Stone chimney rising from forge hearth, drawing hot air and smoke upward via stack effect.]
+Properties:
+[Effective draft, lined with firebrick to prevent soot buildup.]
+Flow_Name:
+[Main_Drain_Line]
+Type:
+[Drainage]
+Path:
+[(3,6)[South] -> (3,7)[South] -> (3,8)[South] -> Outdoor_Culvert (3,9)[South]]
+Description:
+[Sloped clay pipe carrying wastewater and quench water from forge area to exterior.]
+Properties:
+[Minimum 1/4 inch per foot slope, trapped to block odors.]
+Flow_Name:
+[Secret_Passage]
+Type:
+[Concealed_Tunnel]
+Path:
+[(10,5)[West] -> (9,5)[West] -> (8,5)[West] -> (8,6)[South]]
+Description:
+[Hidden corridor behind false wall panel, connecting forge storage to rear escape exit.]
+Properties:
+[Low ceiling, narrow (one square wide), stone-lined to match foundation.]
+Bodies_of_Fluid_or_Sinks:
+Name:
+[Quenching_Trough]
+Location:
+[(4,6)[Center]]
+Type:
+[Water_Reservoir]
+Description:
+[Stone-lined basin for cooling hot metal, fed by small pipe from roof cistern.]
+Name:
+[Roof_Cistern]
+Location:
+[(2,1)[Center]]
+Type:
+[Rainwater_Collection]
+Description:
+[Small lead-lined tank collecting rainwater from sloped roof, gravity feeds sinks and trough.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Plumbing_Flows_Block:
+Write the complete [Output_Data] block to the [INDOOR_GENERATED_PLUMBING_FLOWS] section of the Map Generator Scratchpad.
+Generation_Log_Update:
+Append a new entry to the [Generation_Log] noting the execution of COT_Indoor_Plumbing_Flows.
+State_Reset:
+Clear all COT-specific internal variables.
+Verification:
+Ensure all flow paths respect the base geometric rule: they do not cross any grid square's Center_Point unless that square is a designated source/sink.
+Ensure flows logically align with structural shell (e.g., chimneys follow load-bearing paths, drains slope downward).
+Ensure ventilation addresses environmental conditions (e.g., smoke extraction from forge).
+Ensure scale remains fixed at 1 square = 5 feet.
+Ensure output follows LLM Formatting Guide.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_INDOOR_ASSET_LIBRARY_BUILDER ===
+
+[[LLM_INSTRUCTION]]: Use this template to create or extend the Asset Library Dictionary specifically for indoor use within the building. It starts from the outdoor ACTIVE_ASSET_LIBRARY and synthesizes building-specific cultural, architectural, and environmental asset definitions. These reusable entries provide sensory, contextual, and affordance shorthand for subsequent indoor COTs. Incorporate taphonomy and historical layers to maintain world coherence. Ensure full multi-modal sensory anchoring in every asset for character perception parsing.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these scientific frameworks as the basis for asset library generation.
+
+[Scientific Models]
+Environmental_Determinism:
+The theory that the physical environment (including indoor microclimates) shapes cultural and material practices.
+Architectural_Anthropology:
+The relationship between built indoor spaces and social structure, daily routines, and available resources.
+Resource-Based_Theory:
+Groups form assets and affordances around accessible materials (e.g., local timber, stone, iron).
+Cultural_Materialism:
+Material conditions (technology, economy, indoor environment) drive social and cultural indoor practices.
+Taphonomy_in_Architecture:
+How time, use, neglect, and environmental factors degrade or preserve indoor elements (soot buildup, wood rot, plaster cracking).
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining desired indoor style, special features, or cultural themes.]
+Outdoor_Context:
+[The complete data blocks from the Map Generator Scratchpad, including ACTIVE_ASSET_LIBRARY.]
+Foundational_Parameters:
+[The complete [Output_Data] block from COT_Indoor_Foundational_Parameters.]
+Structural_Shell:
+[The complete [Output_Data] block from COT_Indoor_Structural_Shell.]
+Environmental_Conditions:
+[The complete [Output_Data] block from COT_Indoor_Environmental_Conditions.]
+Plumbing_Flows:
+[The complete [Output_Data] block from COT_Indoor_Plumbing_Flows.]
+Grid_Dimensions:
+[e.g., 15x20 squares]
+Scale_Context:
+[Fixed: 1 square = 5 feet (1.5 m).]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. Start by referencing and reusing the outdoor ACTIVE_ASSET_LIBRARY. Add indoor variants or new entries as needed. Format as a structured dictionary for use by subsequent indoor COTs. Ensure every asset includes full multi-modal Base_Sensory_Data (Auditory, Olfactory, Tactile, Thermal, Visual) for complete embodiment anchoring and perception parsing.
+
+[Output_Data]
+Asset_Library_Name:
+[Indoor_[Building_Name]_Assets]  e.g., Indoor_Blacksmith_Workshop_Assets
+Source_Building:
+[Blacksmith Workshop at (7,9), Silverstream Valley]
+Tech_Level:
+[Medieval]  (carried forward)
+Historical_Depth:
+[~150 years of primary use, with older foundations]  (carried forward)
+Core_Concept:
+[A working craftsman's home and forge, built with local second-growth oak and stone, reflecting practical medieval rural life with minor signs of family comfort.]
+[Indoor_Asset_Extensions_And_Variants]
+Asset_ID:
+[CTX_Forge_Interior]
+Parent_Asset:
+[CTX_Silverdale_Craftsman_Shop]  (outdoor reference)
+Type:
+[Spatial_Context]
+Definition:
+Base_Description:
+[Dim, heat-filled chamber dominated by a central forge. Sparks fly from the anvil; air is thick with smoke, iron tang, and coal dust.]
+Base_Sensory_Data:
+Auditory: [Hammer strikes, bellows whoosh, crackling coals]
+Olfactory: [Hot metal, burning charcoal, sweat]
+Tactile: [Radiant heat, rough flagstone floor, gritty soot on surfaces]
+Thermal: [Intense heat radiating from hearth, cooler near walls]
+Visual: [Flickering orange glow from coals, shadows dancing on soot-blackened walls]
+Base_Immovables:
+[Stone forge hearth, iron anvil on oak stump, tool racks, quenching trough]
+Common_Moveables:
+[Metal ingots, hammers, tongs, leather aprons]
+Affordances:
+[Forge_Item, Repair_Equipment, Quench_Metal, Warm_Hands, Hide_in_Smoke]
+Taphonomic_State:
+[Well_Maintained but soot-stained; minor cracking in hearth stones from repeated heating]
+Historical_Context:
+[In continuous use for ~150 years; hearth rebuilt ~80 years ago after a small fire]
+
+Asset_ID:
+[CTX_Living_Quarters_Interior]
+Parent_Asset:
+[CTX_Silverdale_Residential]  (or similar outdoor residential asset)
+Type:
+[Spatial_Context]
+Definition:
+Base_Description:
+[Cozy but modest family space with a small hearth, wooden table, benches, and sleeping pallets. Light filters through small windows; faint smell of woodsmoke and dried herbs.]
+Base_Sensory_Data:
+Auditory: [Crackling fire, creaking floorboards, distant hammer from forge]
+Olfactory: [Woodsmoke, dried herbs, faint mustiness]
+Tactile: [Warm near hearth, cool drafts near windows, smooth worn wood]
+Thermal: [Moderate warmth from hearth, cooler in corners]
+Visual: [Soft natural light through windows, flickering shadows from firelight]
+Base_Immovables:
+[Stone hearth, oak table, storage chests, loft access stairs]
+Common_Moveables:
+[Wooden bowls, wool blankets, iron cooking pot]
+Affordances:
+[Rest, Eat, Store_Goods, Socialize, Access_Loft]
+Taphonomic_State:
+[Well-used but clean; minor wear on floorboards, some plaster patching]
+Historical_Context:
+[Family quarters added ~120 years ago when the workshop expanded]
+
+... (additional indoor-specific assets as needed, e.g., CTX_Secret_Compartment, CTX_Torch_Sconce, CTX_Loft_Bed_Frame)
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Indoor_Asset_Library_Block:
+Write the complete [Output_Data] block to the [INDOOR_ACTIVE_ASSET_LIBRARY] section of the Map Generator Scratchpad.
+Generation_Log_Update:
+Append a new entry to the [Generation_Log] noting the execution of COT_Indoor_Asset_Library_Builder.
+State_Reset:
+Clear all COT-specific internal variables.
+Verification:
+Ensure all new indoor assets reference or inherit from outdoor ACTIVE_ASSET_LIBRARY where logical.
+Ensure taphonomic state and historical context align with building age and outdoor context.
+Ensure sensory data and affordances reflect environmental conditions and plumbing flows.
+Ensure every asset includes full multi-modal Base_Sensory_Data (Auditory, Olfactory, Tactile, Thermal, Visual) for embodiment anchoring and perception parsing.
+Ensure scale remains fixed at 1 square = 5 feet.
+Ensure output follows LLM Formatting Guide.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_INDOOR_ROOM_FUNCTION_GENERATOR ===
+
+[[LLM_INSTRUCTION]]: Use this template to assign functional room purposes across the indoor grid. It analyzes the structural shell, environmental conditions, plumbing flows, and asset library to create a logical zoning of space (e.g., forge area, living quarters, storage). This is the "biome" equivalent for indoors: defining how each area is intended to be used before corridors, doors, or detailed furnishings are added. Ensure full multi-modal sensory anchoring for every zone or function cluster to support character perception parsing.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these scientific frameworks as the basis for room function assignment.
+
+[Scientific Models]
+Architectural_Functionalism:
+Form follows function — spaces are sized and placed to support primary activities (workflow efficiency, privacy, safety).
+Proxemics_and_Spatial_Behavior:
+How human comfort, social interaction, and task performance are influenced by spatial arrangement, light, heat, and air quality.
+Workflow_Optimization:
+Principles from industrial design and ergonomics for arranging work zones (e.g., hot work near exhaust, storage near entry).
+Zoning_in_Building_Design:
+Separation of incompatible functions (e.g., noisy forge from quiet sleeping areas) for health, safety, and acoustic comfort.
+Resource_Proximity_Modeling:
+Placing functions near required resources (water near drains, sleeping near windows for light/air).
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining desired room functions or special areas, e.g., "Include forge, living quarters, small loft bedroom, storage."]
+Outdoor_Context:
+[Relevant outdoor context carried forward.]
+Foundational_Parameters:
+[The complete [Output_Data] block from COT_Indoor_Foundational_Parameters.]
+Structural_Shell:
+[The complete [Output_Data] block from COT_Indoor_Structural_Shell.]
+Environmental_Conditions:
+[The complete [Output_Data] block from COT_Indoor_Environmental_Conditions.]
+Plumbing_Flows:
+[The complete [Output_Data] block from COT_Indoor_Plumbing_Flows.]
+Indoor_Asset_Library:
+[The complete [Output_Data] block from COT_Indoor_Asset_Library_Builder.]
+Grid_Dimensions:
+[e.g., 15x20 squares]
+Scale_Context:
+[Fixed: 1 square = 5 feet (1.5 m).]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. Format as a structured data block for use by subsequent indoor COTs. Assign functions per zone or grid-square clusters; use zones for efficiency. Ensure every zone includes full multi-modal Sensory_Data (Auditory, Olfactory, Tactile, Thermal, Visual) for complete embodiment anchoring and perception parsing.
+
+[Output_Data]
+Room_Function_Description:
+[A narrative summary of the building's functional layout, e.g., "The southern half is dominated by the forge and tool storage for efficient hot work and material handling. The northern half provides living quarters with a small hearth, eating area, and loft bedroom above. A small pantry/storage room sits near the entry."]
+Room_Function_Grid:
+Grid_Size:
+[15x20]
+Data:
+[General pattern, e.g.,
+(0,0) to (7,19): Forge_Workshop_Zone
+(8,0) to (14,19): Living_Quarters_Zone
+(10,2) to (12,6): Loft_Bedroom_Zone (above main floor)]
+Resource_Distribution:
+Zone_Name:
+[Forge_Workshop_Zone]
+Available_Resources:
+[Iron ingots, coal, quenching water, tools, forge hearth]
+Notes:
+[High heat and smoke; requires constant ventilation; ideal for crafting and repair]
+Sensory_Data:
+Auditory: [Hammer strikes, bellows whoosh, crackling coals]
+Olfactory: [Hot metal, burning charcoal, sweat]
+Tactile: [Radiant heat, rough flagstone floor, gritty soot]
+Thermal: [85–110°F near hearth, cooler at edges]
+Visual: [Flickering orange glow, sparks, soot-blackened walls]
+
+Zone_Name:
+[Living_Quarters_Zone]
+Available_Resources:
+[Wooden table, benches, cooking hearth, storage chests, dried food/herbs]
+Notes:
+[Moderate temperature, good natural light near windows; suitable for eating, resting, socializing]
+Sensory_Data:
+Auditory: [Crackling fire, creaking floorboards, distant hammer]
+Olfactory: [Woodsmoke, dried herbs, faint mustiness]
+Tactile: [Warm near hearth, cool drafts near windows, smooth worn wood]
+Thermal: [Moderate warmth from hearth, cooler in corners]
+Visual: [Soft natural light through windows, flickering shadows from firelight]
+
+Zone_Name:
+[Loft_Bedroom_Zone]
+Available_Resources:
+[Sleeping pallets, wool blankets, small chest, ladder/stairs access]
+Notes:
+[Cooler and quieter air pocket; limited headroom due to roof slope]
+Sensory_Data:
+Auditory: [Muted sounds from below, creaking beams]
+Olfactory: [Faint dust and old wood]
+Tactile: [Cooler air, low ceiling brush]
+Thermal: [60–70°F]
+Visual: [Soft diffused light from small window]
+
+Major_Function_Features:
+Name:
+[Forge_Hearth]
+Location:
+[(4,5)[Center]]
+Function:
+[Primary hot work station]
+Description:
+[Central stone forge with bellows and anvil; radiates heat and light]
+
+Name:
+[Family_Hearth]
+Location:
+[(11,5)[Center]]
+Function:
+[Secondary heating and cooking]
+Description:
+[Smaller stone hearth for warmth and meal preparation in living area]
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Room_Function_Block:
+Write the complete [Output_Data] block to the [INDOOR_GENERATED_ROOM_FUNCTIONS] section of the Map Generator Scratchpad.
+Generation_Log_Update:
+Append a new entry to the [Generation_Log] noting the execution of COT_Indoor_Room_Function_Generator.
+State_Reset:
+Clear all COT-specific internal variables.
+Verification:
+Ensure room functions align with structural shell (e.g., forge near chimney), environmental conditions (e.g., bedrooms away from smoke), and plumbing flows (e.g., water near drains).
+Ensure functions draw from indoor asset library affordances and resources.
+Ensure every zone or function cluster includes full multi-modal Sensory_Data (Auditory, Olfactory, Tactile, Thermal, Visual) for embodiment anchoring and perception parsing.
+Ensure scale remains fixed at 1 square = 5 feet.
+Ensure output follows LLM Formatting Guide.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_INDOOR_CORRIDOR_LOGIC ===
+
+[[LLM_INSTRUCTION]]: Use this template to generate the corridor and doorway network inside the building. It analyzes the structural shell, room functions, environmental conditions, plumbing flows, and asset library to create logical pathways for movement. Corridors and doors are defined as edge-to-edge connections (never crossing cell centers), mirroring outdoor road/river paths.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these scientific frameworks as the basis for corridor and door placement.
+
+[Scientific Models]
+Circulation_and_Wayfinding:
+Principles of efficient human movement in buildings — shortest useful paths, clear sightlines, hierarchy of public vs. private spaces.
+Least-Cost_Path_Analysis_Indoor:
+Adapting outdoor least-cost routing to indoors: minimizing turns, avoiding hot/smoky zones for living paths, prioritizing ventilation.
+Door_Placement_and_Control:
+Historical and modern practices for door location (security, fire separation, acoustic isolation, natural light flow).
+Accessibility_and_Ergonomics:
+Door widths (minimum 3 ft / ~1 square wide for comfort), corridor widths (4–6 ft for two-way traffic), turning radii.
+Security_and_Concealment:
+Placement of secret doors aligned with structural elements or room functions for plausible hiding.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining circulation preferences, e.g., "Wide main hall, narrow private corridors, one secret passage."]
+Outdoor_Context:
+[Relevant outdoor transitions carried forward, e.g., main entry door location.]
+Foundational_Parameters:
+[The complete [Output_Data] block from COT_Indoor_Foundational_Parameters.]
+Structural_Shell:
+[The complete [Output_Data] block from COT_Indoor_Structural_Shell.]
+Environmental_Conditions:
+[The complete [Output_Data] block from COT_Indoor_Environmental_Conditions.]
+Plumbing_Flows:
+[The complete [Output_Data] block from COT_Indoor_Plumbing_Flows.]
+Room_Functions:
+[The complete [Output_Data] block from COT_Indoor_Room_Function_Generator.]
+Indoor_Asset_Library:
+[The complete [Output_Data] block from COT_Indoor_Asset_Library_Builder.]
+Grid_Dimensions:
+[e.g., 15x20 squares]
+Scale_Context:
+[Fixed: 1 square = 5 feet (1.5 m).]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. Format the output as a structured data block for use by subsequent indoor COTs. All paths use side-point edge connections only.
+
+[Output_Data]
+Circulation_Description:
+[A narrative summary of movement in the building, e.g., "A short, wide central corridor runs east-west through the forge area for easy material transport. Narrower side passages connect to living quarters. The main entry door opens directly into the forge workspace; a concealed passage links storage to an exterior escape."]
+Corridor_Networks:
+Name:
+[Main_Workshop_Corridor]
+Type:
+[Hallway]
+Path:
+[(2,8)[East] -> (3,8)[East] -> (4,8)[East] -> (5,8)[East] -> (6,8)[East]]
+Description:
+[Wide (two squares effective width), flagstone-floored passage for moving heavy tools and ingots.]
+Properties:
+[Well-lit by wall sconces, moderate smoke drift from forge, high traffic]
+Name:
+[Family_Access_Passage]
+Type:
+[Hallway]
+Path:
+[(9,5)[South] -> (9,6)[South] -> (9,7)[South]]
+Description:
+[Narrow timber-floored corridor linking living area to loft stairs.]
+Properties:
+[Dimmer light, quieter, private feel]
+Doors_and_Openings:
+Name:
+[Main_Entry_Door]
+Type:
+[Door_Oak_Reinforced]
+Location:
+[Outdoor (7,9)[South] -> Indoor (0,0)[North]]
+Description:
+[Heavy oak door with iron bands and lock; primary access from town square.]
+Properties:
+[Locked at night, visible from forge area]
+Name:
+[Forge_to_Living_Door]
+Type:
+[Door_Wooden_Solid]
+Location:
+[(7,8)[East] -> (8,8)[West]]
+Description:
+[Thick wooden door to reduce smoke and noise transmission to living quarters.]
+Properties:
+[Self-closing, simple latch]
+Name:
+[Secret_Storage_Door]
+Type:
+[Door_Secret_Stone_Panel]
+Location:
+[(12,4)[West] -> (11,4)[East]]
+Description:
+[False stone wall panel in storage area, opens to hidden cache.]
+Properties:
+[Requires search or knowledge to find; flush with wall]
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Corridor_Logic_Block:
+Write the complete [Output_Data] block to the [INDOOR_GENERATED_CORRIDOR_NETWORK] section of the Map Generator Scratchpad.
+Generation_Log_Update:
+Append a new entry to the [Generation_Log] noting the execution of COT_Indoor_Corridor_Logic.
+State_Reset:
+Clear all COT-specific internal variables.
+Verification:
+Ensure all corridor and door paths use only edge connections and do not cross any grid square's Center_Point.
+Ensure connectivity links all major room function zones (unless intentional isolation).
+Ensure door types and placements respect structural shell (e.g., no doors in thick load-bearing walls without reinforcement), environmental conditions (e.g., smoke-resistant doors near forge), and room functions (e.g., private doors in living areas).
+Ensure scale remains fixed at 1 square = 5 feet.
+Ensure output follows LLM Formatting Guide.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_INDOOR_MAJOR_ROOMS_LOGIC ===
+
+[[LLM_INSTRUCTION]]: Use this template to identify, locate, and detail the major named rooms or functional chambers within the building. It analyzes the room function zones, corridor network, structural shell, environmental conditions, plumbing flows, and asset library to place key high-importance spaces (analogous to settlements in the outdoor map). These are the "hero" rooms that define the building's character and purpose before populating smaller details and furnishings. Ensure full multi-modal sensory anchoring for every major room to support character perception parsing.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these scientific frameworks as the basis for major room placement.
+
+[Scientific Models]
+Central_Place_Theory_Indoor:
+Adapting central place concepts to interiors: key rooms act as focal points with the highest accessibility and symbolic importance.
+Spatial_Hierarchy_in_Architecture:
+Public/representational rooms (great halls, reception) are larger and more central; private/service rooms (bedrooms, pantries) are peripheral or upstairs.
+Defensive_and_Security_Placement:
+Important rooms (vaults, armories) placed for protection (deep inside, few access points, near guard areas).
+Ergonomic_and_Flow_Optimization:
+Major work/living spaces positioned for shortest useful paths from entries and resource flows.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining desired major rooms or special chambers, e.g., "Emphasize a grand forge chamber and cozy family hall."]
+Outdoor_Context:
+[Relevant outdoor context carried forward.]
+Foundational_Parameters:
+[The complete [Output_Data] block from COT_Indoor_Foundational_Parameters.]
+Structural_Shell:
+[The complete [Output_Data] block from COT_Indoor_Structural_Shell.]
+Environmental_Conditions:
+[The complete [Output_Data] block from COT_Indoor_Environmental_Conditions.]
+Plumbing_Flows:
+[The complete [Output_Data] block from COT_Indoor_Plumbing_Flows.]
+Room_Functions:
+[The complete [Output_Data] block from COT_Indoor_Room_Function_Generator.]
+Corridor_Network:
+[The complete [Output_Data] block from COT_Indoor_Corridor_Logic.]
+Indoor_Asset_Library:
+[The complete [Output_Data] block from COT_Indoor_Asset_Library_Builder.]
+Grid_Dimensions:
+[e.g., 15x20 squares]
+Scale_Context:
+[Fixed: 1 square = 5 feet (1.5 m).]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. Format as a structured data block for use by subsequent indoor COTs. Focus on 4–8 major rooms/chambers per building. Ensure every major room includes full multi-modal Sensory_Data (Auditory, Olfactory, Tactile, Thermal, Visual) for complete embodiment anchoring and perception parsing.
+
+[Output_Data]
+Major_Rooms_Description:
+[A narrative overview of the building's key spaces, e.g., "The heart of the structure is the Forge Chamber, a large open workspace with direct access to the main entry and chimney. Adjacent is the Family Hall for daily living, while a small loft bedroom provides private rest above. A secure tool vault and hidden escape passage add layers of utility and security."]
+Major_Room_List:
+Name:
+[Forge Chamber]
+Type:
+[Workshop / Primary Work Space]
+Location_Zone:
+[Forge_Workshop_Zone, centered around (4,5)]
+Grid_Coverage:
+[(2,3) to (7,7)]
+Description:
+[Spacious stone-floored chamber dominated by the central forge hearth. High ceiling for smoke draw, wide doors for material movement.]
+Key_Center_Feature:
+[Forge Hearth at (4,5)[Center]]
+Affordances:
+[Craft, Repair, Quench, Socialize near fire]
+Properties:
+[High heat/smoke, excellent ventilation via chimney]
+Sensory_Data:
+Auditory: [Hammer strikes, bellows whoosh, crackling coals]
+Olfactory: [Hot metal, burning charcoal, sweat]
+Tactile: [Radiant heat, rough flagstone floor, gritty soot]
+Thermal: [85–110°F near hearth, cooler at edges]
+Visual: [Flickering orange glow, sparks, soot-blackened walls]
+
+Name:
+[Family Hall]
+Type:
+[Living / Social Space]
+Location_Zone:
+[Living_Quarters_Zone, centered around (11,5)]
+Grid_Coverage:
+[(8,2) to (14,8)]
+Description:
+[Warm, timber-floored room with family hearth, long oak table, and benches. Windows on south wall for light.]
+Key_Center_Feature:
+[Family Hearth at (11,5)[Center]]
+Affordances:
+[Eat, Rest, Socialize, Cook]
+Properties:
+[Moderate warmth, quieter, good natural light]
+Sensory_Data:
+Auditory: [Crackling fire, creaking floorboards, distant hammer]
+Olfactory: [Woodsmoke, dried herbs, faint mustiness]
+Tactile: [Warm near hearth, cool drafts near windows, smooth worn wood]
+Thermal: [Moderate warmth from hearth, cooler in corners]
+Visual: [Soft natural light through windows, flickering shadows from firelight]
+
+Name:
+[Loft Bedroom]
+Type:
+[Private / Sleeping]
+Location_Zone:
+[Loft_Bedroom_Zone, above main floor]
+Grid_Coverage:
+[(10,2) to (12,6)]
+Description:
+[Compact sleeping loft accessed by stairs from Family Hall. Low sloped ceiling, small window for air.]
+Key_Center_Feature:
+[Sleeping Pallets at (11,4)[Center]]
+Affordances:
+[Sleep, Store Personal Items]
+Properties:
+[Cooler, quiet, limited headroom]
+Sensory_Data:
+Auditory: [Muted sounds from below, creaking beams]
+Olfactory: [Faint dust and old wood]
+Tactile: [Cooler air, low ceiling brush]
+Thermal: [60–70°F]
+Visual: [Soft diffused light from small window]
+
+Name:
+[Tool Vault]
+Type:
+[Storage / Secure]
+Location_Zone:
+[Forge_Workshop_Zone, peripheral]
+Grid_Coverage:
+[(12,4) to (14,6)]
+Description:
+[Reinforced stone room for valuable tools and ingots, accessed via secret door from forge area.]
+Key_Center_Feature:
+[Locked Chest at (13,5)[Center]]
+Affordances:
+[Store_Valuables, Hide_Items]
+Properties:
+[High security, concealed access]
+Sensory_Data:
+Auditory: [Faint metallic clink of tools]
+Olfactory: [Oil, metal, dust]
+Tactile: [Cold stone walls, smooth iron-bound chest]
+Thermal: [Cool, stable temperature]
+Visual: [Dim light, shadows on reinforced walls]
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Major_Rooms_Block:
+Write the complete [Output_Data] block to the [INDOOR_GENERATED_MAJOR_ROOMS] section of the Map Generator Scratchpad.
+Generation_Log_Update:
+Append a new entry to the [Generation_Log] noting the execution of COT_Indoor_Major_Rooms_Logic.
+State_Reset:
+Clear all COT-specific internal variables.
+Verification:
+Ensure major rooms are centered within their function zones and have logical corridor/door access.
+Ensure key center features align with asset library and environmental/plumbing logic.
+Ensure every major room includes full multi-modal Sensory_Data (Auditory, Olfactory, Tactile, Thermal, Visual) for embodiment anchoring and perception parsing.
+Ensure scale remains fixed at 1 square = 5 feet.
+Ensure output follows LLM Formatting Guide.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: COT_INDOOR_KEY_FEATURE_POPULATOR ===
+
+[[LLM_INSTRUCTION]]: Use this template to place the final, named points of interest and key features that give the indoor space its unique character, utility, danger, and story depth. It analyzes all previous indoor layers (structural shell, environmental conditions, plumbing flows, room functions, corridor network, major rooms, asset library) to add center-point elements (furniture, traps, containers, decorations, hazards, etc.), based on principles from material culture, spatial storytelling, and risk/reward design. Ensure full multi-modal sensory anchoring for every key feature to support character perception parsing.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCIENTIFIC_FOUNDATIONS ===
+
+[[LLM_INSTRUCTION]]: Apply these scientific frameworks as the basis for feature population.
+
+[Scientific Models]
+Material_Culture_Studies:
+How objects and furnishings reflect social status, daily life, and historical period.
+Spatial_Storytelling:
+Placement of narrative elements (clues, loot, traps) to guide exploration and discovery.
+Risk_Reward_Balance_in_Design:
+Strategic distribution of valuable/dangerous features to create meaningful choices (e.g., high-risk/high-reward in hidden areas).
+Taphonomic_Placement:
+Objects show wear consistent with environmental conditions (soot on forge tools, mold on basement crates).
+Affordance_Theory:
+Features provide clear action possibilities tied to room function (e.g., search chest, sit at table, disarm trap).
+
+=== SECTION_BREAK ===
+
+=== SECTION: INPUT_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: Define the user-provided or default parameters for this COT's execution.
+
+User_Prompt:
+[The raw user input defining desired features, themes, or special items, e.g., "Include hidden loot, a few traps, family heirlooms."]
+Outdoor_Context:
+[Relevant context carried forward if applicable.]
+Foundational_Parameters:
+[The complete [Output_Data] block from COT_Indoor_Foundational_Parameters.]
+Structural_Shell:
+[The complete [Output_Data] block from COT_Indoor_Structural_Shell.]
+Environmental_Conditions:
+[The complete [Output_Data] block from COT_Indoor_Environmental_Conditions.]
+Plumbing_Flows:
+[The complete [Output_Data] block from COT_Indoor_Plumbing_Flows.]
+Room_Functions:
+[The complete [Output_Data] block from COT_Indoor_Room_Function_Generator.]
+Corridor_Network:
+[The complete [Output_Data] block from COT_Indoor_Corridor_Logic.]
+Major_Rooms:
+[The complete [Output_Data] block from COT_Indoor_Major_Rooms_Logic.]
+Indoor_Asset_Library:
+[The complete [Output_Data] block from COT_Indoor_Asset_Library_Builder.]
+Grid_Dimensions:
+[e.g., 15x20 squares]
+Scale_Context:
+[Fixed: 1 square = 5 feet (1.5 m).]
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTPUT_DATA ===
+
+[[LLM_INSTRUCTION]]: Populate the following fields based on the Input_Parameters and Scientific_Foundations. Format as a structured data block for use in the final indoor map assembly. Focus on center-point features only; limit to 8–15 key items per building. Ensure every feature includes full multi-modal Sensory_Data (Auditory, Olfactory, Tactile, Thermal, Visual) for complete embodiment anchoring and perception parsing.
+
+[Output_Data]
+Key_Features_Description:
+[A narrative summary of the building's notable objects and hazards, e.g., "The forge chamber contains a well-used anvil and scattered tools, while the family hall has a sturdy oak table and a locked chest of heirlooms. A hidden cache under the loft floorboards holds old documents, and a simple pit trap guards the tool vault."]
+Key_Feature_List:
+Name:
+[Central Anvil]
+Location:
+[(4,5)[Center]]  ← in Forge Chamber
+Type:
+[Furniture / Work Station]
+Description:
+[Heavy iron anvil mounted on a scarred oak stump, surrounded by hammer marks and cooling tongs.]
+Asset_Reference:
+[CTX_Anvil_and_Hammer_Set]
+Affordances:
+[Forge_Item, Repair_Equipment, Strike_Surface]
+Taphonomic_State:
+[Heavy use wear; soot-blackened]
+Sensory_Data:
+Auditory: [Metallic clang of hammer on iron]
+Olfactory: [Hot metal, faint oil]
+Tactile: [Rough, warm iron surface]
+Thermal: [Radiant heat from recent use]
+Visual: [Gleaming metal with scorch marks]
+
+Name:
+[Family Dining Table]
+Location:
+[(11,5)[Center]]  ← in Family Hall
+Type:
+[Furniture / Social]
+Description:
+[Long oak table with benches, scarred from years of meals, a few wooden bowls still on top.]
+Asset_Reference:
+[CTX_Oak_Table_Set]
+Affordances:
+[Eat, Socialize, Sit]
+Taphonomic_State:
+[Well-used, minor scratches]
+Sensory_Data:
+Auditory: [Soft clatter of bowls, creaking benches]
+Olfactory: [Faint woodsmoke, dried herbs from meals]
+Tactile: [Smooth worn wood, slightly sticky from spills]
+Thermal: [Warm from nearby hearth]
+Visual: [Soft firelight reflections on polished surface]
+
+Name:
+[Hidden Floor Cache]
+Location:
+[(11,4)[Center]]  ← in Loft Bedroom
+Type:
+[Secret_Storage]
+Description:
+[Loose floorboard conceals a small iron box containing family deeds and a silver locket.]
+Asset_Reference:
+[CTX_Secret_Compartment]
+Affordances:
+[Search_Floor, Discover_Loot]
+Taphonomic_State:
+[Dusty, undisturbed for decades]
+Sensory_Data:
+Auditory: [Faint creak of loose board when stepped on]
+Olfactory: [Old dust, faint metal]
+Tactile: [Loose wood underfoot, cold iron box]
+Thermal: [Cooler than room average]
+Visual: [Subtle seam in floorboards, shadows hiding the box]
+
+Name:
+[Tool Vault Chest]
+Location:
+[(13,5)[Center]]  ← in Tool Vault
+Type:
+[Secure_Container]
+Description:
+[Iron-bound oak chest with heavy padlock, containing master tools and rare ingots.]
+Asset_Reference:
+[CTX_Locked_Chest]
+Affordances:
+[Pick_Lock, Store_Valuables]
+Taphonomic_State:
+[Secure, minor rust on hinges]
+Sensory_Data:
+Auditory: [Faint metallic clink of tools inside]
+Olfactory: [Oil, metal, dust]
+Tactile: [Cold iron bands, rough wood]
+Thermal: [Cool, stable temperature]
+Visual: [Dim light, shadows on reinforced walls]
+
+Name:
+[Simple Pit Trap]
+Location:
+[(12,5)[Center]]  ← near Tool Vault entrance
+Type:
+[Hazard]
+Description:
+[Concealed wooden cover over a shallow spiked pit; triggered by pressure plate.]
+Affordances:
+[Avoid, Disarm, Fall_Into]
+Taphonomic_State:
+[Recently maintained]
+Sensory_Data:
+Auditory: [None until triggered; faint creak under weight]
+Olfactory: [Faint wood and earth]
+Tactile: [Slightly loose flooring]
+Thermal: [Cooler air rising from pit]
+Visual: [Subtle seam in floor, no obvious signs]
+
+=== SECTION_BREAK ===
+
+=== SECTION: SYSTEM_UPDATE_DIRECTIVES ===
+
+[[LLM_INSTRUCTION]]: After completing this COT, execute these updates to the Map Generator Scratchpad.
+
+((SYSTEM_REF: UPDATE_MAP_GENERATOR_SCRATCHPAD))
+
+[Update_Checklist]
+Update_Key_Features_Block:
+Write the complete [Output_Data] block to the [INDOOR_GENERATED_KEY_FEATURES] section of the Map Generator Scratchpad.
+Generation_Log_Update:
+Append a new entry to the [Generation_Log] noting the execution of COT_Indoor_Key_Feature_Populator.
+State_Reset:
+Clear all COT-specific internal variables.
+Verification:
+Ensure all features are placed at cell centers only.
+Ensure features align with major rooms, room functions, corridor access, and asset library.
+Ensure taphonomic state and affordances are consistent with environmental conditions.
+Ensure every feature includes full multi-modal Sensory_Data (Auditory, Olfactory, Tactile, Thermal, Visual) for embodiment anchoring and perception parsing.
+Ensure scale remains fixed at 1 square = 5 feet.
+Ensure output follows LLM Formatting Guide.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: INDOOR_FINAL_MAP_DATA ===
+
+[[LLM_INSTRUCTION]]: This is the complete, self-contained data packet for the character's Indoor Map Parser. It contains a two-layered map for both efficiency and per-square data fidelity. Scale is critical for perception, movement, and combat ranges—it must be explicitly defined. Assemble this from the accumulated [INDOOR_] blocks in the Map Generator Scratchpad, mirroring the outdoor FINAL_MAP_DATA structure for consistent parsing.
+
+[Map_Metadata]
+Map_Grid_Size:
+[From INDOOR_GENERATED_PARAMETERS Grid_Size, e.g., 15x20]
+Map_Scale:
+[1 square = 5 feet (1.5 m)]
+Map_Name:
+[From INDOOR_GENERATED_PARAMETERS Building_Description or user prompt, e.g., Blacksmith Workshop Interior]
+Building_Reference:
+[From INDOOR_GENERATED_PARAMETERS Location_Tie, e.g., Outdoor coordinate (7,9) – Zone_Stonebridge_Town]
+Levels:
+[From INDOOR_GENERATED_PARAMETERS Levels, e.g., Single level with loft]
+Parser_Notes:
+[For character perception: Use scale for range calcs (e.g., 5ft/sq for movement/visibility). Layer 1 provides base per-square (e.g., walls block LoS, temp affects comfort). Layer 2 overrides for room context. Affordances enable interactions; sensory data for immersion and COT_SPATIAL_EMBODIMENT_PROCESSING.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: Layer_1: Per-Square_Data_Grid ===
+
+[[LLM_INSTRUCTION]]: This layer contains the unique, non-repeating data for every single grid square. It is the source of truth for physical properties, optimized for perception parsing. Synthesize from STRUCTURAL_SHELL (walls/floors), ENVIRONMENTAL_CONDITIONS (lighting/temp/air), ROOM_FUNCTIONS, CORRIDOR_NETWORK (door states on edges), and KEY_FEATURES (center overrides). Keep sparse: defaults + overrides only.
+
+[Per_Square_Grid]
+Coordinate:
+(0,0)
+Floor_Material:
+[Wooden_Planks / Flagstone / etc.]
+Wall_North:
+[Solid_Wood / Open / Door_Oak_Reinforced / etc.]
+Wall_South:
+[...]
+Wall_East:
+[...]
+Wall_West:
+[...]
+Lighting:
+[Dim natural / Torch-level / etc.]
+Temperature:
+[Moderate / High near forge / etc.]
+Sensory_Data:
+Auditory: [...]
+Olfactory: [...]
+Tactile: [...]
+Thermal: [...]
+Visual: [...]
+Affordances:
+[Move_Through (if open), Block_LoS (if wall), etc.]
+
+[Additional overridden or representative squares as needed; summarize patterns for efficiency]
+
+=== SECTION_BREAK ===
+
+=== SECTION: Layer_2: Efficient_Zone_Definitions ===
+
+[[LLM_INSTRUCTION]]: This layer provides efficient, human-readable definitions for room and functional zones, which override the base per-square data. Use vertices for bounding box queries.
+
+[Zone_List]
+Zone_ID:
+[Zone_Forge_Chamber]
+Asset_Reference:
+[CTX_Forge_Interior]
+Vertices:
+[(2,3), (7,3), (7,7), (2,7)]
+Description:
+[The heart of the workshop, with high heat and smoke.]
+Sensory_Data:
+Auditory: [Hammer strikes, bellows whoosh, crackling coals]
+Olfactory: [Hot metal, burning charcoal, sweat]
+Tactile: [Radiant heat, rough flagstone floor, gritty soot]
+Thermal: [85–110°F near hearth, cooler at edges]
+Visual: [Flickering orange glow, sparks, soot-blackened walls]
+Affordances:
+[Craft, Repair, Warm_Up, Hide_in_Smoke]
+
+[Additional zones from ROOM_FUNCTIONS + MAJOR_ROOMS]
+
+=== SECTION_BREAK ===
+
+=== SECTION: Individual_Square_Overrides ===
+
+[[LLM_INSTRUCTION]]: Unique center-point features and any edge overrides not covered by corridors. These provide granular perception hooks.
+
+[Square_Overrides]
+Coordinate:
+(4,5)
+Asset_Reference:
+[CTX_Forge_Hearth]
+Description:
+[Central stone forge with bellows and anvil; radiates heat and light.]
+Sensory_Data:
+Auditory: [Crackling coals]
+Olfactory: [Hot iron]
+Tactile: [Intense heat]
+Thermal: [High radiant]
+Visual: [Flickering glow]
+Affordances:
+[Forge_Item, Quench_Metal]
+
+[Additional overrides from KEY_FEATURES]
+
+=== SECTION_BREAK ===
+
+=== SECTION: Asset_Library_Dictionary ===
+
+[[LLM_INSTRUCTION]]: The complete indoor asset dictionary.
+
+[Asset_Entries]
+[Full copy of INDOOR_ACTIVE_ASSET_LIBRARY content]
+
+=== SECTION_BREAK ===
+
+=== SECTION: Unique_Feature_Definitions ===
+
+[[LLM_INSTRUCTION]]: Standalone features not in asset library.
+
+[Feature_Definitions]
+Feature_Name:
+[Simple Pit Trap]
+Location:
+(12,5)[Center]
+Type:
+[Hazard]
+Description:
+[Concealed pit with spikes, triggered by pressure.]
+Sensory_Data:
+Auditory: [None until triggered; faint creak under weight]
+Olfactory: [Faint wood and earth]
+Tactile: [Slightly loose flooring]
+Thermal: [Cooler air rising from pit]
+Visual: [Subtle seam in floor, no obvious signs]
+Affordances:
+[Avoid, Disarm, Fall_Into]
+
+=== SECTION_BREAK ===
+
+=== SECTION: Named_Transition_Network ===
+
+[[LLM_INSTRUCTION]]: All named linear features for navigation (hallways, doors, stairs). Paths use side-point connections only.
+
+[Transition_Networks]
+Name:
+[Main_Corridor]
+Type:
+[Hallway]
+Path:
+[(2,8)[East] -> (3,8)[East] -> ...]
+Affordances:
+[Move_Through, Block_with_Barricade]
+
+Name:
+[Main_Entry_Door]
+Type:
+[Doorway]
+Path:
+[Outdoor (7,9)[South] -> Indoor (0,0)[North]]
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: LLM_FORMATTING_GUIDELINES_TEMPLATE ===
+
+[KEEP: Purpose & Role]
+This module defines universal, non-negotiable formatting for all generated content, ensuring consistent structure, readability, and adherence to system markers.
+
+[KEEP: Relationship to Other Modules]
+- Informs: All module and other generated content requiring specific markdown or custom markers.
+
+=== SECTION_BREAK ===
+
+=== SECTION: Ultra Explicit Spacing & Line Break Rules ===
+
+[KEEP: This section makes all spacing and line break protocols absolutely explicit. All other formatting rules must be interpreted in accordance with these definitions.]
+
+- Definitions:
+    - A "line break" means a single newline character (press Enter/Return once).
+    - A "blank line" means two consecutive newline characters (press Enter/Return twice), resulting in an empty line between two lines of content.
+
+- Universal Rules:
+    - Every SECTION HEADER, SECTION_BREAK marker, and Custom Marker ([KEY_TERM:], [KEEP:], ((SYSTEM_REF: ...)), [[LLM_INSTRUCTION]]:) MUST:
+        - Be placed on its own line.
+        - Be surrounded by a single blank line (an empty line above and below).
+        - NEVER appear directly adjacent to other content, markers, or headers, either above or below.
+    - Field Names in matrices or labeled field formats:
+        - Must be on their own line.
+        - Separated by a single line break (no blank lines required) from their associated value or subordinate content unless specifically noted.
+    - List Items:
+        - Must not have blank lines between items.
+        - Each list item starts on a new line (single line break only).
+    - Subsections or items within the same SECTION should NOT have blank lines between them, unless specifically ordered by a separate rule or marker.
+
+- Never Allowed:
+    - Do NOT place two markers or section breaks on consecutive lines without a blank line between them.
+    - Do NOT insert two or more blank lines anywhere in the document.
+    - Do NOT place markers or headers on the same line as any other content.
+
+- Correct Example:
+
+=== SECTION: Matrix Example ===
+
+[KEY_TERM: StartMatrix]
+
+[Claim Verification]
+Claim Status: Verified
+Behavioral Cue: "Shoulders relax"
+
+- First item
+- Second item
+
+=== SECTION_BREAK ===
+
+=== SECTION: Next Section ===
+
+- Incorrect Example (Multiple Mistakes):
+
+=== SECTION: Matrix Example ===
+[KEY_TERM: StartMatrix]
+[Claim Verification]
+Claim Status: Verified
+
+Behavioral Cue: "Shoulders relax"
+- First item
+
+- Second item
+=== SECTION_BREAK ===
+=== SECTION: Next Section ===
+
+(Mistakes in incorrect example above: markers and header missing blank lines, extra blank lines in lists, matrix fields separated by blank lines, section breaks jammed together.)
+
+[KEEP: All examples in this section are instructional. Future content must precisely match correct examples.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: Core Formatting Rules ===
+- Section Headers: Use === SECTION: [Section Name] === for main section delineation.
+- Section Break Protocol:
+    - ALWAYS place === SECTION_BREAK === AFTER the final content of a section AND BEFORE the next section header OR [KEY_TERM: Document Complete] marker.
+    - NEVER place section breaks between subsection items within the same major section.
+    - All === SECTION_BREAK === must be preceded and followed by a line break.
+- List Items: Use a single hyphen (-) followed by a space. Do NOT use asterisks (*).
+- Field Names: All field names will be given their own line.
+- Custom Markers:
+    - [KEY_TERM: ...]: Reserved for critical character-specific logic OR document termination markers.
+    - ((SYSTEM_REF: ...)): Reserved for references to other system-level modules or predefined entities.
+    - [KEEP: ...]: For internal notes/comments. Content MUST be preserved verbatim.
+    - All Lines on which Custom Markers appear must be preceded and followed by a line break.
+- LLM-Specific Instructions: Use [[LLM_INSTRUCTION]]: [Your instruction here] for direct commands.
+    - All Lines on which [[LLM_INSTRUCTION]]: [Your instruction here] must be preceded and followed by a line break.
+
+=== SECTION_BREAK ===
+
+=== SECTION: Structured Text Matrices ===
+- Matrix Permissibility:
+    - Pipe tables are PROHIBITED.
+    - Labeled field format is REQUIRED:
+        [Matrix Name]
+        Field Name: Value
+        Field Name: Value
+    - Example:
+        [Claim Verification]
+        Claim Status: Verified
+        Behavioral Cue: "Their shoulders relax"
+- Nested Matrix Structures:
+    - For hierarchical data (e.g., checklists with subcategories and bullet lists), use indented field names on their own lines, followed by sub-fields and - lists as needed.
+    - Example:
+        [Update Checklist]
+        General_Status:
+        - [ ] Update main field [Option A | Option B | Option C]
+        - [ ] Track duration if applicable
+        - [ ] Check for changes
+        Sub_Category:
+        - [ ] Apply adjustments to traits
+        - [ ] Adjust load levels
+- All field names (including nested) must be on their own line.
+- Lists within matrices use a single hyphen (-) followed by a space; do not use asterisks (*).
+
+=== SECTION_BREAK ===
+
+=== SECTION: Absolute Ban on Standard Markdown Formatting ===
+
+[[LLM_INSTRUCTION]]: You are forbidden from using any standard Markdown for emphasis or formatting.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
+
+=== SECTION: S_MAP_GENERATOR_SCRATCHPAD ===
+
+[[LLM_INSTRUCTION]]: This is instantiated at the start of every map generation session. As each COT completes, its output is written to the corresponding section below, replacing any existing content. The log tracks the process chronologically and the new GENERATION_PARAMETERS section records the core variables of the world's history.
+
+=== SECTION_BREAK ===
+
+=== SECTION: GENERATION_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: This section is populated at the start of generation and contains the high-level variables that influence the entire process, defining the scope and history of the world.
+
+[Parameters]
+User_Prompt:
+[The raw user input defining the desired world.]
+Historical_Depth:
+[The temporal scope of the world's history, e.g., "500 years", "Ancient", "Recent".]
+Geological_Age:
+[The age of the primary terrain features, e.g., "Young," "Mature," "Ancient."]
+Scale_Context:
+[The regional scale of the map, e.g., "Barony-level, 1-mile/square".]
+Tech_Level:
+[The general technological level of the primary culture.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: GENERATION_LOG ===
+
+[[LLM_INSTRUCTION]]: A chronological log of every COT executed during this session.
+
+[Generation_Log]
+[Timestamp]: Session started.
+[Timestamp]: User provided initial prompt: "[User_Prompt]" and GENERATION_PARAMETERS.
+[Timestamp]: Executed COT: COT_Physics.
+[Timestamp]: COT COT_Physics output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Terrain_Generator.
+[Timestamp]: COT COT_Terrain_Generator output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Climate_Generator.
+[Timestamp]: COT COT_Climate_Generator output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Hydrology_Generator.
+[Timestamp]: COT COT_Hydrology_Generator output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Asset_Library_Builder.
+[Timestamp]: COT COT_Asset_Library_Builder output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Biome_Generator.
+[Timestamp]: COT COT_Biome_Generator output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Settlement_Logic.
+[Timestamp]: COT COT_Settlement_Logic output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Infrastructure_Logic.
+[Timestamp]: COT COT_Infrastructure_Logic output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Landmark_Populator.
+[Timestamp]: COT COT_Landmark_Populator output written to Scratchpad.
+[Timestamp]: Branched to indoor generation for [Building_Name] at [Outdoor_Coord].
+[Timestamp]: Executed COT: COT_Indoor_Foundational_Parameters.
+[Timestamp]: COT COT_Indoor_Foundational_Parameters output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Indoor_Structural_Shell.
+[Timestamp]: COT COT_Indoor_Structural_Shell output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Indoor_Environmental_Conditions.
+[Timestamp]: COT COT_Indoor_Environmental_Conditions output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Indoor_Plumbing_Flows.
+[Timestamp]: COT COT_Indoor_Plumbing_Flows output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Indoor_Asset_Library_Builder.
+[Timestamp]: COT COT_Indoor_Asset_Library_Builder output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Indoor_Room_Function_Generator.
+[Timestamp]: COT COT_Indoor_Room_Function_Generator output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Indoor_Corridor_Logic.
+[Timestamp]: COT COT_Indoor_Corridor_Logic output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Indoor_Major_Rooms_Logic.
+[Timestamp]: COT COT_Indoor_Major_Rooms_Logic output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Indoor_Key_Feature_Populator.
+[Timestamp]: COT COT_Indoor_Key_Feature_Populator output written to Scratchpad.
+[Timestamp]: Executed COT: COT_Indoor_Final_Assembly (if applicable).
+[Timestamp]: Indoor final map data assembled from Scratchpad.
+
+=== SECTION_BREAK ===
+
+=== SECTION: GENERATED_PHYSICS ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Physics COT with the universal physical laws.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Physics would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: GENERATED_TERRAIN ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Terrain_Generator COT with the elevation and rock type grids.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Terrain_Generator would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: GENERATED_CLIMATE ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Climate_Generator COT with the climate and precipitation grids.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Climate_Generator would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: GENERATED_HYDROLOGY ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Hydrology_Generator COT with all defined waterways and bodies of water.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Hydrology_Generator would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: ACTIVE_ASSET_LIBRARY ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Asset_Library_Builder COT with the complete cultural asset package for this region, including historical asset context and taphonomic state.
+
+[Data_Block]
+
+[The complete [Generated_Asset_Library_Dictionary] block from COT_Asset_Library_Builder would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: GENERATED_BIOME ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Biome_Generator COT with the final biome grid and resource distribution, including recovering biomes.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Biome_Generator would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: GENERATED_SETTLEMENTS ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Settlement_Logic COT with the list and locations of all towns, cities, and villages, including their historical context.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Settlement_Logic would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: GENERATED_INFRASTRUCTURE ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Infrastructure_Logic COT with the complete road and bridge network.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Infrastructure_Logic would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: GENERATED_LANDMARKS ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Landmark_Populator COT with the list and locations of all named points of interest.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Landmark_Populator would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_GENERATED_PARAMETERS ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Indoor_Foundational_Parameters COT with the high-level building parameters.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Indoor_Foundational_Parameters would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_GENERATED_STRUCTURAL_SHELL ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Indoor_Structural_Shell COT with the building's walls, floors, and ceilings.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Indoor_Structural_Shell would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_GENERATED_ENVIRONMENTAL_CONDITIONS ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Indoor_Environmental_Conditions COT with indoor lighting, temperature, and air quality grids.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Indoor_Environmental_Conditions would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_GENERATED_PLUMBING_FLOWS ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Indoor_Plumbing_Flows COT with all defined conduits and bodies of fluid.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Indoor_Plumbing_Flows would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_ACTIVE_ASSET_LIBRARY ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Indoor_Asset_Library_Builder COT with the extended cultural asset package for this building, including historical context and taphonomic state.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Indoor_Asset_Library_Builder would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_GENERATED_ROOM_FUNCTIONS ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Indoor_Room_Function_Generator COT with the functional zoning grid.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Indoor_Room_Function_Generator would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_GENERATED_CORRIDOR_NETWORK ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Indoor_Corridor_Logic COT with the hallway and door network.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Indoor_Corridor_Logic would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_GENERATED_MAJOR_ROOMS ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Indoor_Major_Rooms_Logic COT with the list and details of key named rooms.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Indoor_Major_Rooms_Logic would be written here.]
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_GENERATED_KEY_FEATURES ===
+
+[[LLM_INSTRUCTION]]: This section is populated by the COT_Indoor_Key_Feature_Populator COT with the list and locations of all named indoor features.
+
+[Data_Block]
+
+[The complete [Output_Data] block from COT_Indoor_Key_Feature_Populator would be written here.]
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
