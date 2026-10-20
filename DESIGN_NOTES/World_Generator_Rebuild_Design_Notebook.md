@@ -283,9 +283,134 @@ Illustrative IDs and positions only; these are **not** Black Mesa's existing fie
 
 **Scope / status:** Portable library intent and the two use cases are **DM accepted**. Source/instance separation, provenance/version policy, boundary interpolation mechanics, culture-adaptation model and dependency repair are **proposals to design**, not decisions already implemented. Do not confuse library retrieval with dynamic map generation during play.
 
+## Design checkpoint — indoor COT rebuild, DM-viewable maps, and environmental evidence (discussion, 2026-10-20)
+
+**Status convention for this checkpoint:** "DM accepted" denotes explicit intent or a confirmed existing workflow, "Proposed" denotes a working assistant decomposition, and "Open" denotes a decision or implementation not yet made. This checkpoint adds to the preceding notebook; it does not replace the original COTs or declare a finalized schema.
+
+### 1. The authoring workflow is a layered assembly line — DM accepted
+
+**Correction to earlier assistant interpretation:** The Map Generator does **not** require a formal approval gate *before* every scratchpad write. Historically, each COT executes using the current scratchpad, **writes its result to the appropriate scratchpad section**, and provides the human DM a copy of what it added or changed. The DM can inspect, revise, discuss and correct entries on the fly. The next COT works from the adjusted scratchpad. The existing \`SYSTEM_UPDATE_DIRECTIVES\` are therefore meaningful; do not replace this workflow with ChaOS's proposal/commit machinery merely by analogy.
+
+**Final synthesis happens after all required COT layers are populated:** The LLM reads the accumulated, corrected scratchpad and produces the *final map*. Each COT contributes a particular conceptual/physical layer, not a separately completed map. The DM described this as a house-building or assembly-line process: purpose and planning inform foundations, walls, roof, building systems, room use, contents and finishing. The completed scratchpad is the cumulative record of design decisions and the input to final map assembly. A **provisional visual rendering during drafting** may be useful but is not a separate canonical or compulsory approval transaction.
+
+**Dependencies matter more than slavish order:** A preliminary room/adjacency requirement may be needed before the load-bearing shell, even if fine-grained room and corridor geometry is generated later. Later DM changes may affect dependent entries (moving a wall may change doors, pipes, furniture or light), so revised dependencies should be re-examined without imposing a heavy cyclic verifier architecture.
+
+**Scope:** Authored static baseline before gameplay, not on-the-fly map invention. Runtime diffs and character-specific knowledge/perception remain the future parser/runtime's responsibility.
+
+### 2. Retain the generator's own LLM formatting language — DM accepted
+
+The original source at [SOURCE/merged_output.txt](https://github.com/Mastenship/Map-Generator/blob/main/SOURCE/merged_output.txt) contains \`LLM_FORMATTING_GUIDELINES_TEMPLATE\` near the end. This is deliberate cross-model engineering to reduce ambiguity: explicit \`=== SECTION: ... ===\` headers, \`=== SECTION_BREAK ===\`, \`[KEY_TERM: Document Complete]\`, \`[[LLM_INSTRUCTION]]:\`, \`[KEEP: ...]\`, \`((SYSTEM_REF: ...))\`, labeled-field matrices, lists with \`- \`, no pipe tables, no competing standard Markdown emphasis, and strict blank-line/marker isolation.
+
+**Decision:** New COTs and scratchpad sections should follow **those existing conventions**. Earlier assistant YAML examples were illustrations, **not** a request to make YAML, JSON or Python the COT's native output language. The documentation notebook itself remains ordinary Markdown; the formatting contract applies to operational generator content.
+
+**Related OTTC insight, not a governance import:** [Dual Readership](https://github.com/Mastenship/On-The-Top-Constraint-ChaOS/blob/main/OTTC/05_OTTC_DSL_DUAL_READERSHIP_PRINCIPLE.txt) articulates structural distinctness for both human auditors and LLM attention. The Map Generator is **DM-stepped content authoring**, not an autonomously cycling player-character system. It does not currently need ChaOS-style local constitutional repetition, proposal registries, repeated governance verification or a special commit writer. Ordinary consistency checks and the DM's iterative review should suffice for the initial implementation. Effects of token conventions still vary by model and should not be treated as magically guaranteed.
+
+### 3. Make the world understandable and useful to the DM — DM priority
+
+**Key correction:** The longstanding difficulty is **not primarily what text the LLM sees**. It is turning the richly described world into a map the human DM can *see, inspect, work with, correct, and use at the table*. A complete, information-rich parser file with no intelligible human floor plan is not a satisfactory generator deliverable.
+
+**Three distinct surfaces (proposed implementation separation):**
+
+- **Conceptual authored facts:** historical, geological, cultural, structural, functional, sensory, environmental, social and object-related world facts, including why an element exists.
+
+- **Precise spatial authored facts:** actual rooms, features, coordinates, footprints, boundaries, dimensions, elevations, openings, connections, orientations, conditions and identities.
+
+- **Visual representation:** an SVG drawing, aligned overlays, glyphs/stamps and labels arranged for DM use. Rendering does not invent world facts or supersede the underlying map.
+
+**Reusable renderer, not newly LLM-authored Python for every map (proposed):** The LLM executes conceptual COTs and outputs standardized scratchpad data. One reusable Python program (or equivalent deterministic translator/renderer) interprets the agreed spatial records and creates SVG. It may emit transparent overlays registered to common graph-paper coordinates; a DM can inspect combined architectural, furniture, environment or DM-only layers. The LLM need not generate enormous per-map raw SVG text or a fresh drawing program; script compactness alone is not the whole question, because world details will remain extensive. Tool execution and rendering API are *not yet established*.
+
+**DM editor/interface remains open:** Inkscape is a plausible near-term way to inspect/stack SVG overlays; a dedicated map-aware interface might eventually permit selection, facts-on-click, toggling layers, hidden content and synchronized edits. Neither is mandated now. No assumption that manually altering the SVG automatically updates authoritative data.
+
+**Stamp library (proposed):** Define reusable SVG symbols for couches, tables, chairs, chests, beds, refrigerators, hearths, doors, machinery, etc.; reference a stamp by name with actual footprint, pose, scale and location. Distinguish a **world asset definition**, a **specific physical instance**, and its **visual stamp**. A historically meaningful chest might share the same simple chest stamp as a mundane one while possessing different contents, provenance and condition. Unavailable stamps should fall back to legible labeled shapes; they must not block authoring. The stamp library complements, rather than replaces, portable cultural/environmental asset libraries.
+
+### 4. Geometry and map representation — mostly open choices
+
+The current hex/square Python tools are useful reusable grid-paper renderers, not the finished canonical geometry language. Edge-midpoint red dots are **visual anchors**, not mandatory routes for rivers, roads or other features. A hex-grid *overlay* does not physically restrict river direction; a generator which represents rivers exclusively as discrete edge-point sequences would impose that restriction.
+
+**Proposed alternatives under discussion:**
+
+- Cells/edges as primary spatial references, with precise free-form vector geometry where needed; or
+
+- Continuous measured local coordinates (easting/northing or Cartesian) as physical truth, with switchable hex, square or no-grid overlays and optional cell indexing.
+A military-style measured planar system could be useful without importing all Earth-specific UTM/MGRS machinery into fictional geography. A town's buildings and streets need not inherit the directional artifacts of a hex overlay. **No choice was ratified.**
+
+**Indoor conventions already in the old draft:** \`1 square = 5 feet\`; walls usually run along grid boundaries; edge references distinguish connection/opening; adjacent cells should refer to the *same* physical shared wall rather than independently contradicting north/south states. As a candidate convention, wall stroke thickness can depict actual 6–12-inch construction thickness while the grid denotes nominal floor plan dimensions (avoid silently subtracting thickness from nominal room dimensions). True clearance requirements, exceptional thick walls, crawlspaces and ductwork may need explicit measured dimensions. Multiple levels can use separate 2D planes with height/elevation/vertical connectors, i.e. a dimensioned **2.5D** plan before full 3D modeling.
+
+**Suggested small test, not yet executed:** One authored feature set rendered over hex, square, and no grid, and one compact indoor structure with a dividing wall, doorway, fixtures and furniture. Verify consistent coordinate transforms and DM-readable output rather than optimizing speculative infrastructure.
+
+### 5. COT responsibility boundaries — 16+assembly is a proposal, not a ratified count
+
+**Existing source:** Nine indoor COTs, with the separate \`INDOOR_FINAL_MAP_DATA\` assembly contract: Foundational Parameters, Structural Shell, Environmental Conditions, Plumbing Flows, Asset Library Builder, Room Function Generator, Corridor Logic, Major Rooms Logic, Key Feature Populator. They already contain useful architectural, historical, environmental, sensory and material frameworks. Preserve that intellectual depth while improving spatial precision and causal dependencies.
+
+**Working candidate of 16 specialized indoor COTs followed by final map assembly:**
+
+1. **Foundational Parameters** — purpose, requirements, cultural/historical/technological setting, scale, premises and ties to outdoor context.
+
+2. **Site and Substrate** — geology/soil, slope, water, exposures, site constraints and previous structures.
+
+3. **Architectural Space Program** — needed spaces, relationships, rough dimensions, circulation and separation constraints **before** detailed shell construction.
+
+4. **Foundations and Structural Shell** — foundations, supports, structural geometry, loads, materials and dimensions.
+
+5. **Building Envelope and Vertical Geometry** — roof, exterior closure, windows, floor/ceiling elevations, shafts and voids.
+
+6. **Room Geometry and Partitions** — resolved room footprints, functional boundaries and interior divisions.
+
+7. **Circulation and Access** — doors, halls, stairs, thresholds, navigable paths, access and clearances.
+
+8. **Indoor Asset Library Builder** — reusable definitions, variants, lineage, materials and cultural context.
+
+9. **Fixed Installations** — integrated hearths, machinery, built-ins and other permanent fixtures.
+
+10. **Utilities and Physical Flow Networks** — drainage, supply, venting, power, exhaust and setting-specific infrastructure.
+
+11. **Materials, Surfaces and Taphonomy** — finishes, wear, repair, damage, contamination and the effects of time.
+
+12. **Movable Furnishings and Item Contents** — placed portable objects, tools, furniture, containers, contents and specific instances.
+
+13. **Ecology and Biological Traces** — plants, vermin, mold, nests, organic residues and environmental biology as authored baseline.
+
+14. **Security, Concealment, Hazards and Interactions** — locks, traps, hidden passages, protective measures, triggers and mechanical affordances.
+
+15. **Environmental Sources and Operating Conditions** — light, heat, sound, odors, vibration, radiation, emissions, magic and source activation assumptions.
+
+16. **Environmental Field Synthesis** — integrate sources, materials, barriers, structure and air paths to describe ambient or spatially varying conditions.
+
+17. **Final Map Assembly (not one of the 16 authoring COTs)** — synthesize the corrected scratchpad into an authoritative static map package and DM-readable renderable spatial representation.
+
+**Status: Proposed.** This inventory is a decomposition for discussing *number, order and ownership*, not authorization to rewrite all stages. The operating dependencies require review (e.g., preliminarily anticipate chimneys/services and room needs before freezing relevant structural choices). Some stages may be merged, split, or rearranged based on practical tests. The early implementation target remains Foundation/Planning + Structural Shell, with a small genuinely visible map, rather than an entire theoretical stack.
+
+### 6. Rich world truth first, character perception later — DM accepted
+
+The Map Generator can author **more physical, environmental, historical and sensory truth than current ChaOS consumes**. The adjacent ChaOS \`COT_SPATIAL_EMBODIMENT_PROCESSING\` is an important *current consumer*, not the ontology ceiling for the world. The later parser takes the static baseline plus permitted runtime changes and exposes bounded character-relevant slices for human and LLM players under the same rules.
+
+**Examples:** A werewolf-like change may provide enhanced smell; interchangeable cybernetic eye units may enable thermal imaging; a torch's defined light radius must be distinguishable from actually seeing through walls, and from whether the torch is currently lit. Ambient temperature, thermal emissions, wall material, airflow, scent sources, geometry, occlusion and knowledge are independent aspects of the authored world. A thermal eye does not simply reveal omniscient internal room contents.
+
+**Conceptual distinction to test (proposed):** A forge is a physical object/installation; its active fire, smoke, heat, light and noise are *sources*; the resulting gradients/fields depend on materials, geometry, circulation and operating conditions. Author source mechanisms separately from the propagated ambient environment when feasible. This can support new sensory modalities without defining a separate map for every ability. No demand to model exhaustive fluid dynamics, optics or acoustics from day one. Unspecified properties should remain genuinely unspecified rather than being fabricated by the parser.
+
+**ChaOS-related sources:** [Spatial Embodiment COT](https://github.com/Mastenship/On-The-Top-Constraint-ChaOS/blob/main/CHARACTER_OPERATING_SYSTEM/026_COT_SPATIAL_EMBODIMENT_PROCESSING.txt), [Alterations Scheme](https://github.com/Mastenship/On-The-Top-Constraint-ChaOS/blob/main/CHARACTER_OPERATING_SYSTEM/007_SCHEME_ALTERATIONS.txt), and [Inventory Discovery](https://github.com/Mastenship/On-The-Top-Constraint-ChaOS/blob/main/CHARACTER_OPERATING_SYSTEM_WIP_NOTES/02_INVENTORY_DISCOVERY.md). No requirement to modify ChaOS or finish its Inventory WIP first.
+
+### 7. Black Mesa, everyday habitation, and emergent environmental storytelling — DM correction
+
+**Reference saved:** [REFERENCE_MAPS/Black_Mesa_Facility.txt](https://github.com/Mastenship/Map-Generator/blob/main/REFERENCE_MAPS/Black_Mesa_Facility.txt). The original example was added unchanged as a **very simple baseline/benchmark**, emphatically **not** the intended complexity or sophistication of the rebuilt maps. It was produced by the *old generator walking through its COTs*, not by a specially programmed plot/storytelling engine.
+
+**Observations grounded in that file:** the facility has a failing reactor hum and distressed metal; main entrance with scratched, warped door, failed seal, overturned gurney, ruptured gas mask and smashed medical kit; corridor with military-clad body, half-finished checklist, and a welded laboratory bulkhead; living quarters with open novel, interrupted card game and face-down family photograph; laboratory with dead scientist, ruined containment and suspicious biological traces; Hot Lab with ruptured unit and a chittering noise. These together *suggest* a containment catastrophe and emergency sealing which imprisoned people; the DM recognized that emerging story in the physical details. The concise map does not itself spell out every event, killer or causal link as a confirmed fact. Its significance lies in the **LLM's ability to generate consistent traces and human-scale evidence while executing the conceptual COTs**.
+
+**DM's stronger point:** Not every place needs a disaster, mystery or dramatic plot. An ordinary occupied house still reflects the occupants' routines, habits, tastes, personal objects, priorities, sentimental attachments and ongoing lives. Black Mesa is moving partly because it contains *ordinary lives interrupted*: books, playing cards, family photos, desk items, coffee mug, telephone receiver. Items need not have elaborate magical/game mechanical properties to matter to people.
+
+**Design consequence:** Do not make a dramatic-story COT mandatory or script plot beats into every map. Instead let functional planning, cultural/material context, inhabitants' ordinary use of space, object placement, history, taphonomy and current conditions causally interact. If a significant event is appropriate, let it leave physically coherent evidence. A site may have (1) intended construction and original use, (2) accumulated personal and material history, and (3) conditions still active at the authored starting moment. These dimensions should affect existing COTs, not require a forced thriller.
+
+**Open idea:** Whether to give site-history/event causality its own COT or distribute that reasoning across Foundational Parameters, use-of-space, asset, taphonomy and feature stages. The latter may better preserve emergent storytelling; decide by testing rather than architectural preference. Preserve that physical evidence, full underlying history and the meaning a character infers from clues are **not synonymous**. The parser should not automatically disclose secret causes or a person's sentimental relationship to an item merely because they are in the authoritative map.
+
+### 8. Immediate development and unresolved decisions
+
+**Working next step:** Draft/review the revised \`COT_INDOOR_FOUNDATIONAL_PARAMETERS\` and the early architectural/structural dependencies using the existing formatting guidelines and scientific foundations. Establish a drawable **small real test map** before expanding the whole catalog. Keep the current nine originals available as references and do not revise the immutable source archive in place.
+
+**Still open:** final number/order of indoor COTs; optional standalone versus inherited outdoor context inputs; physical coordinate convention and precise schema; shared wall identities and opening references; previsualization frequency; SVG renderer/translator implementation; stamps and label aesthetics; 2.5D level linking; persistence/reuse/versioning of asset definitions; how history and occupant significance are represented without compulsorily making a narrative; rules for sources versus environmental fields; and exact future parser contracts. Each should be resolved against practical DM use, not a prematurely comprehensive governance or full 3D application.
+
 ## Reference materials
 
-- Uploaded **Black_Mesa_Facility(1).txt**: basic pre-created rooms, transitions, objects, sensory layers; reveals need to formalize room-local coordinates and overall geometry.
+- Archived reference **[REFERENCE_MAPS/Black_Mesa_Facility.txt](https://github.com/Mastenship/Map-Generator/blob/main/REFERENCE_MAPS/Black_Mesa_Facility.txt)** (source: user-provided `Black_Mesa_Facility(1).txt`, preserved byte-for-byte): deliberately simple historical baseline for room connectivity, sensory detail, occupants' personal traces, and emergent evidence of a containment disaster; not a target complexity level. Room-local coordinates and overall geometry still need formalization.
 
 - Uploaded **merged_output.txt**: previous world-generator COTs (physical foundations, terrain, climate, hydrology, biomes, assets, settlements, transport, landmarks, indoor structures); reference for ideas, not an architecture we must preserve.
 
