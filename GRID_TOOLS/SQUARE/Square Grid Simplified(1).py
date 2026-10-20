@@ -56,4 +56,4 @@ if __name__ == "__main__":
     svg_code = rect_grid_svg_lines_points(cols=20, rows=20, side=100, dot_radius=1, edge_dot_color="#c00")
     with open("rect_grid_labels_lines_points.svg", "w") as f:
         f.write(svg_code)
-    print("SVG generated: rect_grid_labels_lines_points.svg")
+    print("SVG generated: Square_Grid_With_Edge_Midpoints.svg")
