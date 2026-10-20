@@ -1,0 +1,227 @@
+=== SECTION: Black_Mesa_Facility ===
+
+Map_ID: MAPGEN_2025-01-20_001
+Name: "Black Mesa Facility"
+Type: Indoor
+Parent_Map: NULL
+Coordinate_System: Grid, 5x5 feet, Main Entrance
+
+General_Sensory_Data:
+  Auditory:
+    - A deep, resonant hum from the facility's failing reactor.
+    - The faint, periodic groan of metal under stress.
+    - The sound of your own breathing, unnaturally loud in the stillness.
+  Olfactory:
+    - A sterile, chemical smell, like old disinfectant and ozone.
+    - A faint, acrid undertone of something biological and decayed.
+    - The scent of stale, recycled air.
+  Tactile:
+    - A fine layer of dust over every surface.
+    - A noticeable vibration through the floor from the reactor.
+    - A pervasive, chilling cold.
+  Thermal:
+    - A constant, cool temperature, like a deep cellar.
+  Visual:
+    - Dim, flickering emergency lighting casting long shadows.
+    - Thick dust motes dancing in the light beams.
+    - Scorch marks and chemical stains on walls and floors.
+
+Rooms:
+  Main Entrance:
+    Sensory_Data:
+      Auditory:
+        - The hiss of air from a failed seal around the outer door.
+      Olfactory:
+        - The sterile smell is strongest here, mixed with the metallic tang of the outer door.
+      Tactile:
+        - The floor is gritty with tracked-in sand and dust.
+      Thermal:
+        - A noticeable draft from the compromised outer door.
+      Visual:
+        - The outer door is visibly warped, with deep scratches around the locking mechanism.
+    Dimensions: 10x20
+    Transition_Points:
+      5,10: Heavy Steel Door Jammed shut from the inside Outside
+      5,15: Airtight Bulkhead Door Locked, manual override required Corridor A
+    Immovable_Objects:
+      5,5: A metal decontamination shower stall, dry and coated in dust.
+      15,10: A row of empty metal lockers, doors hanging open.
+    Moveable_Objects:
+      5,15: An overturned, steel-wheeled gurney, one wheel broken.
+      10,12: A discarded gas mask, its filter canister ruptured.
+    Containers:
+      10,18: A red, wall-mounted first aid kit, its glass front smashed.
+    Contents:
+      - Bandages and antiseptic wipes are scattered on the floor beneath the kit.
+
+  Corridor A:
+    Sensory_Data:
+      Auditory:
+        - The hum from the reactor is most pronounced here.
+      Olfactory:
+        - The sterile smell is uniform, punctuated by the faint decay smell from the Lab Wing.
+      Tactile:
+        - The floor is worn smooth from decades of foot traffic.
+      Thermal:
+        - The air is still and cold.
+      Visual:
+        - Flickering fluorescent tubes run the length of the ceiling, casting a sickly yellow light.
+    Dimensions: 10x60
+    Transition_Points:
+      5,5: Airtight Bulkhead Door Locked, manual override required Main Entrance
+      5,25: Steel Door Open Administrative Office
+      5,40: Steel Door Open Living Quarters
+      5,55: Airtight Bulkhead Door Welded shut from the other side Laboratory Wing
+    Immovable_Objects:
+      2,30: A wall-mounted intercom station, speaker dead.
+      8,50: A large electrical junction box, door hanging open, wires exposed.
+    Moveable_Objects:
+      7,20: A body, clad in a military uniform, slumped against the wall.
+      12,45: A clipboard with a half-finished checklist, its papers yellowed.
+    Containers:
+      - None
+    Contents:
+      - None
+
+  Administrative Office:
+    Sensory_Data:
+      Auditory:
+        - The hum is muffled here.
+      Olfactory:
+        - The smell of old paper and stale coffee.
+      Tactile:
+        - A film of dust covers the desk surfaces.
+      Thermal:
+        - Slightly warmer than the corridor, from the heat of the main computer terminal.
+      Visual:
+        - The main computer terminal's screen is frozen with an error message.
+    Dimensions: 20x20
+    Transition_Points:
+      10,5: Steel Door Open Corridor A
+    Immovable_Objects:
+      5,5: A large steel desk.
+      15,5: A built-in metal filing cabinet.
+      10,18: A corkboard, pinned with outdated safety memos.
+    Moveable_Objects:
+      5,10: An executive-style leather chair, pushed back from the desk.
+      10,8: A rotary telephone, receiver off the hook.
+      12,10: An open, empty coffee mug.
+    Containers:
+      15,10: Filing cabinet, drawers slightly ajar.
+    Contents:
+      - Personnel files, project reports, and logistical records.
+
+  Living Quarters:
+    Sensory_Data:
+      Auditory:
+        - A faint, rhythmic tapping from a loose ventilation panel.
+      Olfactory:
+        - The faint, lingering scent of human habitation: soap, laundry, and food.
+      Tactile:
+        - The blankets on the bunks are stiff and coarse with age.
+      Thermal:
+        - The coldest room, furthest from the reactor.
+      Visual:
+        - Personal effects are scattered about, frozen in time.
+    Dimensions: 30x40
+    Transition_Points:
+      15,5: Steel Door Open Corridor A
+    Immovable_Objects:
+      5,5: A row of four metal bunk beds.
+      20,5: A long, communal dining table with attached benches.
+      25,20: A wall-mounted television screen, dark and cracked.
+    Moveable_Objects:
+      7,8: A paperback novel, left open on a bunk, pages yellowed.
+      15,25: A deck of playing cards, scattered mid-game.
+      25,10: A framed photograph of a family, face-down on the dining table.
+    Containers:
+      10,15: A grey metal footlocker at the foot of a bunk.
+    Contents:
+      - Personal clothing, letters, and a few sentimental items.
+
+  Laboratory Wing:
+    Sensory_Data:
+      Auditory:
+        - A high-pitched, electronic whine from damaged equipment.
+      Olfactory:
+        - The acrid, decayed smell is strongest here, almost overpowering.
+      Tactile:
+        - A sticky residue coats some surfaces.
+      Thermal:
+        - Noticeably warmer, from the heat of failed lab equipment.
+      Visual:
+        - The observation windows into the Hot Lab are crazed and opaque.
+    Dimensions: 20x50
+    Transition_Points:
+      10,5: Airtight Bulkhead Door Welded shut from the other side Corridor A
+      5,15: Airtight Bulkhead Door Locked, emergency seal engaged Hot Lab
+      15,15: Steel Door Ajar Lab Support
+    Immovable_Objects:
+      5,5: A concrete lab bench with built-in sinks.
+      15,5: A large, sealed specimen refrigerator.
+      10,30: A fume hood, its sash cracked.
+    Moveable_Objects:
+      8,10: A microscope, its eyepieces shattered.
+      12,12: A shattered glass beaker, its contents crystallized on the bench.
+      5,25: A body, wearing a torn and stained lab coat, pinned under a fallen equipment rack.
+    Containers:
+      15,10: A red biohazard waste container, lid ajar.
+    Contents:
+      - Sealed, unlabeled vials and petri dishes.
+
+  Hot Lab:
+    Sensory_Data:
+      Auditory:
+        - A low, guttural chittering sound from within a collapsed containment unit.
+      Olfactory:
+        - An overwhelming, sickly-sweet smell of organic decay and chemicals.
+      Tactile:
+        - The air is thick and humid.
+      Thermal:
+        - Noticeably warmer and more humid than the outer lab.
+      Visual:
+        - The containment unit in the center of the room is ruptured and collapsed.
+    Dimensions: 15x15
+    Transition_Points:
+      7,5: Airtight Bulkhead Door Locked, emergency seal engaged Laboratory Wing
+    Immovable_Objects:
+      7,7: A large, reinforced glass and steel containment unit, now ruptured.
+      2,2: An emergency chemical shower station, coated in residue.
+    Moveable_Objects:
+      10,10: A twisted, metal gurney.
+      5,12: A scattered collection of broken glass vials.
+    Containers:
+      - None
+    Contents:
+      - None
+
+  Lab Support:
+    Sensory_Data:
+      Auditory:
+        - The hum is faint, drowned out by the noise from the main lab.
+      Olfactory:
+        - The smell of cleaning chemicals and burnt electronics.
+      Tactile:
+        - Fine, white powder is spilled on a workbench.
+      Thermal:
+        - A spot of intense heat radiates from a short-circuited power supply.
+      Visual:
+        - Shelves are in disarray, with boxes and equipment thrown about.
+    Dimensions: 15x20
+    Transition_Points:
+      7,15: Steel Door Ajar Laboratory Wing
+    Immovable_Objects:
+      5,5: A long workbench with built-in shelving.
+      12,5: A large autoclave for sterilizing equipment.
+    Moveable_Objects:
+      8,8: A Geiger counter, its needle pegged to the red.
+      10,10: An open cardboard box of rubber gloves.
+      13,12: A scattered pile of glass slides.
+    Containers:
+      5,15: A large metal supply cabinet, doors hanging open.
+    Contents:
+      - Extra lab coats, cleaning supplies, and spare electronic parts.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
