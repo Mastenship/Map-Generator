@@ -111,6 +111,6 @@ if __name__ == "__main__":
         cols=20, rows=20, r=50, decimals=4,
         dot_color="#333", dot_radius=1, edge_dot_color="#c00",
     )
-    destination = Path(__file__).with_name("hex_grid_with_edge_midpoints.svg")
+    destination = Path(__file__).with_name("Hex_Grid_With_Edge_Midpoints.svg")
     destination.write_text(svg_code, encoding="utf-8")
     print(f"SVG generated: {destination}")
