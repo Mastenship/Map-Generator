@@ -90,6 +90,120 @@ Do not represent every visible blade of grass, chair or odor plume on a mile-sca
 
 === SECTION_BREAK ===
 
+=== SECTION: SCALE_DEPENDENT_SCIENTIFIC_RESOLUTION ===
+
+[Scale_Model]
+Core_Requirement:
+A change in mapped extent changes which phenomena a COT can responsibly resolve, which source assets it inherits, and which physical details must be deferred. Extent, generation resolution and DM purpose are related but separate variables.
+Country_Level:
+- Geology: tectonic structures, mountain systems, broad lithological belts, regional geological history.
+- Terrain: major basins, plateau systems, continental relief, watershed divides.
+- Climate: large air-mass patterns, seasonal gradients, broad precipitation zones.
+- Hydrology: major drainage basins, principal rivers, lakes and major tributaries.
+- Ecology: broad vegetation communities, habitat complexes and major ecotones.
+- Human geography: settlement systems, migration patterns, political and economic networks, principal transport routes.
+River_Valley_Or_County_Level:
+- Geology: local rock beds, exposed formations, faults and practical terrain material.
+- Terrain: specific valley geometry, ridges, slopes, terraces, scarps and floodplain details.
+- Climate: microclimate effects, local exposure, valley winds, fog and shade where relevant.
+- Hydrology: inherited parent river and tributaries refined into banks, meanders, smaller streams, springs and flood zones.
+- Ecology: local forest stands, meadow edges, riparian corridors, wetlands and detailed habitat mosaics.
+- Human geography: actual farm plots, villages, paths, bridges, land-use patterns and local settlement history.
+Neighborhood_Or_Site_Level:
+- Geology and terrain: local slope, soil, foundations, cut-and-fill, local flood exposure and erosion.
+- Ecology: gardens, tree stands, parks, weeds, small habitat patches and human-altered vegetation.
+- Human geography: individual lots, courtyards, streets, architectural influence, land use and distinctive occupants' practices.
+- Engineering: actual route alignments, crossings, service access, building placements and site geometry.
+Level_Of_Detail:
+An individual COT should resolve details meaningful at the assigned map scale and purpose. A map emphasizing waterways may need higher hydrologic resolution than its vegetation resolution; no demand for one global detail level.
+Unknown_Detail:
+Features not drawn at a coarse scale are not automatically absent. Later detail may add smaller tributaries, paths, tree stands and buildings without contradicting parent data.
+Boundary:
+Do not make a country-scale COT fabricate room-scale facts or a valley-scale COT reinvent tectonic history already preserved by the parent map.
+
+=== SECTION_BREAK ===
+
+=== SECTION: EACH_MAP_OWNS_AN_ASSET_LIBRARY ===
+
+[DM_Accepted_Design_Intention]
+Rule:
+Every completed map retains its own asset library as part of a reusable map package, regardless of whether it is a country, valley, neighborhood, local outdoor site or building.
+Purpose:
+The library records the meaningful physical, environmental, cultural, historical and reusable definitions developed while authoring that map. A child map can import and adapt those assets instead of rebuilding the parent context.
+Map_Package:
+- Finished spatial map and exact or appropriately generalized positions of established features.
+- The map's own preserved asset library containing its local source definitions, relevant asset properties, history and inherited or created variants.
+- Identifying metadata needed to tell which map and represented area a child map is developing.
+- Optional saved generation scratchpad for review of deeper causal context, not a replacement for the finished map and library.
+Inheritance:
+- At child-map initiation, load the relevant parent asset library and established map facts before the new COT sequence applies its sciences.
+- The parent library remains preserved; the child has its own library and may inherit, reference, adapt or extend its entries.
+- It is not necessary to copy every asset in a country to develop one river valley; select the relevant inherited context while keeping the original parent accessible.
+- Parent-established feature identity is retained when resolving a finer representation of the same feature.
+- Definitions and context may be reusable; site-specific coordinates, damage and personal history must not blindly transfer to unrelated placements.
+- Where an inherited feature has a specific map location, preserve that location through the parent spatial data; the asset definition alone does not substitute for geometry.
+Boundary:
+Do not create a compulsory new centralized World Geographic Record or an always-running WorldState to accomplish normal map-to-map continuity. The completed map plus its preserved asset library supplies the essential authoring input; the future runtime world simulation remains separate.
+
+=== SECTION_BREAK ===
+
+=== SECTION: MAP_ZOOM_AND_PASSTHROUGH ===
+
+[Parent_To_Child_Process]
+Step_01_Identify_Source:
+Identify the parent map or maps, selected area, intended new map extent, generation resolution, and DM's requested focus.
+Step_02_Retrieve_Inherited_Data:
+Read relevant parent asset libraries and established geography, culture, history, environmental patterns and spatial relationships. Carry a condensed, accurate selection into the new map's active scratchpad.
+Step_03_Bind_Spatial_Identity:
+Preserve references and positions for established rivers, ridge systems, watersheds, settlements, road crossings, habitats or built structures intersecting the new extent.
+Step_04_Apply_Scale_Aware_Sciences:
+Each successive COT develops smaller-scale physical and cultural specifics using inherited context as fixed or DM-correctable constraints, not as optional generic inspiration.
+Step_05_Create_Local_Asset_Library:
+The child's asset-library COT organizes inherited definitions and newly generated local variants into that child map's own preserved library.
+Step_06_Blend_And_Refine:
+Where multiple inherited environments or cultural regions meet, reason about the actual processes making the transition. Add locally specific terrain, ecological and architectural assets where appropriate.
+Step_07_Assemble_And_Preserve:
+Finalize the child map and its new asset library without deleting or rewriting the parent map. Retain the parent identity and meaningful shared-feature references.
+Step_08_Handle_Conflicts:
+If detailed generation reveals an actual contradiction with established parent facts, bring it to the DM and revise the relevant map data deliberately. Adding previously unspecified detail does not count as a contradiction.
+Scale_Example:
+- Country source identifies a river, watershed, broad valley, neighboring mountain range, two settlements and a principal road crossing.
+- Valley COTs inherit those specific identities, conditions and approximate geography through the parent map and asset library.
+- Local terrain develops slope breaks and terraces, hydrology develops meanders and new minor tributaries, ecology develops bankside vegetation, human geography develops farms and footpaths.
+- The established river remains the same river; the road crossing and settlements remain their original places, refined rather than re-created.
+- Once complete, the river valley has its own asset library available for an even more detailed settlement or riverside building map.
+Internal_Scratchpad:
+The active child scratchpad accumulates new COT outputs while consulting inherited parent references throughout generation. The saved parent map and library do not need to occupy the model's entire active context at once.
+
+=== SECTION_BREAK ===
+
+=== SECTION: BOUNDARY_TRANSITIONS_AND_ASSET_ADAPTATION ===
+
+[Cross_Boundary_Authoring]
+Multiple_Parents:
+A new map may lie between two or more established maps or reflect interacting neighboring cultural districts. Import relevant asset libraries and boundary facts from all appropriate sources.
+Physical_Landscape_Transition:
+- Use geomorphology and geology to determine whether materials and landforms change gradually or abruptly.
+- Use soil, moisture, hydrology and ecology to determine vegetation mosaics, ecotones, floodplains, woodland margins and dispersal constraints.
+- A forest-to-grassland transition may be caused by climate, moisture, soil, fire, grazing or human clearing. It is not necessarily a simple interpolation of green tile styles.
+- Maintain natural continuity and named geographic features across the boundary.
+Urban_And_Cultural_Transition:
+- Use historical geography, migration, trade, institutions, social practices, urban morphology and architectural anthropology.
+- A neighborhood may preserve imported building forms while adapting to local materials, climate, craftsmen, wealth and regulations.
+- Adjacent styles may merge, coexist, influence individual buildings or remain distinct because of a wall, river, railway, policy, historical separation or cultural choice.
+- Do not reduce neighborhoods to homogeneous ethnic stereotypes or assume culture follows physical biome.
+New_Assets:
+- A local hybrid building, adapted building component, transitional vegetation stand or site-specific construction style can become a locally generated asset in the new map's own library.
+- Retain relevant source lineage when useful without asserting that borrowed design automatically implies ancestry or ownership of the source region.
+Causal_Requirement:
+For every significant boundary or adapted asset, give the LLM a plausible physical, ecological, economic, cultural or historical explanation instead of prescribing smooth visual blending.
+Examples:
+- Two terrain-source maps meet across a water-table gradient: scattered trees give way to grassland, with local wet patches and grazing scars.
+- Two city districts meet along a commercial street: shopfront modifications, mixed building materials, reused older shells and overlapping market customs may occur.
+- A former fortification or drainage canal separates neighborhoods: an abrupt street and architectural shift can be more credible than a gradual one.
+
+=== SECTION_BREAK ===
+
 === SECTION: OUTDOOR_STAGE_01_SCOPE_AND_REFERENCE_FRAME ===
 
 [Stage_Contract]
@@ -99,16 +213,16 @@ Scientific_Foundations:
 Cartography; geographic information science; scale and spatial sampling; geographic reference systems; requirements analysis.
 Reasoning_Questions:
 - What physical area and scale does the DM want?
-- Is this a new world, a neighboring region, or a local area inside a known map?
+- Is this a new world, a neighboring region, or a finer map of a selected area inside one or more completed parent maps?
 - Which orientation, units, map bounds, resolutions and inherited facts are authoritative?
 - Which surrounding features must meet the borders without seams?
 - Which actual coordinate conventions remain unresolved but need an explicit placeholder?
 Reads:
-DM request; any parent or neighboring map; existing world/asset library and generation parameters.
+DM request; any completed parent/neighbor maps and their preserved asset libraries; relevant parent geometry, scale, features and generation parameters.
 Writes_To:
 OUTDOOR_GENERATED_SCOPE_AND_REFERENCE_FRAME
 Passes_Forward:
-Map extent, origin/axes/units or provisional geometry convention, reference scale, neighboring boundaries, parent/child identifiers, constraints and expected output resolution.
+Map extent, origin/axes/units or provisional geometry convention, reference scale, neighboring boundaries, parent/child identifiers, selected source map assets, inherited feature references, DM purpose, per-discipline resolution targets and constraints.
 Ownership_Limit:
 This COT does not create mountains, forests or settlements. It defines how their physical locations and relationships can be preserved and later drawn.
 
@@ -330,11 +444,11 @@ Reasoning_Questions:
 - Which known reusable assets can be imported, and what adaptations would be required?
 - Which details belong to a prototype, local variant, or specific instance on this map?
 Reads:
-Physical environment, ecology, resources, human history and imported asset definitions.
+Physical environment, ecology, resources, human history and relevant selected definitions from the completed parent/neighbor map asset libraries loaded at map initiation.
 Writes_To:
 ACTIVE_ASSET_LIBRARY
 Passes_Forward:
-Reusable cultural/physical definitions, inheritance and provenance, properties needed for later placements and possible indoor map generation.
+A distinct library for this map: inherited/referenced definitions, newly adapted variants, lineage and provenance, physical/cultural properties needed for later placements and future finer-scale or indoor map generation.
 Ownership_Limit:
 Do not inherit an imported asset's specific coordinates, damage or unique history by accident. Avoid historical Environmental_Determinism as a universal law.
 Ordering_Correction:
@@ -473,11 +587,11 @@ Reasoning_Questions:
 - Does a hex overlay, measured square overlay or gridless view depict identical facts at the intended resolution?
 - Are important DM-world details preserved and future character-visible information kept as a separate parser responsibility?
 Reads:
-All active, DM-corrected outdoor scratchpad sections, imported world context and asset library references.
+All active, DM-corrected outdoor scratchpad sections, inherited parent/neighbor map spatial facts and preserved asset libraries, plus this map's new library.
 Writes_To:
 FINAL_MAP_DATA
 Passes_Forward:
-Completed static regional map record; metadata and coordinate frame; elevation and material surfaces; habitat polygons; hydrology and infrastructure networks; settlements and landmark locations; history and trace facts; relevant environmental defaults; parent/child links; reusable asset dictionary references; renderable geometries and DM-readable map views.
+Completed static regional map package containing the map's own preserved asset library and spatial record; metadata and coordinate frame; elevation and material surfaces; habitat polygons; hydrology and infrastructure networks; settlements and landmark locations; history and trace facts; relevant environmental defaults; parent/child links and shared feature identities; renderable geometries and DM-readable map views.
 Ownership_Limit:
 Reconcile actual contradictions with the DM rather than inventing conflicting geometry. The parser and dynamic WorldState are separate future systems.
 
@@ -547,7 +661,7 @@ Decisions:
 - Decide what physical measurements are necessary at each regional versus local zoom level.
 - Determine baseline environment timing and weather defaults when no starting time is specified.
 - Define GIS-like feature geometry in the original LLM formatting conventions without resorting to JSON, YAML or raw SVG as COT syntax.
-- Decide how asset-library definitions are imported and saved for other maps.
+- Decide exact storage and reference conventions for each completed map's asset library, inherited variants and links to parent/neighbor features.
 - Determine when map generation must reopen earlier causal stages after a DM revision.
 
 === SECTION_BREAK ===
