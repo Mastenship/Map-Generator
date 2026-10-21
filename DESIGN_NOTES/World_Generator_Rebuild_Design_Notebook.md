@@ -426,6 +426,16 @@ The Map Generator can author **more physical, environmental, historical and sens
 
 **Status:** This is a working scientific-foundation companion, not approval of every discipline, numeric rule, stage allocation or 17-COT count. The historical source and current pass-through draft remain intact.
 
+## Outdoor COT pass-through — expanded working sequence and grid choice (2026-10-21)
+
+**New companion proposal:** [Outdoor COT Pass-through Working Draft](https://github.com/Mastenship/Map-Generator/blob/main/DESIGN_NOTES/OUTDOOR_COT_PASSTHROUGH_WORKING_DRAFT.txt). This extends the original nine outdoor authoring stages to a **provisional sixteen authoring COTs plus final assembly**, with each stage's principal scientific disciplines, causal questions, scratchpad inputs/outputs and ownership boundaries. The old source remains unchanged. The proposed progression is scope/reference frame; inherited or newly established physics; geology; topography; climate; hydrology; soils; ecology; natural resources/hazards; human history and land use; asset library; settlement; infrastructure; landmarks; landscape taphonomy; present environmental conditions; final synthesis. Stage count and exact assignments remain open for DM review.
+
+**Coordinate recommendation, not a decision:** Favor one shared, measured geographic reference for actual feature geometry (points, free-form lines/curves, polygons, elevation fields and explicit parent-child transforms). Derive the existing flat-top hex map and a measured/military-style square-grid view as **optional visual/indexing overlays** of those same facts. This avoids forcing roads, coastlines and rivers to follow hex-edge centers. Real UTM/MGRS is Earth-specific; a fictional world may adopt east/north measured coordinates without claiming its actual geodetic zones. The DM has not yet chosen canonical geometry, world projection, grid size or map resolution.
+
+**Practical test:** Generate a small coherent watershed with a ridge, stream, ecological transition, farm or settlement, travel routes and normal evidence of land use. Render the identical geometry through hex, measured-square and gridless views; attach one local/indoor submap. Judge spatial continuity, scientific causality, parser potential and DM readability before ratifying grid architecture.
+
+**Standing collaboration rule:** Each COT reads the relevant current scratchpad, writes its complete output immediately, sends the DM an update to inspect or correct, and later stages use that corrected state. The scratchpad prevents loss of prior authored layers but does not give the active LLM infinite context. No ChaOS-style mutation governance is imported into the authoring workflow.
+
 ## Reference materials
 
 - Archived reference **[REFERENCE_MAPS/Black_Mesa_Facility.txt](https://github.com/Mastenship/Map-Generator/blob/main/REFERENCE_MAPS/Black_Mesa_Facility.txt)** (source: user-provided `Black_Mesa_Facility(1).txt`, preserved byte-for-byte): deliberately simple historical baseline for room connectivity, sensory detail, occupants' personal traces, and emergent evidence of a containment disaster; not a target complexity level. Room-local coordinates and overall geometry still need formalization.
