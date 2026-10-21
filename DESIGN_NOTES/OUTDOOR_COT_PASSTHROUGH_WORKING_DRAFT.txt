@@ -42,7 +42,7 @@ Do not fabricate high-precision measurements, engineering safety certifications 
 DM_Role:
 User-supplied constraints and corrections persist; a rerun must use the corrected active scratchpad, not silently reintroduce earlier generated choices.
 Rendering:
-Exact geographic facts are separate from the map grid, which is a presentation/indexing choice. One world record may be displayed with hexes, measured-square gridlines, or no grid.
+Exact geographic facts are separate from the map grid, which is a presentation/indexing choice. The current working direction is a single measured square-grid coordinate system shared by indoor and outdoor mapping, with optional visibility of grid and anchor overlays. Retain the hex scripts as historical references, not a second mandatory authoring geometry.
 Context:
 The scratchpad stores cumulative results; the LLM still has finite context. Read pertinent saved layers and stable references rather than assuming everything fits in an active prompt.
 
@@ -52,11 +52,11 @@ The scratchpad stores cumulative results; the LLM still has finite context. Read
 
 [Open_Design_Decision]
 Question:
-Should the outdoor map's canonical geometry be tied directly to a hex lattice, or use measured geographic coordinates with optional hex indexing?
+What exact measured square-coordinate convention, reference origin and world unit should be shared across indoor/outdoor maps?
 Current_Decision:
 OPEN
 Recommended_Direction:
-Represent actual positions and shapes in a shared measured coordinate space; derive display hexes, square coordinates and other overlays as alternative views.
+Use measured locations on the existing square-grid design as the principal common authoring reference. Keep SVG cell dimensions constant and vary their physical scale by map; do not require a parallel hex-coordinate authoring system.
 Status:
 RECOMMENDATION_NOT_RATIFIED
 
@@ -81,12 +81,32 @@ Measured_Square_View:
 - The existing square-grid tool provides a graphical starting point, not a completed world projection.
 Unresolved_Details:
 - Absolute world geodesy or projection choice; local-versus-global transforms; axis directions; units and orientation.
-- Fixed cell width for any particular hex overlay and whether multiple zoom resolutions are supported.
-- Cell indexing/offset and hex orientation on the final presentation.
+- Square-grid cell physical width at each outdoor map scale, with 100-pixel drawing squares available as the common visual standard.
+- Square-grid labeling, indexing, edge-midpoint anchors and relation to shared world coordinates.
 - Renderer API for drawing vector features and compositing transparent overlays.
 - Spatial precision appropriate to a continental map versus a street or room map.
 Scale_Principle:
 Do not represent every visible blade of grass, chair or odor plume on a mile-scale regional map. Give regional phenomena appropriate resolution, and use linked local/site/indoor maps for finer detail without losing physical parent-location ties.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_SCALE_AND_OUTDOOR_UNIT_COMPATIBILITY ===
+
+[Current_Direction]
+Indoor_Grid:
+The DM has directed the indoor rebuilding notes toward a 2-meter by 2-meter square displayed at 100 by 100 SVG pixels. This provides reference points around which physical walls of genuine, varied thickness can be modeled. Grid center, edge-midpoint and lower-offset dots remain available; they are not mandatory wall/road/river endpoints.
+Outdoor_Grid:
+The current working preference is to reuse the same square-grid architecture outdoors, with physical distance per 100-pixel square varying with map extent and resolution. This is not a requirement that country maps use 2-meter cells.
+Cross_Map_Units:
+Using meters for indoor structural dimensions naturally favors a metric-compatible outdoor coordinate system, but the global outdoor unit convention and final origin/reference system have not yet been expressly ratified. Record the selected units on each map, and never silently equate a 100-pixel square indoors with a 100-pixel square outdoors.
+Hex_Source:
+Preserve original HEX Python/SVG code as a reference; avoid maintaining two live map-addressing systems unless the DM later wants that feature.
+Rendering_Requirement:
+The display grid and optional dots are a visual addressing aid. Real terrain edges, river paths, roads, walls and openings may use measured sub-cell coordinates and are not forced to align to anchors.
+Scientific_Continuity:
+A high-level location and more detailed child area must refer to compatible real positions irrespective of their display scale.
+Status:
+Indoor 2-meter square is the DM-directed working choice. Outdoor unit/projection/reference-origin details remain open; square grid is the present preferred architecture.
 
 === SECTION_BREAK ===
 
@@ -656,7 +676,7 @@ Black Mesa is an indoor reference for emergent human traces; use similarly ordin
 [Still_Open]
 Decisions:
 - Confirm the number and grouping of outdoor COTs; sixteen is the current provisional decomposition.
-- Choose a primary measured coordinate convention, or accept/reject the alternative of canonical hex-cell geometry.
+- Confirm final measured square-coordinate conventions and geographic reference origin; earlier hex tools are retained but not currently preferred as a separate primary grid.
 - Define parent-child frames, world-scale geodesy, transform precision and map boundaries.
 - Decide what physical measurements are necessary at each regional versus local zoom level.
 - Determine baseline environment timing and weather defaults when no starting time is specified.
