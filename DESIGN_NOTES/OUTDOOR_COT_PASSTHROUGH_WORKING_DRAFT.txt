@@ -50,6 +50,20 @@ The scratchpad stores cumulative results; the LLM still has finite context. Read
 
 === SECTION: COORDINATE_AND_RENDERING_DECISION ===
 
+[Recorded_Square_Grid_Naming]
+Document:
+DESIGN_NOTES/GRID_COORDINATES_AND_MAP_READING_WORKING_REFERENCE.md
+Grid_Naming:
+CELL(E,N) identifies a square: E increases right/east, N increases up/north; a standard 20 by 20 sheet with southwest cell CELL(0,0) has northwest CELL(0,19). Read right, then up.
+Measured_Points:
+A cell address is not a measured POINT(E_m,N_m), which requires a named physical reference frame, nor an SVG pixel position, whose Y direction points down.
+Sheet_Continuity:
+At the same scale a neighboring 20-column sheet immediately east may begin CELL(20,0). At different resolutions, preserve measured positions rather than assuming identical cell numbers denote identical places.
+Existing_Tool:
+GRID_TOOLS/SQUARE/Square_Grid_With_Edge_Midpoints.py now labels cells north-up and supports starting cell index offsets through grid_origin_e and grid_origin_n. Existing 100-pixel squares and markers remain.
+Status:
+Current working naming and northing conventions recorded; geographic reference frame and outdoor physical unit and scale choices remain open.
+
 [Open_Design_Decision]
 Question:
 What exact measured square-coordinate convention, reference origin and world unit should be shared across indoor/outdoor maps?
