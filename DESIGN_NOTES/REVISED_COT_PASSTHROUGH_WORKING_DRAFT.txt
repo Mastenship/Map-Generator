@@ -170,6 +170,16 @@ Working pass-through clarification; file/library serializations and exact parent
 
 === SECTION: INDOOR_GRID_AND_WALL_THICKNESS_WORKING_SCALE ===
 
+[Shared_Coordinate_Reference]
+Document:
+DESIGN_NOTES/GRID_COORDINATES_AND_MAP_READING_WORKING_REFERENCE.md
+Grid_Reading:
+Read right, then up. CELL(E,N) uses integer square addresses with increasing E to the right/east and increasing N toward the top/north; the southwest cell of a default sheet is CELL(0,0).
+SVG_Conversion:
+Python draws SVG Y downward; it must invert N when locating labels/physical positions. The source GRID_TOOLS/SQUARE/Square_Grid_With_Edge_Midpoints.py now uses (grid_origin_e, grid_origin_n) as southwest cell indices.
+Scope:
+Grid-square labels, shared-edge markers, measured world points and SVG drawing pixels are distinct kinds of reference. The booklet is common reading guidance, not required to be repeated verbatim in every COT.
+
 [DM_Directed_Working_Scale]
 Current_Indoor_Square:
 2 meters by 2 meters of physical space.
