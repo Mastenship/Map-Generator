@@ -1,12 +1,25 @@
 def rect_grid_svg_lines_points(
-    cols, rows, side=50, stroke="#333", fill="none",
+    cols, rows, side=100, stroke="#333", fill="none",
     stroke_width=1, font_size=9, font_color="#333",
     dot_color="#333", dot_radius=1,
-    edge_dot_color="#c00"
+    edge_dot_color="#c00", grid_origin_e=0, grid_origin_n=0
 ):
+    """Draw a north-up map sheet using an east/north square-grid convention.
+
+    Grid labels are (E,N): E increases right/east; N increases up/north.
+    (grid_origin_e, grid_origin_n) is the SOUTHWEST cell address in
+    integer cell indices, not meters or full real-world UTM coordinates.
+    An adjacent 20-column sheet to the east starts at grid_origin_e=20.
+    Shared edge midpoint dots are emitted once. These dots are visual
+    reference anchors; physical features may use sub-cell coordinates.
+    SVG downward-positive Y is a rendering coordinate, not northing.
     """
-    SVG for rectangular grid using straight lines (not polygons), with label, two dots, and edge midpoint dots per cell.
-    """
+    if not isinstance(cols, int) or not isinstance(rows, int) or cols <= 0 or rows <= 0:
+        raise ValueError("cols and rows must be positive integers")
+    if not isinstance(grid_origin_e, int) or not isinstance(grid_origin_n, int):
+        raise ValueError("grid origins must be integer cell indices")
+    if side <= 0:
+        raise ValueError("side must be positive")
     width = cols * side
     height = rows * side
 
@@ -24,12 +37,14 @@ def rect_grid_svg_lines_points(
     rendered_midpoints = set()
 
     for col in range(cols):
-        for row in range(rows):
+        for svg_row in range(rows):
+            easting_cell = grid_origin_e + col
+            northing_cell = grid_origin_n + (rows - 1 - svg_row)
             cx = round(col * side + side / 2)
-            cy = round(row * side + side / 2)
+            cy = round(svg_row * side + side / 2)
 
             # Cell label
-            svg.append(f'<text x="{cx}" y="{cy - int(side*0.4)}" font-size="{font_size}" fill="{font_color}" text-anchor="middle" alignment-baseline="hanging">({col},{row})</text>\n')
+            svg.append(f'<text x="{cx}" y="{cy - int(side*0.4)}" font-size="{font_size}" fill="{font_color}" text-anchor="middle" alignment-baseline="hanging">({easting_cell},{northing_cell})</text>\n')
             # Center circle
             svg.append(f'<circle cx="{cx}" cy="{cy}" r="{dot_radius}" fill="{dot_color}"/>\n')
             # Bottom circle, 40% down from center toward bottom
@@ -54,6 +69,7 @@ def rect_grid_svg_lines_points(
 
 if __name__ == "__main__":
     svg_code = rect_grid_svg_lines_points(cols=20, rows=20, side=100, dot_radius=1, edge_dot_color="#c00")
-    with open("rect_grid_labels_lines_points.svg", "w") as f:
+    output_path = "Square_Grid_With_Edge_Midpoints.svg"
+    with open(output_path, "w", encoding="utf-8", newline="\n") as f:
         f.write(svg_code)
-    print("SVG generated: Square_Grid_With_Edge_Midpoints.svg")
+    print(f"SVG generated: {output_path}")
