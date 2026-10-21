@@ -1,0 +1,641 @@
+=== SECTION: REVISED_COT_PASSTHROUGH_WORKING_DRAFT ===
+
+[Document_Status]
+Status:
+PROPOSED_WORKING_STRUCTURE
+Date:
+2026-10-21
+Reference_Source:
+SOURCE/merged_output.txt
+Preservation_Rule:
+Do not replace or rewrite the historical merged source. Develop revised COTs as distinct new modules after the pass-through responsibilities are reviewed.
+Purpose:
+Define a coherent execution sequence, stage ownership, scratchpad destinations, and final assembly boundary for the Map Generator. This is a pass-through contract draft, not the full text of the replacement COTs and not an autonomous runtime.
+
+=== SECTION_BREAK ===
+
+=== SECTION: DESIGN_FOUNDATIONS ===
+
+[Established_Requirements]
+Map_Type:
+Static world or building authored before play; indoor maps may originate standalone or from an outdoor parent map.
+Core_Workflow:
+- DM supplies requirements and optional parent-map context.
+- A COT reads the relevant current scratchpad sections and domain foundations.
+- That COT immediately writes its output to the corresponding scratchpad section.
+- The DM receives a copy of the added or changed content and can correct it directly.
+- Subsequent COTs use the scratchpad after those corrections.
+- Once the required layers are populated and reconciled, the LLM assembles the final map.
+No_Precommit_Gate:
+Do not substitute ChaOS's governance, proposal registry, or single-writer procedure for this DM-stepped authoring workflow.
+Output_Use:
+Preserve a complete underlying static world description; produce an intelligible map for a DM and future parser-facing map data without confusing those audiences.
+Formatting:
+Use the original LLM_FORMATTING_GUIDELINES_TEMPLATE: section markers, section breaks, instruction markers, labeled fields, contiguous hyphenated lists, and isolated special markers. Do not replace the COT language with YAML, JSON, or pipe tables.
+Narrative_Depth:
+A location's construction, history, occupation, ordinary routines, significant events if any, and accumulated evidence should inform physical details. Do not mandate a plot, tragedy, mystery, or person-specific sentimental item for each place.
+Perception_Boundary:
+The generator writes world facts and starting conditions, not character-specific knowledge. A future parser delivers perceptible and known slices according to character location, abilities, gear, barriers, and authorized in-play changes.
+
+=== SECTION_BREAK ===
+
+=== SECTION: GENERAL_PASS_THROUGH_RULES ===
+
+[Pass_Through_Contract]
+Inputs:
+- Consult the current active scratchpad, not merely the previous COT's isolated response.
+- Read the specific earlier sections required by the current responsibility.
+- Preserve relevant user-authored constraints, DM corrections, and accepted world facts.
+- Treat imported outdoor context as optional for standalone indoor generation.
+Outputs:
+- Record a conceptually meaningful explanation and the physical or spatial facts owned by that stage.
+- Give each significant physical feature a stable reference when later layers must address, move, modify, render, hide, inspect, or connect to it.
+- Record exact locations, spatial extents, elevation, dimensions, and relationships whenever a decision is spatial and renderable.
+- Refer to an existing object, wall, opening, zone, or asset definition by its established identity instead of independently reinventing it.
+- Mark genuinely unspecified detail as unspecified; do not equate omitted data with a positive assertion that the feature is absent.
+Update:
+- Write the completed Output_Data to the assigned active scratchpad section immediately.
+- Append the actual execution and update to GENERATION_LOG after each pass. Do not pre-populate the log with invented execution timestamps.
+- Supply the DM the corresponding newly written or changed information.
+- The DM may directly revise the scratchpad before the next stage.
+- On a rerun, use current DM-corrected content as input and identify replaced or dependent facts; do not silently restore earlier generated values.
+Dependency_Handling:
+- If later work makes an earlier placement impossible, revise the relevant earlier section in cooperation with the DM and update dependent sections.
+- Check relevant physical contradictions as needed and at final assembly; do not impose a ChaOS-like governance cycle.
+Early_Requirements:
+- Distinguish rough requirements used before construction from exact later placements. Preliminary requirements may be refined rather than copied as final geometry.
+Spatial_Truth:
+- Keep shared wall, door, and opening identities canonical; do not permit two neighboring cells to independently disagree about the same physical boundary.
+- Keep world asset definitions, specific placed objects, and visual drawing stamps separate.
+Rendering:
+- A reusable deterministic renderer may create DM-facing SVG overlays on grid paper from the authored spatial description. Rendering never independently invents or authorizes world facts.
+- Early drawings are optional previews of completed layers; the final assembled map remains the publication step.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_PASSTHROUGH_REVIEW ===
+
+[Source_Sequence]
+Stages_In_Historical_Source:
+- COT_PHYSICS
+- COT_TERRAIN_GENERATOR
+- COT_CLIMATE_GENERATOR
+- COT_HYDROLOGY_GENERATOR
+- COT_ASSET_LIBRARY_BUILDER
+- COT_BIOME_GENERATOR
+- COT_SETTLEMENT_LOGIC
+- COT_INFRASTRUCTURE_LOGIC
+- COT_LANDMARK_POPULATOR
+- FINAL_MAP_DATA
+
+[Corrected_Outdoor_Sequence]
+Stages:
+- 01 COT_PHYSICS: physical laws and global constraints; writes GENERATED_PHYSICS.
+- 02 COT_TERRAIN_GENERATOR: landforms, rocks, relief and elevation; writes GENERATED_TERRAIN.
+- 03 COT_CLIMATE_GENERATOR: weather patterns, temperature, winds and precipitation; writes GENERATED_CLIMATE.
+- 04 COT_HYDROLOGY_GENERATOR: catchments, water bodies, rivers, drainage and water routes; writes GENERATED_HYDROLOGY.
+- 05 COT_BIOME_GENERATOR: ecological zones, resources and recovery; writes GENERATED_BIOME.
+- 06 COT_ASSET_LIBRARY_BUILDER: reusable cultural, material and environmental definitions, history and variants; writes ACTIVE_ASSET_LIBRARY.
+- 07 COT_SETTLEMENT_LOGIC: settlement purpose, site choices, inhabitants, founding and development; writes GENERATED_SETTLEMENTS.
+- 08 COT_INFRASTRUCTURE_LOGIC: roads, bridges and communications links consistent with settlements and terrain; writes GENERATED_INFRASTRUCTURE.
+- 09 COT_LANDMARK_POPULATOR: historically and geographically grounded points of interest; writes GENERATED_LANDMARKS.
+- 10 FINAL_MAP_DATA: assemble the outdoor map from the corrected scratchpad, not from ad hoc redrawing.
+
+[Source_Defects_And_Revisions]
+Biome_Dependency:
+Source asset library needs Biome_Data even though COT_BIOME_GENERATOR follows it. Correct by placing biome generation first.
+Infrastructure_Format:
+The historical COT_INFRASTRUCTURE_LOGIC section header is combined with instruction text on the same line. Split into conforming marker and instruction lines in any revised copy.
+Physical_Path_Rules:
+The old hydrology rule that a river cannot cross a square center and cannot turn 90 degrees within a square is an authoring convention, not an inherent geographical law. Reconsider it when deciding continuous-vector versus cell/edge geometry.
+Cultural_Causation:
+Do not force environmental determinism; cultural materials and practices may be influenced by migration, exchange, institutions, deliberate design and local adaptation as well as terrain and climate.
+Outdoor_Status:
+The sequence correction is the presently recommended minimum change. An exhaustive redesign of outdoor COT responsibilities and coordinates remains open.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_PASSTHROUGH_OVERVIEW ===
+
+[Revision_Rationale]
+Existing_Indoor_COT_Count:
+9
+Existing_Final_Assembly:
+INDOOR_FINAL_MAP_DATA
+Earlier_Working_Proposal:
+16 authoring COTs plus final assembly
+Revised_Working_Candidate:
+17 authoring COTs plus final assembly
+Count_Status:
+PROPOSED, not DM-approved or implementation-final.
+Main_Changes:
+- Move requirements, everyday occupancy, and historical context ahead of structural layout as inputs.
+- Generate asset definitions early enough to support building materials and furniture, and extend them in later stages if necessary.
+- Place room geometry and circulation before detailed utility routing, furnishing and sensory fields.
+- Record physical sources and operating conditions before deriving environmental fields.
+- Keep lived-in details and possible event traces causally grounded, without forcing dramatic storytelling.
+- Assemble one finalized static map with a DM-facing spatial rendering and a rich machine-consumable map packet.
+Method:
+Distinct scientific, historical and domain foundations belong inside the full individual COT texts. This file only defines the order and the principal pass-through responsibilities.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_01_FOUNDATIONAL_PARAMETERS ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_FOUNDATIONAL_PARAMETERS
+Owns:
+Building or site identity, requested purpose, overall scale, orientation, technological period, cultural premises, user constraints and contextual assumptions.
+Reads:
+User prompt, generation parameters, optional parent outdoor asset and environment.
+Writes_To:
+INDOOR_GENERATED_PARAMETERS
+Passes_Forward:
+- Primary purpose and building/site type.
+- Desired size, levels, gross dimension constraints and baseline indoor grid scale.
+- Local-world assumptions, technological and cultural context.
+- Parent-map tie and placement if provided; otherwise standalone reference frame.
+- Nonnegotiable DM facts, constraints and stated unknowns.
+Scientific_Foundations:
+Architectural functionalism; building science; historical archaeology of structures.
+Boundary:
+Do not force generation of an entire outdoor world before a standalone building.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_02_SITE_AND_SUBSTRATE ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_SITE_AND_SUBSTRATE
+Owns:
+Immediate site and ground realities that constrain the building.
+Reads:
+INDOOR_GENERATED_PARAMETERS; optional parent terrain, climate and hydrology data.
+Writes_To:
+INDOOR_GENERATED_SITE_AND_SUBSTRATE
+Passes_Forward:
+- Ground composition, relief, bearing or foundation constraints.
+- Water table, runoff, flooding and local drainage constraints.
+- Adjacent buildings, terrain edges, buried structures and access conditions.
+- Exposure to light, prevailing winds, weather and nearby sources.
+Scientific_Foundations:
+Geotechnics; geology; hydrology; environmental site analysis.
+Boundary:
+Do not invent a geological survey precision the authoring inputs cannot support.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_03_HABITATION_AND_HISTORY ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_HABITATION_AND_HISTORY
+Owns:
+Who the site is meant for, how its occupants normally use it, and salient construction/use history that will shape later decisions.
+Reads:
+INDOOR_GENERATED_PARAMETERS; INDOOR_GENERATED_SITE_AND_SUBSTRATE; DM facts.
+Writes_To:
+INDOOR_GENERATED_HABITATION_AND_HISTORY
+Passes_Forward:
+- Users or occupant groups, everyday activities, movement habits, social functions and personal requirements.
+- Original intended operations, changes of use, maintenance or renovations.
+- Relevant past incidents and causal implications where the setting warrants them.
+- Ordinary personal practices and degrees of current occupation or abandonment.
+- Initial temporal frame for the static map and unresolved historical details.
+Scientific_Foundations:
+Human geography; environmental psychology; material culture; social and architectural history.
+Boundary:
+A normal occupied home need not receive a calamity, mystery or scripted plot. Establish causes and personal life, not artificially mandatory drama. Historical truth is not automatically character-visible.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_04_ARCHITECTURAL_SPACE_PROGRAM ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_SPACE_PROGRAM
+Owns:
+Preconstruction inventory of necessary spaces and their size, adjacency and functional requirements.
+Reads:
+INDOOR_GENERATED_PARAMETERS; INDOOR_GENERATED_SITE_AND_SUBSTRATE; INDOOR_GENERATED_HABITATION_AND_HISTORY.
+Writes_To:
+INDOOR_GENERATED_SPACE_PROGRAM
+Passes_Forward:
+- Required rooms or functional zones, roughly sized and grouped.
+- Public/private/separation/fire/ventilation and circulation requirements.
+- Expected entrances, stairways, route classes and level connections.
+- Preliminary fixed installations, utilities, source/sink locations and structural clearances.
+- Required access for inhabitants and intended equipment or technology.
+Scientific_Foundations:
+Architectural programming; anthropometrics; building circulation; task and workflow analysis.
+Boundary:
+This is not exact floor geometry. It prevents constructing load-bearing walls before knowing why the building exists.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_05_ASSET_LIBRARY_BUILDER ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_ASSET_LIBRARY_BUILDER
+Owns:
+Reusable building-specific definitions, adapted from available imported assets or created locally.
+Reads:
+INDOOR_GENERATED_PARAMETERS; INDOOR_GENERATED_HABITATION_AND_HISTORY; INDOOR_GENERATED_SPACE_PROGRAM; optional ACTIVE_ASSET_LIBRARY.
+Writes_To:
+INDOOR_ACTIVE_ASSET_LIBRARY
+Passes_Forward:
+- Material, construction, furniture, machine and object prototypes needed for likely subsequent placements.
+- Definitional properties, cultural variants, lineage and relevant source histories.
+- Distinctions between definition/prototype, local variant and individual placed instance.
+- Reusable properties useful to perception, physical behavior, historical interpretation or future object interactions.
+Scientific_Foundations:
+Material culture; archaeology; technology history; classification and reuse.
+Boundary:
+May be extended when new kinds of assets arise later. Definitions do not automatically inherit coordinates, damage or personal meaning from an unrelated source map. Visual SVG stamps are a separate representational library.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_06_STRUCTURAL_SHELL ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_STRUCTURAL_SHELL
+Owns:
+Physical supports, foundations, major walls and primary structure.
+Reads:
+INDOOR_GENERATED_SITE_AND_SUBSTRATE; INDOOR_GENERATED_SPACE_PROGRAM; INDOOR_ACTIVE_ASSET_LIBRARY; prior parameters.
+Writes_To:
+INDOOR_GENERATED_STRUCTURAL_SHELL
+Passes_Forward:
+- Footprint/perimeter, load-bearing wall and support identities, locations, material and physical thickness.
+- Foundation, major beams, columns, spans, floors and structural safety constraints.
+- Anticipated shafts, large equipment clearances, hearth/chimney routes and stairs from the space program.
+- Clear references to shared edges and load-bearing boundaries.
+Scientific_Foundations:
+Structural mechanics; load paths; historical building practice; material engineering.
+Boundary:
+Make structural layout exact enough to render, while keeping anticipated service openings provisional until later stages resolve them.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_07_ENVELOPE_AND_LEVELS ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_ENVELOPE_AND_LEVELS
+Owns:
+Exterior closure, roof, floor/ceiling relationships and vertical space geometry.
+Reads:
+INDOOR_GENERATED_STRUCTURAL_SHELL; INDOOR_GENERATED_SPACE_PROGRAM; site, materials and parameters.
+Writes_To:
+INDOOR_GENERATED_ENVELOPE_AND_LEVELS
+Passes_Forward:
+- Roof shape and materials; exterior cladding, weather barrier, exterior glazing.
+- Floor elevations, ceiling heights, lofts, balconies, voids, shafts and sections.
+- External windows and preliminary vertical access interface positions.
+- Thermal/moisture/acoustic properties of the physical enclosing envelope where defined.
+Scientific_Foundations:
+Building envelope physics; historical roofing; structural and vertical geometry.
+Boundary:
+Separate physical shell and height from later lighting/temperature outcomes.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_08_ROOM_GEOMETRY ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_ROOM_GEOMETRY
+Owns:
+Actual room and zone footprints and nonstructural partitions.
+Reads:
+INDOOR_GENERATED_SPACE_PROGRAM; INDOOR_GENERATED_STRUCTURAL_SHELL; INDOOR_GENERATED_ENVELOPE_AND_LEVELS; habitation and site.
+Writes_To:
+INDOOR_GENERATED_ROOM_GEOMETRY
+Passes_Forward:
+- Named room identities and exact polygons/cell coverage by level.
+- Partitions, usable floor area, functional boundaries and room extents.
+- Intended major furniture/fixture clearance zones.
+- Consistent function-to-room assignment, including shared or multifunctional spaces.
+Scientific_Foundations:
+Space planning; human factors; occupancy and building typology.
+Boundary:
+Keep general functions from space program distinct from their exact spatial realization; rooms are not required to be rectangular or to fit a single cell center.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_09_ACCESS_AND_CIRCULATION ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_ACCESS_AND_CIRCULATION
+Owns:
+Traversable routes and the architecture of access between spaces.
+Reads:
+INDOOR_GENERATED_ROOM_GEOMETRY; structural shell; envelope and levels; space program.
+Writes_To:
+INDOOR_GENERATED_ACCESS_AND_CIRCULATION
+Passes_Forward:
+- Hallways, stairs, ladders, ramps, elevators, crawl passages and connecting paths.
+- Door and window opening references, thresholds and traversability.
+- Opening dimensions, hinge/swing or sliding motion, clearances and baseline state.
+- Intended privacy, security and environmental separation at access boundaries.
+Scientific_Foundations:
+Circulation design; ergonomics; egress; accessibility within setting.
+Boundary:
+Door and passage geometry modifies or references the same canonical wall/opening record as the structural layers; do not invent a second independent wall. A hallway route need not run only through arbitrary midpoint anchors when continuous footprint geometry is required.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_10_FIXED_INSTALLATIONS ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_FIXED_INSTALLATIONS
+Owns:
+Nonportable built-ins, equipment bases, hearths and integrated installations.
+Reads:
+INDOOR_GENERATED_ROOM_GEOMETRY; access and circulation; space program; asset definitions; structural and envelope layers.
+Writes_To:
+INDOOR_GENERATED_FIXED_INSTALLATIONS
+Passes_Forward:
+- Fixed objects, precise footprints, orientation, height and attachment details.
+- Fireplaces, forge bases, heavy machinery, counters, sinks, integrated storage, altars or unusual technologies.
+- Source/sink/service requirements and constraints for the utility pass.
+- Function, interaction affordances and relevant provenance.
+Scientific_Foundations:
+Industrial/workflow engineering; architectural fit-out; device and artifact typology.
+Boundary:
+Avoid hardwiring a room's entire sensory result into each fixture. Describe the fixture and what it may emit or require.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_11_UTILITIES_AND_FLOWS ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_UTILITIES_AND_FLOWS
+Owns:
+Connected physical infrastructure and conduit routes.
+Reads:
+INDOOR_GENERATED_FIXED_INSTALLATIONS; access, rooms, shell, envelope, site and preliminary systems requirements.
+Writes_To:
+INDOOR_GENERATED_UTILITIES_AND_FLOWS
+Passes_Forward:
+- Water supply, drainage, waste, smoke/flue exhaust, ventilation ducts and electrical/technological/magical services when appropriate.
+- Source, destination, pathway, elevation/slope, connections, barriers and operating capacity where specified.
+- Service penetrations in structure and their relationships to vents, walls, roof and fixed equipment.
+- Operating prerequisites for later environmental sources.
+Scientific_Foundations:
+Fluid mechanics; basic building services; ventilation; infrastructure engineering.
+Boundary:
+"Plumbing" in the old COT was broader than water and included chimneys and concealed passages. Route concealed *movement* passages through circulation/security; preserve real physical ducts as utilities. Do not forbid all cell-center crossings simply because the old diagram convention used edges.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_12_MOVABLE_CONTENTS ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_MOVABLE_CONTENTS
+Owns:
+Furniture, personal possessions, tools, supplies and other movable items at the initial map time.
+Reads:
+INDOOR_GENERATED_HABITATION_AND_HISTORY; room geometry; circulation; fixed installations; asset library.
+Writes_To:
+INDOOR_GENERATED_MOVABLE_CONTENTS
+Passes_Forward:
+- Unique objects and defined collections, coordinates, size, orientation, condition and containment.
+- Fixtures versus removable assets, container contents and meaningful object relationships.
+- Placement shaped by actual work, domestic routines, priorities and personal significance if established.
+- Interaction affordances and any relevant mechanical item specifications for future consumers.
+Scientific_Foundations:
+Material culture; ergonomics; domestic/industrial use patterns; archaeology of activity areas.
+Boundary:
+Do not give every object secret narrative importance, magical power, or a character alteration. A person caring about an object is distinct from that object's physical properties.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_13_TAPHONOMY_AND_TRACES ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_TAPHONOMY_AND_TRACES
+Owns:
+Current physical consequences of time, use, accidents, repairs and any historically established incidents.
+Reads:
+INDOOR_GENERATED_HABITATION_AND_HISTORY; current structural, surface, access, room, installation and movable-content records.
+Writes_To:
+INDOOR_GENERATED_TAPHONOMY_AND_TRACES
+Passes_Forward:
+- Scratches, wear, dust, corrosion, fractures, leaks, residue, repairs and altered finishes.
+- Displaced possessions, damage patterns, emergency barricades or interrupted tasks where motivated by established context.
+- Cross-references to the affected specific physical features and the event or ongoing process explaining them, when known.
+- The present condition of objects and spaces, distinguished from as-built state.
+Scientific_Foundations:
+Taphonomy; forensic inference with appropriate uncertainty; material degradation; building archaeology.
+Boundary:
+Black Mesa's inferred containment disaster is an emergent pattern in object placement and damage, not evidence every map needs a preset plot. The historical explanation should not automatically become visible knowledge to an exploring character. Revisit affected prior sections where a physical state change must alter canonical geometry.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_14_ECOLOGY_AND_BIOLOGY ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_ECOLOGY_AND_BIOLOGY
+Owns:
+Biological systems and evidence occupying the authored starting environment.
+Reads:
+Site conditions; materials, rooms, utilities; habitation and taphonomy; contents.
+Writes_To:
+INDOOR_GENERATED_ECOLOGY_AND_BIOLOGY
+Passes_Forward:
+- Indoor plants, fungi, mold, pests, nests, organic contamination and biological residues.
+- Biological sources, plausible spread paths and relevant physical affordances.
+- Occupancy-related or abandonment-related evidence grounded in local conditions.
+Scientific_Foundations:
+Microecology; decomposition; biological colonization; environmental health.
+Boundary:
+The static generator establishes the starting state, not autonomous animal/NPC schedules during actual gameplay.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_15_SECURITY_HAZARDS_AND_INTERACTIONS ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_SECURITY_HAZARDS_AND_INTERACTIONS
+Owns:
+Locks, safeguards, intentional concealment, dangers and mechanically meaningful interactions.
+Reads:
+Room geometry; circulation; installations; utilities; contents; habitation/history; environmental and biological prerequisites available so far.
+Writes_To:
+INDOOR_GENERATED_SECURITY_HAZARDS_AND_INTERACTIONS
+Passes_Forward:
+- Access control, locks, hidden rooms, traps, hazard sites, triggers and safeguards.
+- Specific geometric footprints, affected objects, baseline armed/active states and consequence mechanisms.
+- Clues or physical evidence where established, without presuming a character notices or correctly interprets them.
+- Links to relevant emitted hazards or environmental conditions for the next source pass.
+Scientific_Foundations:
+Security design; mechanical systems; physical hazard analysis; forensic material evidence.
+Boundary:
+A secret remains an objective feature in the authored map, not an automatically revealed item in the character-visible parser slice. Correct a prior layer if discovering a meaningful geometry or service contradiction.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_16_ENVIRONMENTAL_SOURCES ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_ENVIRONMENTAL_SOURCES
+Owns:
+Explicit causes of signals, energy and ambient changes at the map's fixed starting conditions.
+Reads:
+All relevant placed geometry, materials, installations, utility networks, movable items, biological sources, hazards and weather exposure.
+Writes_To:
+INDOOR_GENERATED_ENVIRONMENTAL_SOURCES
+Passes_Forward:
+- Light, heat, sound, odor, vibration, radiation, electromagnetic and setting-specific or magical emission sources.
+- Positions, strengths or qualitative bands, operating conditions, intermittency, directions and occlusion constraints where known.
+- Whether the source is on, off, intermittent, residual or contingent at the map's chosen starting time.
+- Physical or mechanical parameters needed by later parser/renderer queries, with units where meaningful.
+Scientific_Foundations:
+Optics; thermodynamics; acoustics; source-emission mechanisms; relevant setting physics.
+Boundary:
+A source is not the same as the environmental field it produces or the subset an observer perceives.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_STAGE_17_ENVIRONMENTAL_FIELDS ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_ENVIRONMENTAL_FIELDS
+Owns:
+Integrated environmental conditions of the completed authored building.
+Reads:
+Environmental sources; shell, envelope, openings and baseline door states; rooms, materials, utilities and relevant biological/environmental facts.
+Writes_To:
+INDOOR_GENERATED_ENVIRONMENTAL_FIELDS
+Passes_Forward:
+- Room defaults, spatial gradients and exceptions for illumination, temperature, humidity, smoke, odors, acoustics, vibration and air quality.
+- Relationships between sources, barriers, airflow routes, shielding and material properties.
+- Relevant multi-modal sensory affordances, including modalities beyond those currently consumed by ChaOS.
+- Explicit assumptions, coarse approximations and genuinely unknown conditions.
+Scientific_Foundations:
+Building physics; psychrometrics; acoustics; airflow; optics; transport and attenuation.
+Boundary:
+Do not assign an observer's knowledge or visual line of sight as if it were a world property. No requirement for exhaustive CFD, ray tracing, or full real-world numeric simulation. Reconcile with earlier environmental requirements, but do not place final outcome calculation before all major sources and barriers exist.
+
+=== SECTION_BREAK ===
+
+=== SECTION: FINAL_INDOOR_MAP_ASSEMBLY ===
+
+[Stage_Contract]
+COT_Name:
+COT_INDOOR_FINAL_MAP_ASSEMBLY
+Owns:
+Synthesis of the current, DM-corrected scratchpad into one consistent, complete static map package.
+Reads:
+All active indoor scratchpad sections and applicable imported outdoor or asset-library records.
+Writes_To:
+INDOOR_FINAL_MAP_DATA
+Passes_Forward:
+- One identified map, defined orientation and scale, level/elevation relationships and exact physical placement.
+- Canonical named rooms, shared boundaries, door/opening references, navigable transitions and unique object identities.
+- Defaults plus precise local overrides for spatial, material, hazard, object and environmental data.
+- Relevant historical, personal, cultural and sensory facts retained as DM/world data even when hidden from characters.
+- Renderable drawing instructions or spatial geometry usable by a deterministic DM-facing renderer.
+- A DM-viewable layout or render package and a rich parser-facing baseline derived from the same source data.
+Reconciliation:
+- Compare wall/opening references, room boundaries, routes, level connections, clearances, asset instances, environmental source dependencies and corrections.
+- Bring irreconcilable or material ambiguity to the DM instead of silently inventing mutually inconsistent geometry.
+- Fix the source section and dependent outputs if the DM makes a correction.
+Finalization:
+Only publish final output after the required layers have been populated and the DM has the opportunity to make corrections. This is not a proposal-commit gateway for the intermediate COT stages.
+Scope:
+The in-play parser, runtime world-state overlay, game adjudication, character memory/alterations and eventual separate WorldState remain distinct external responsibilities.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCRATCHPAD_REVISION_PLAN ===
+
+[Keep_Existing_Sections]
+Existing_Indoor_Sections:
+- INDOOR_GENERATED_PARAMETERS
+- INDOOR_GENERATED_STRUCTURAL_SHELL
+- INDOOR_ACTIVE_ASSET_LIBRARY
+Existing_Section_Migration:
+- INDOOR_GENERATED_ROOM_FUNCTIONS informs the new INDOOR_GENERATED_SPACE_PROGRAM and INDOOR_GENERATED_ROOM_GEOMETRY; migrate or reconcile instead of automatically deleting its old data.
+- INDOOR_GENERATED_CORRIDOR_NETWORK informs INDOOR_GENERATED_ACCESS_AND_CIRCULATION.
+- INDOOR_GENERATED_MAJOR_ROOMS informs INDOOR_GENERATED_ROOM_GEOMETRY and final room descriptions.
+- INDOOR_GENERATED_PLUMBING_FLOWS informs INDOOR_GENERATED_UTILITIES_AND_FLOWS.
+- INDOOR_GENERATED_KEY_FEATURES informs FIXED_INSTALLATIONS, MOVABLE_CONTENTS, SECURITY_HAZARDS_AND_INTERACTIONS, ECOLOGY_AND_BIOLOGY or TAPHONOMY_AND_TRACES according to actual ownership.
+- INDOOR_GENERATED_ENVIRONMENTAL_CONDITIONS is split into ENVIRONMENTAL_SOURCES and ENVIRONMENTAL_FIELDS; preserve existing descriptions during migration.
+
+[New_Or_Revised_Sections]
+Sections:
+- INDOOR_GENERATED_SITE_AND_SUBSTRATE
+- INDOOR_GENERATED_HABITATION_AND_HISTORY
+- INDOOR_GENERATED_SPACE_PROGRAM
+- INDOOR_GENERATED_ENVELOPE_AND_LEVELS
+- INDOOR_GENERATED_ROOM_GEOMETRY
+- INDOOR_GENERATED_ACCESS_AND_CIRCULATION
+- INDOOR_GENERATED_FIXED_INSTALLATIONS
+- INDOOR_GENERATED_UTILITIES_AND_FLOWS
+- INDOOR_GENERATED_MOVABLE_CONTENTS
+- INDOOR_GENERATED_TAPHONOMY_AND_TRACES
+- INDOOR_GENERATED_ECOLOGY_AND_BIOLOGY
+- INDOOR_GENERATED_SECURITY_HAZARDS_AND_INTERACTIONS
+- INDOOR_GENERATED_ENVIRONMENTAL_SOURCES
+- INDOOR_GENERATED_ENVIRONMENTAL_FIELDS
+
+[Generation_Log_Correction]
+Before:
+The old scratchpad provides a prewritten sequence of timestamp placeholders showing that stages have run.
+After:
+Start with a session-start entry. Append actual stage outputs and DM-directed corrections as they occur; do not imply an unexecuted COT completed. A concise log is enough for current DM/LLM collaboration.
+
+[Version_And_Override_Interpretation]
+Working_Proposal:
+A rerun may replace the owning section when revising that same COT, but must use its current DM-edited active version as input and make the affected changes apparent in the DM's update copy. Prior output should not have higher authority just because it came from an earlier generation pass.
+Not_Adopted:
+A separate audit registry, constitutional approval gate, automatic state-governance solver, or compulsory full-history event sourcing is not required for this authoring system.
+
+=== SECTION_BREAK ===
+
+=== SECTION: IMPLEMENTATION_SEQUENCE_AND_TEST ===
+
+[Recommended_Next_Work]
+First:
+Draft the full COT_INDOOR_FOUNDATIONAL_PARAMETERS COT using the historical scientific foundations and exact LLM formatting conventions.
+Second:
+Draft SITE_AND_SUBSTRATE, HABITATION_AND_HISTORY and SPACE_PROGRAM; populate a real small indoor scratchpad.
+Third:
+Draft structural shell, envelope, room geometry and circulation with spatial references precise enough for a visibly correct floor plan.
+Fourth:
+Demonstrate a basic SVG or equivalent DM-facing drawing with room outlines, one wall, one doorway, multiple furniture instances and a named object. Use the existing square-grid tool if appropriate.
+Fifth:
+Continue building remaining stage COTs and test whether mundane occupancy and a Black Mesa-like disrupted site both produce physically credible and narratively natural evidence.
+Out_Of_Scope_For_Initial_Prototype:
+- Building the entire future map parser.
+- Full ChaOS Inventory or Alterations implementation.
+- Full dynamic WorldState or federation.
+- Bespoke graphical editor or 3D engine.
+
+[Questions_To_Resolve_During_Implementation]
+Open_Items:
+- Choose the final authoring-stage count and exact scientific foundations for each COT.
+- Choose stable geometry/ID conventions for edges, polygons, measured positions, levels, thickness and openings.
+- Choose how DM modifications to early layers are represented cleanly in later outputs.
+- Choose reusable asset definitions and drawing-stamp/renderer conventions.
+- Choose representation of environmental bands, source strengths, uncertainty and starting-time conditions.
+- Decide how much physical and historical fact to include in the compact final-map packet versus referenced asset/zone definitions.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
