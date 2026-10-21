@@ -10,7 +10,7 @@ DESIGN_NOTES/REVISED_COT_PASSTHROUGH_WORKING_DRAFT.txt
 Historical_Source:
 SOURCE/merged_output.txt
 Coverage:
-Nine outdoor authoring COTs, seventeen proposed indoor authoring COTs, and their final map assemblies.
+The nine original outdoor COT scientific models, the proposed sixteen-stage outdoor pass-through (documented separately), seventeen indoor COTs, and final assemblies.
 Intent:
 Specify which scientific and interpretive disciplines each COT should consult, which causal questions it should resolve, and what knowledge must be written into its scratchpad destination. This is not a wholesale replacement of the existing COT bodies or a demand for the model to perform precise engineering simulation.
 Approval:
@@ -54,6 +54,28 @@ Decision_Types:
 - Unspecified or DM-reserved.
 Do_Not_Require:
 Do not mandate every sensory modality, dramatic event, object, person, hidden clue or scientific measurement in every room. Require adequate causal specificity for the actual place being authored.
+
+=== SECTION_BREAK ===
+
+=== SECTION: MULTISCALE_SCIENTIFIC_APPLICATION ===
+
+[Scale_And_Inheritance]
+Foundations:
+Cartography; geographic information science; scale-dependent geomorphology, ecology and human geography; cultural diffusion; urban morphology.
+World_Continuity:
+Each completed map preserves its asset library and established geographic placements. When authoring a more detailed map, inherit relevant source assets and spatial facts before applying the COTs.
+Country_To_Valley:
+A country may establish the river, watershed and settlements. Valley COTs preserve their identities while developing smaller tributaries, banks, farms and local habitats.
+Boundary_Transitions:
+When source landscapes or neighborhoods meet, apply physical, ecological, social and historical explanations. Different materials or cultural influences may blend, coexist or remain sharply separate.
+Asset_Adaptation:
+The child map creates its own asset library with locally adapted assets and source references; unique source-specific positions and histories are not blindly transferred.
+Reasoning_Questions:
+- Which source facts are established and must remain consistent?
+- Which details are genuinely unresolved at this map scale?
+- What causal mechanisms explain transitions and local variation?
+Status:
+Working scientific guidance. See the updated outdoor and indoor pass-through drafts for full responsibilities.
 
 === SECTION_BREAK ===
 
