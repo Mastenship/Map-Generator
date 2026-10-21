@@ -418,6 +418,14 @@ The Map Generator can author **more physical, environmental, historical and sens
 
 **Immediate test:** author a small standalone building with early foundational/planning/geometry stages, then draw it with the existing square-grid/SVG tools before pursuing a full suite. Preserve Black Mesa as the simple benchmark of emergent traces of interrupted lives, not as the map complexity ceiling.
 
+## Scientific foundations of each COT — working companion (2026-10-21)
+
+**New proposal:** [COT Scientific Foundations Working Draft](https://github.com/Mastenship/Map-Generator/blob/main/DESIGN_NOTES/COT_SCIENTIFIC_FOUNDATIONS_WORKING_DRAFT.txt). This separate operational-format file covers all **nine existing outdoor authoring COTs**, the **17 currently proposed indoor authoring COTs**, and **final map assembly**. For every stage it names relevant sciences/interpretive methods, concrete causal questions to resolve from prior scratchpad state, and the facts that should persist. It retains the source template's substantive models where appropriate but explicitly revises unconditional environmental determinism, misapplied indoor central-place theory, blindly imported modern width or drainage standards, forced point-to-point waterways, and formulaic mandatory plot/trap distribution.
+
+**Method:** Domain depth should come from *applying mechanisms to the actual world*, not merely listing scientific labels or generating decorative details. The COTs remain DM-directed: write to scratchpad, present changes, accept DM corrections after write, and move forward. The scratchpad relieves re-creation but is not an infinite context window; later COTs need the pertinent records. Physical science, engineering, archaeology, anthropology, spatial analysis, and creative tabletop design are distinguishable knowledge sources rather than universally interchangeable empirical laws.
+
+**Status:** This is a working scientific-foundation companion, not approval of every discipline, numeric rule, stage allocation or 17-COT count. The historical source and current pass-through draft remain intact.
+
 ## Reference materials
 
 - Archived reference **[REFERENCE_MAPS/Black_Mesa_Facility.txt](https://github.com/Mastenship/Map-Generator/blob/main/REFERENCE_MAPS/Black_Mesa_Facility.txt)** (source: user-provided `Black_Mesa_Facility(1).txt`, preserved byte-for-byte): deliberately simple historical baseline for room connectivity, sensory detail, occupants' personal traces, and emergent evidence of a containment disaster; not a target complexity level. Room-local coordinates and overall geometry still need formalization.
