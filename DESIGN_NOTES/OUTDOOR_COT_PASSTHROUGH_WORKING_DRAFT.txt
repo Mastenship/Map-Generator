@@ -1,0 +1,555 @@
+=== SECTION: OUTDOOR_COT_PASSTHROUGH_WORKING_DRAFT ===
+
+[Document_Control]
+Status:
+PROPOSED_WORKING_STRUCTURE
+Date:
+2026-10-21
+Historical_Source:
+SOURCE/merged_output.txt
+Scientific_Companion:
+DESIGN_NOTES/COT_SCIENTIFIC_FOUNDATIONS_WORKING_DRAFT.txt
+Indoor_Companion:
+DESIGN_NOTES/REVISED_COT_PASSTHROUGH_WORKING_DRAFT.txt
+Working_Count:
+16 outdoor authoring COT stages followed by final map assembly.
+Count_Approval:
+NOT_FINALIZED
+Purpose:
+Give outdoor generation a domain-specific assembly sequence of comparable depth to the proposed indoor generator. Establish applied sciences, causal questions, scratchpad destinations and information handoffs. This file is a working pass-through outline, not the completed replacement COT modules.
+Source_Protection:
+Do not modify the original merged output or existing grid scripts. Preserve the previously generated maps as reference material.
+
+=== SECTION_BREAK ===
+
+=== SECTION: AUTHORING_WORKFLOW ===
+
+[[LLM_INSTRUCTION]]: Execute outdoor world-building stages as successive contributions to a single evolving, DM-editable scratchpad. Each COT reads the currently relevant scratchpad layers, makes domain-grounded decisions, immediately writes its Output_Data to its designated scratchpad section and presents that update to the DM for review and corrections. A COT may be revisited when a later fact creates a real dependency conflict. Do not introduce ChaOS-like proposal/commit machinery into this collaborative map-authoring process.
+
+[Core_Principles]
+World_Truth:
+The map may contain more geography, history, ecology, material detail and sensory information than current ChaOS needs. The future parser selects what a character can learn.
+Physical_Causality:
+Each stage applies relevant sciences to the inherited facts rather than providing unrelated decorative geography.
+Spatial_Continuity:
+A forest, river, watershed, road or mountain range must remain physically coherent through neighboring regions and nested map scales.
+Human_Causality:
+Settlement and cultural practices result from institutions, trade, migration, technologies, historical events, choices and environmental constraints; climate does not uniquely determine culture.
+History:
+A normal farming valley may show routine land use and generations of repairs without requiring catastrophe. A devastated region may show causally consistent evidence of the event.
+Precision:
+Do not fabricate high-precision measurements, engineering safety certifications or environmental model outputs. Specify known facts, plausible grounded approximations and unknowns separately.
+DM_Role:
+User-supplied constraints and corrections persist; a rerun must use the corrected active scratchpad, not silently reintroduce earlier generated choices.
+Rendering:
+Exact geographic facts are separate from the map grid, which is a presentation/indexing choice. One world record may be displayed with hexes, measured-square gridlines, or no grid.
+Context:
+The scratchpad stores cumulative results; the LLM still has finite context. Read pertinent saved layers and stable references rather than assuming everything fits in an active prompt.
+
+=== SECTION_BREAK ===
+
+=== SECTION: COORDINATE_AND_RENDERING_DECISION ===
+
+[Open_Design_Decision]
+Question:
+Should the outdoor map's canonical geometry be tied directly to a hex lattice, or use measured geographic coordinates with optional hex indexing?
+Current_Decision:
+OPEN
+Recommended_Direction:
+Represent actual positions and shapes in a shared measured coordinate space; derive display hexes, square coordinates and other overlays as alternative views.
+Status:
+RECOMMENDATION_NOT_RATIFIED
+
+[Geographic_Geometry_Proposal]
+World_Reference:
+- At world or continental scope, define an appropriate global frame or a documented fictional-world approximation.
+- At a local or regional scope, use a consistent east/north measured plane with explicitly stated origin, axes, units, scale and parent transform.
+- Connect adjacent map tiles and parent/child maps using explicit placement, resolution and coordinate transformations.
+Feature_Geometries:
+- Points for specific sites, springs, buildings or landmark centers when appropriate.
+- Continuous lines or curves for streams, rivers, roads, borders, faults, ridges, coastlines and other elongated structures.
+- Polygons for lakes, climate zones, soil units, biomes, settlements, fields and irregular territories.
+- Elevation samples, contours or fields for topography, with resolution suitable to the current map scale.
+- Area and local-feature definitions with stable IDs, physical properties and submap references.
+Hex_View:
+- Derive hex index and adjacency for movement, exploration, regional encounter design or DM navigation.
+- Preserve existing GRID_TOOLS/HEX/Hex_Grid_With_Edge_Midpoints.py as a useful drawing reference, not the required physical geometry.
+- A river crossing a hex should not be forced to pass through edge-midpoint display anchors.
+Measured_Square_View:
+- Use simple eastings and northings for precise referencing or military-style readouts.
+- The real-world UTM and MGRS standards are Earth-specific implementations; borrow their practical measured-grid/reference concepts without claiming a fictional world obeys their global zones.
+- The existing square-grid tool provides a graphical starting point, not a completed world projection.
+Unresolved_Details:
+- Absolute world geodesy or projection choice; local-versus-global transforms; axis directions; units and orientation.
+- Fixed cell width for any particular hex overlay and whether multiple zoom resolutions are supported.
+- Cell indexing/offset and hex orientation on the final presentation.
+- Renderer API for drawing vector features and compositing transparent overlays.
+- Spatial precision appropriate to a continental map versus a street or room map.
+Scale_Principle:
+Do not represent every visible blade of grass, chair or odor plume on a mile-scale regional map. Give regional phenomena appropriate resolution, and use linked local/site/indoor maps for finer detail without losing physical parent-location ties.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_STAGE_01_SCOPE_AND_REFERENCE_FRAME ===
+
+[Stage_Contract]
+COT_Name:
+COT_OUTDOOR_SCOPE_AND_REFERENCE_FRAME
+Scientific_Foundations:
+Cartography; geographic information science; scale and spatial sampling; geographic reference systems; requirements analysis.
+Reasoning_Questions:
+- What physical area and scale does the DM want?
+- Is this a new world, a neighboring region, or a local area inside a known map?
+- Which orientation, units, map bounds, resolutions and inherited facts are authoritative?
+- Which surrounding features must meet the borders without seams?
+- Which actual coordinate conventions remain unresolved but need an explicit placeholder?
+Reads:
+DM request; any parent or neighboring map; existing world/asset library and generation parameters.
+Writes_To:
+OUTDOOR_GENERATED_SCOPE_AND_REFERENCE_FRAME
+Passes_Forward:
+Map extent, origin/axes/units or provisional geometry convention, reference scale, neighboring boundaries, parent/child identifiers, constraints and expected output resolution.
+Ownership_Limit:
+This COT does not create mountains, forests or settlements. It defines how their physical locations and relationships can be preserved and later drawn.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_STAGE_02_PHYSICAL_PREMISES ===
+
+[Stage_Contract]
+COT_Name:
+COT_PHYSICS
+Scientific_Foundations:
+Gravitation; planetary formation; atmospheric evolution; hydrological cycle; basic planetary energy balance.
+Reasoning_Questions:
+- What are the world's existing laws of gravity, illumination, pressure, atmosphere, liquids and temperature?
+- Does the map inherit these from an established parent world, or must they be defined?
+- Which natural science models are applicable or modified by fictional cosmology?
+Reads:
+OUTDOOR_GENERATED_SCOPE_AND_REFERENCE_FRAME; established planetary/world parameters; DM premises.
+Writes_To:
+GENERATED_PHYSICS
+Passes_Forward:
+Relevant physical constants or qualitative rules, atmospheric/liquid composition and world-level limits on terrain, life and climate.
+Ownership_Limit:
+If physics is already defined, inherit it and record the link; do not rebuild a universe for each county, region or neighboring sheet.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_STAGE_03_GEOLOGICAL_FOUNDATIONS ===
+
+[Stage_Contract]
+COT_Name:
+COT_OUTDOOR_GEOLOGICAL_FOUNDATIONS
+Scientific_Foundations:
+Plate tectonics; structural geology; stratigraphy; igneous/sedimentary/metamorphic processes; crustal deformation; geological chronology.
+Reasoning_Questions:
+- What created the area's major rocks, faults, uplift and basins?
+- Which features are young, ancient, exposed or buried?
+- How do geological structures continue across map borders?
+- What subsurface structures constrain later springs, soils, ores and construction?
+Reads:
+OUTDOOR_GENERATED_SCOPE_AND_REFERENCE_FRAME; GENERATED_PHYSICS; parent geological context.
+Writes_To:
+OUTDOOR_GENERATED_GEOLOGICAL_FOUNDATIONS
+Passes_Forward:
+Rock units, structural trends, lithological zones, major fractures/faults, relative chronology, formation hypotheses and inherited boundary controls.
+Ownership_Limit:
+Geological formation precedes detailed landforms, water erosion and climate. Do not force the entire topographic surface to be tectonic in origin.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_STAGE_04_TERRAIN_AND_ELEVATION ===
+
+[Stage_Contract]
+COT_Name:
+COT_TERRAIN_GENERATOR
+Scientific_Foundations:
+Geomorphology; erosion/deposition; hillslope processes; landform evolution; isostasy where relevant; topographic measurement.
+Reasoning_Questions:
+- How did geological structures, erosion, mass movements and past climates produce the present relief?
+- Where are ridges, valleys, terraces, cliffs, passes, floodplains, slopes and basin outlets?
+- Does every valley or landform connect with plausible neighboring terrain?
+- At what resolution can elevation be represented honestly?
+Reads:
+OUTDOOR_GENERATED_GEOLOGICAL_FOUNDATIONS; GENERATED_PHYSICS; scope and parent topography.
+Writes_To:
+GENERATED_TERRAIN
+Passes_Forward:
+Elevation, landforms, slope/aspect, topographic barriers, ridgelines and landform processes with continuous geographic geometry.
+Ownership_Limit:
+Terrain must not be artificially constrained to hex directions or the historical prohibition on rivers crossing cell centers.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_STAGE_05_CLIMATE ===
+
+[Stage_Contract]
+COT_Name:
+COT_CLIMATE_GENERATOR
+Scientific_Foundations:
+Atmospheric circulation; orographic precipitation; albedo; thermal inertia; seasonality; regional climatology.
+Reasoning_Questions:
+- How do latitude or the fictional lighting system, mountains, oceans, seasons and winds affect this region?
+- Where are prevailing winds, rain shadows and gradients in heat and water availability?
+- What climatic variability and recurring extreme conditions constrain ecosystems and settlements?
+Reads:
+GENERATED_PHYSICS; GENERATED_TERRAIN; scope, surrounding water/land, inherited climate.
+Writes_To:
+GENERATED_CLIMATE
+Passes_Forward:
+Long-term precipitation, wind, temperature, snow/ice and seasonal patterns with justified regional zones.
+Ownership_Limit:
+A climate classification is not the specific current weather at the time gameplay begins.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_STAGE_06_HYDROLOGY ===
+
+[Stage_Contract]
+COT_Name:
+COT_HYDROLOGY_GENERATOR
+Scientific_Foundations:
+Watershed delineation; surface hydrology; groundwater hydrogeology; fluvial geomorphology; lake/wetland formation; stream network topology.
+Reasoning_Questions:
+- Where do water and sediment travel downhill and accumulate?
+- What produces springs, tributaries, river junctions, marshes and groundwater?
+- Which water systems are seasonal or permanent, and what are their flood regimes?
+- Can streams and catchments connect naturally through neighboring map boundaries?
+Reads:
+GENERATED_TERRAIN; GENERATED_CLIMATE; geological structures; parent watershed connections.
+Writes_To:
+GENERATED_HYDROLOGY
+Passes_Forward:
+Drainage divides, continuous rivers and tributaries, water bodies, water tables where relevant, wetlands, flood areas, springs and groundwater relationships.
+Ownership_Limit:
+Water routes should follow geographical/hydrological constraints, not an enforced sequence of hex side-point midpoints.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_STAGE_07_SOILS_AND_SURFACE_MATERIALS ===
+
+[Stage_Contract]
+COT_Name:
+COT_OUTDOOR_SOILS_AND_SURFACE_MATERIALS
+Scientific_Foundations:
+Pedology; regolith production; erosion/deposition; soil hydrology; soil development; agricultural land evaluation.
+Reasoning_Questions:
+- What soils can form over these rocks and sediments under the climate and drainage?
+- Where are shallow soils, boggy organic layers, fertile alluvium, sands or exposed bedrock?
+- What surface texture, erodibility and water retention affect plants, farming and road building?
+Reads:
+Generated geology; terrain; climate; hydrology.
+Writes_To:
+OUTDOOR_GENERATED_SOILS_AND_SURFACE_MATERIALS
+Passes_Forward:
+Soil and regolith units, depth/texture or bands, permeability, fertility constraints, erosion susceptibilities and resource implications.
+Ownership_Limit:
+Soil is not identical to bedrock, vegetation or culture; do not infer crops solely from geology.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_STAGE_08_BIOMES_AND_ECOLOGY ===
+
+[Stage_Contract]
+COT_Name:
+COT_BIOME_GENERATOR
+Scientific_Foundations:
+Climate-vegetation relations; Holdridge life-zone heuristic where applicable; biogeography; species dispersal; ecological succession; disturbance ecology.
+Reasoning_Questions:
+- Which habitats and plant/animal communities are viable given climate, water, soils and historical dispersal?
+- What determines ecotones, wetlands, forest edges and vegetation mosaics?
+- How do fires, grazing, floods, harvesting, recovery and colonization alter present habitats?
+Reads:
+Soils, climate, terrain, hydrology, physics, neighboring ecosystems.
+Writes_To:
+GENERATED_BIOME
+Passes_Forward:
+Habitat/vegetation zones, ecological transitions, ecosystem functions, species possibilities and ecological resilience/fragility.
+Ownership_Limit:
+Do not treat climate-biome categories as a rigid universal one-to-one mapping; ecosystems retain history and local variation.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_STAGE_09_RESOURCES_AND_NATURAL_HAZARDS ===
+
+[Stage_Contract]
+COT_Name:
+COT_OUTDOOR_RESOURCES_AND_NATURAL_HAZARDS
+Scientific_Foundations:
+Economic geology; soil capability; ecological resource distribution; natural hazards science; hydrogeomorphic risk; resource accessibility.
+Reasoning_Questions:
+- Where are plausible ore, stone, timber, fertile soil, water, game and other resources?
+- Which resources can be exploited using available technology and access?
+- Which slopes, floodplains, coasts, volcanoes, unstable sediments or dry habitats create notable risks?
+- What resource/hazard distributions will later constrain human settlement and infrastructure?
+Reads:
+Geology, terrain, climate, hydrology, soils, ecology, existing world technology assumptions.
+Writes_To:
+OUTDOOR_GENERATED_RESOURCES_AND_NATURAL_HAZARDS
+Passes_Forward:
+Resource locations, availability, constraints, risk zones, plausible extraction opportunities and danger mechanisms.
+Ownership_Limit:
+Naturally existing hazard potential is not the same as an active trap or current disaster. Later human history and present environment will establish altered and time-dependent conditions.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_STAGE_10_HUMAN_HISTORY_AND_LAND_USE ===
+
+[Stage_Contract]
+COT_Name:
+COT_OUTDOOR_HUMAN_HISTORY_AND_LAND_USE
+Scientific_Foundations:
+Historical geography; archaeology; cultural ecology; human migration and diffusion; political economy; landscape history; ethnography where applicable.
+Reasoning_Questions:
+- Who first inhabited the area and why, and which subsequent communities arrived or left?
+- How did trade, conflict, belief, agriculture, craft, power and institutions affect land use?
+- What ordinary livelihoods, cultural attachments and recurring practices shape the landscape?
+- Which established past events would plausibly leave evidence for later settlement, roads or ruins?
+- How are communities influenced by terrain without being simply determined by terrain?
+Reads:
+Physical landscape, natural resources, hazards, parent histories and DM premise.
+Writes_To:
+OUTDOOR_GENERATED_HUMAN_HISTORY_AND_LAND_USE
+Passes_Forward:
+Broad occupation phases, peoples/cultures where relevant, land-use intentions, migration/trade influences, significant local history and known DM-only causes.
+Ownership_Limit:
+This is preliminary causation and human context, not final town coordinates, all road geometry or a compulsory narrative plot. Not every landscape needs an epic past.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_STAGE_11_ASSET_LIBRARY_BUILDER ===
+
+[Stage_Contract]
+COT_Name:
+COT_ASSET_LIBRARY_BUILDER
+Scientific_Foundations:
+Architectural anthropology; history of technology; material culture; cultural diffusion; ecological adaptations; typology/provenance.
+Reasoning_Questions:
+- What building, farm, transport, artifact, settlement and resource-use types suit the environment and human history?
+- Which known reusable assets can be imported, and what adaptations would be required?
+- Which details belong to a prototype, local variant, or specific instance on this map?
+Reads:
+Physical environment, ecology, resources, human history and imported asset definitions.
+Writes_To:
+ACTIVE_ASSET_LIBRARY
+Passes_Forward:
+Reusable cultural/physical definitions, inheritance and provenance, properties needed for later placements and possible indoor map generation.
+Ownership_Limit:
+Do not inherit an imported asset's specific coordinates, damage or unique history by accident. Avoid historical Environmental_Determinism as a universal law.
+Ordering_Correction:
+The old outdoor source puts this stage before COT_BIOME_GENERATOR despite requesting Biome_Data. This stage now follows the biome and relevant human-history passes.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_STAGE_12_SETTLEMENT_AND_LAND_USE_LAYOUT ===
+
+[Stage_Contract]
+COT_Name:
+COT_SETTLEMENT_LOGIC
+Scientific_Foundations:
+Settlement geography; economic geography; urban morphology; historical geography; social organization; environmental constraints; defensibility and access.
+Reasoning_Questions:
+- Which towns, villages, farms, camps, neighborhoods and land-use areas are plausible, and where?
+- How do resources, water, labor, authority, landownership, communication and culture affect spatial form?
+- What settlement histories or inhabitants' normal activities are reflected in structures and land division?
+- Does a settlement boundary fit soil, slope, flooding, neighboring maps and route demand?
+Reads:
+Human history, resources, hazards, terrain, ecology, hydrology, asset library.
+Writes_To:
+GENERATED_SETTLEMENTS
+Passes_Forward:
+Named places and land-use polygons, site positions, social/functional forms, density or population bands, historical phase and later infrastructure needs.
+Ownership_Limit:
+A forest clearing, road, settlement edge or cultural neighborhood should not be forced to align to a hex outline. Major roads from older periods may be inherited as constraints; exact current infrastructure is resolved later.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_STAGE_13_INFRASTRUCTURE_AND_MOVEMENT ===
+
+[Stage_Contract]
+COT_Name:
+COT_INFRASTRUCTURE_LOGIC
+Scientific_Foundations:
+Transportation geography; civil engineering; path-cost analysis; network theory; hydrology; historical logistics; landscape archaeology.
+Reasoning_Questions:
+- What destinations require roads, tracks, bridges, docks, canals, tunnels, rail or magical transit?
+- How do grades, river crossings, wetlands and building technology change route selection?
+- Which routes exist from trade, habit, conflict or historical development rather than shortest-line optimization?
+- Where should tracks, junctions and paths connect to neighboring maps and settlement entrances?
+Reads:
+Settlements, historical patterns, terrain, drainage, soil/hazards, asset library and inherited routes.
+Writes_To:
+GENERATED_INFRASTRUCTURE
+Passes_Forward:
+Continuous transport/network geometries, crossings, grades or approximate movement costs, infrastructure condition and accessibility.
+Ownership_Limit:
+Do not require routing only through hex center/side anchors or enforce universally straight efficient paths. Preserve culturally meaningful detours and historical remnants.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_STAGE_14_LANDMARKS_AND_SITES ===
+
+[Stage_Contract]
+COT_Name:
+COT_LANDMARK_POPULATOR
+Scientific_Foundations:
+Landscape interpretation; toponymy; geomorphology; historical archaeology; cultural geography; wayfinding.
+Reasoning_Questions:
+- What natural and constructed features are locally significant, navigationally useful or historically meaningful?
+- How do physical form, culture and use motivate a feature's location and name?
+- Are ruins, shrines, quarries, isolated groves or significant crossings supported by earlier layers?
+- What visible evidence could survive without revealing its hidden interpretation?
+Reads:
+All relevant geography, culture, settlement, route and asset layers.
+Writes_To:
+GENERATED_LANDMARKS
+Passes_Forward:
+Identified sites and landmarks, spatial footprint or exact location, function, material characteristics and significance.
+Ownership_Limit:
+Do not manufacture special landmarks uniformly across cells solely to fill a map. The outdoor COT can nominate a future indoor submap by stable site reference.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_STAGE_15_LANDSCAPE_TAPHONOMY_AND_TRACES ===
+
+[Stage_Contract]
+COT_Name:
+COT_OUTDOOR_LANDSCAPE_TAPHONOMY_AND_TRACES
+Scientific_Foundations:
+Landscape archaeology; taphonomy; geoarchaeology; material weathering; soil erosion; anthropogenic landscape formation.
+Reasoning_Questions:
+- What physical evidence results from ordinary occupation, farming, resource extraction, travel, abandonment or repair?
+- How do walls, ditches, orchards, old quarries, terraces, levees, abandoned roads or ruins fit the established history?
+- How do floods, landslides, fires, deposition, overgrowth and decay affect existing features?
+- If a significant event happened, do the resulting traces match that event's mechanism and chronology?
+Reads:
+History, terrain, climate, hydrology, soil, ecology, settlements, infrastructure, landmarks and asset instances.
+Writes_To:
+OUTDOOR_GENERATED_LANDSCAPE_TAPHONOMY_AND_TRACES
+Passes_Forward:
+Physical alterations, wear, disturbed surfaces, historical remnants, affected feature references and trace-to-cause relationships where known.
+Ownership_Limit:
+History need not be dramatic, and the final map should not narrate an observer's conclusion as automatically known. Where physical features change location or shape, reconcile updates in the owning source stage.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_STAGE_16_PRESENT_ENVIRONMENT_AND_LOCAL_VARIATION ===
+
+[Stage_Contract]
+COT_Name:
+COT_OUTDOOR_PRESENT_ENVIRONMENT_AND_LOCAL_VARIATION
+Scientific_Foundations:
+Micrometeorology; boundary-layer climatology; radiative transfer; ecological acoustics; odorant and smoke transport; landscape microclimate; seasonal phenology.
+Reasoning_Questions:
+- What starting weather, sunlight, wind, temperature, seasonal water levels and environmental sources are established when this map is first used?
+- What regional defaults and meaningful local exceptions arise from slope, shade, water, vegetation, fire, animals and human activity?
+- Which environmental signals are worth representing at this specific map scale?
+- Does a smaller site/indoor submap need finer sources, surfaces or spatial resolution?
+- What is physically there independent of which observer can see, hear, smell or understand it?
+Reads:
+All established physical, biological, human, structural and temporal layers; DM's specified starting time/season.
+Writes_To:
+OUTDOOR_GENERATED_PRESENT_ENVIRONMENT_AND_LOCAL_VARIATION
+Passes_Forward:
+Starting-state environmental assumptions, light, wind, relevant audible/olfactory/thermal sources, climate-linked defaults and localized variations appropriate to map scale.
+Ownership_Limit:
+Distinguish multiyear climate from a particular day or season, and world sources from character perception. Do not pretend a continent-scale map resolves room-scale infrared or odor gradients.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_FINAL_MAP_ASSEMBLY ===
+
+[Stage_Contract]
+COT_Name:
+COT_OUTDOOR_FINAL_MAP_ASSEMBLY
+Scientific_Foundations:
+Computational geography; GIS/cartographic data modeling; geometric and topological consistency; map generalization; visualization; information provenance.
+Reasoning_Questions:
+- Does the completed, corrected scratchpad describe one continuous coherent landscape?
+- Are contours, water flow, materials, biomes, human sites, transport networks and geography physically consistent?
+- Are inherited borders and linked indoor/local sites positioned without unexplained seams?
+- Can every relevant site, path and region be rendered from stored world geometry without having the renderer invent coordinates?
+- Does a hex overlay, measured square overlay or gridless view depict identical facts at the intended resolution?
+- Are important DM-world details preserved and future character-visible information kept as a separate parser responsibility?
+Reads:
+All active, DM-corrected outdoor scratchpad sections, imported world context and asset library references.
+Writes_To:
+FINAL_MAP_DATA
+Passes_Forward:
+Completed static regional map record; metadata and coordinate frame; elevation and material surfaces; habitat polygons; hydrology and infrastructure networks; settlements and landmark locations; history and trace facts; relevant environmental defaults; parent/child links; reusable asset dictionary references; renderable geometries and DM-readable map views.
+Ownership_Limit:
+Reconcile actual contradictions with the DM rather than inventing conflicting geometry. The parser and dynamic WorldState are separate future systems.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SCRATCHPAD_SECTION_MIGRATION ===
+
+[Retain_Historical_Sections]
+Sections:
+- GENERATED_PHYSICS
+- GENERATED_TERRAIN
+- GENERATED_CLIMATE
+- GENERATED_HYDROLOGY
+- GENERATED_BIOME
+- ACTIVE_ASSET_LIBRARY
+- GENERATED_SETTLEMENTS
+- GENERATED_INFRASTRUCTURE
+- GENERATED_LANDMARKS
+- GENERATION_PARAMETERS
+- GENERATION_LOG
+Order_Revision:
+BIOME before ASSET_LIBRARY, because the historical asset library requires Biome_Data.
+
+[New_Working_Sections]
+Sections:
+- OUTDOOR_GENERATED_SCOPE_AND_REFERENCE_FRAME
+- OUTDOOR_GENERATED_GEOLOGICAL_FOUNDATIONS
+- OUTDOOR_GENERATED_SOILS_AND_SURFACE_MATERIALS
+- OUTDOOR_GENERATED_RESOURCES_AND_NATURAL_HAZARDS
+- OUTDOOR_GENERATED_HUMAN_HISTORY_AND_LAND_USE
+- OUTDOOR_GENERATED_LANDSCAPE_TAPHONOMY_AND_TRACES
+- OUTDOOR_GENERATED_PRESENT_ENVIRONMENT_AND_LOCAL_VARIATION
+Migration_Note:
+The source COT_TERRAIN_GENERATOR contains geology and topography together; geological foundations now write their earlier separate section while final surface relief stays GENERATED_TERRAIN. Original COT_BIOME_GENERATOR includes resource distribution; the resource pass further refines deposits, access and hazards rather than duplicating ecological facts.
+Update_Workflow:
+Each COT immediately updates its designated scratchpad block; record genuine stages as they run, show the DM the changes, preserve corrections and reuse all relevant earlier state. Do not prefill the log with fictional completed executions.
+Revision_Policy:
+On a later change to river, settlement, road or geology, correct the owning spatial record and revisit dependent outputs where needed. One shared feature identity and one canonical geometry must be used by every referencing layer.
+Compatibility:
+Map parser and rendering data contracts are not finalized. The pass-through identifies conceptual outputs and candidate spatial requirements without declaring immutable serialization.
+
+=== SECTION_BREAK ===
+
+=== SECTION: SMALL_PROTOTYPE_AND_OPEN_QUESTIONS ===
+
+[Suggested_Proof_Of_Concept]
+Terrain:
+Generate a coherent small watershed with ridge, valley, stream, riparian corridor, hill slopes, and soil variation.
+Ecology:
+Place a natural transition between two habitats without making it a sharp display-cell border.
+Human:
+Add a settlement or farm, at least two differently motivated travel routes, and one ordinary land-use trace.
+Rendering:
+Draw the same river, road, ridge, settlement and ecological zone with a hex overlay, measured-square overlay and no grid, ensuring the geometry does not change.
+Parent_Child:
+Attach one local or indoor submap to a site on the regional map and verify orientation/position.
+Evaluation:
+Use measured continuity and DM readability to judge whether the chosen world geometry survives all view styles.
+Historical_Benchmark:
+Black Mesa is an indoor reference for emergent human traces; use similarly ordinary historical traces outdoors, not a forced disaster.
+
+[Still_Open]
+Decisions:
+- Confirm the number and grouping of outdoor COTs; sixteen is the current provisional decomposition.
+- Choose a primary measured coordinate convention, or accept/reject the alternative of canonical hex-cell geometry.
+- Define parent-child frames, world-scale geodesy, transform precision and map boundaries.
+- Decide what physical measurements are necessary at each regional versus local zoom level.
+- Determine baseline environment timing and weather defaults when no starting time is specified.
+- Define GIS-like feature geometry in the original LLM formatting conventions without resorting to JSON, YAML or raw SVG as COT syntax.
+- Decide how asset-library definitions are imported and saved for other maps.
+- Determine when map generation must reopen earlier causal stages after a DM revision.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
