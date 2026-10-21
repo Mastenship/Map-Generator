@@ -168,6 +168,57 @@ Working pass-through clarification; file/library serializations and exact parent
 
 === SECTION_BREAK ===
 
+=== SECTION: INDOOR_GRID_AND_WALL_THICKNESS_WORKING_SCALE ===
+
+[DM_Directed_Working_Scale]
+Current_Indoor_Square:
+2 meters by 2 meters of physical space.
+Existing_SVG_Cell:
+100 pixels by 100 pixels; retain the current square-grid geometry.
+Derived_Drawing_Ratio:
+50 pixels per meter, subject to SVG display scaling. This is a drawing conversion, not the limit of the physical world model.
+Motivation:
+Give the generator a square-grid reference system that can depict the actual physical thickness of walls rather than treating each wall as an infinitely thin line. Two-meter cells are a preferred indoor authoring and display scale, not a rule that every wall must occupy an entire cell.
+Markers:
+Preserve existing cell center, shared edge-midpoint, and lower offset markers in GRID_TOOLS/SQUARE/Square_Grid_With_Edge_Midpoints.py. They are useful references for placement and wall/opening locations, not mandatory endpoints or universal locations of doors and walls.
+Display:
+Marker and label visibility may later be optional for a clean DM-facing render without changing the underlying coordinate references or map geometry.
+Status:
+Current DM-directed indoor scale for COT drafting and prototyping. The exact global measured-reference-frame convention and outdoor grid scaling remain open.
+
+[Real_Thickness_And_Space]
+Wall_Geometry:
+- Structural walls and partitions have a physical centerline/reference or polygon, physical thickness, length, height, material, actual occupied footprint, and stable identity.
+- Wall reference lines can align to grid edges or other useful anchors, but actual wall faces are offset by their thickness and can extend into more than one nominal square.
+- Shared walls must not be generated as two conflicting solids; all adjoining rooms reference the same material wall.
+- Wall thickness varies by material, period, structure and load. Do not assume all walls are equally thick or one cell wide.
+- Interior clear dimensions and traversable free floor space are determined from actual inner wall faces, not only grid counts.
+- Door and window apertures cut through the actual wall depth and require explicit width, sill/height where relevant, physical position and opening behavior.
+Sub_Cell_Detail:
+- Structural geometry, openings, partitions, furniture, windows and features may lie at measured positions inside a grid square, not just cell centers, shared edges or midpoint dots.
+- Small details below one pixel at the default render scale must remain part of the authored physical model even if exaggerated, omitted or shown by annotation on the DM drawing.
+- The existing 100-pixel cell does not establish a physical minimum construction thickness or imply a universal precision guarantee.
+Examples_At_This_Scale:
+- A wall 0.10 meters thick is 5 drawing pixels when drawn true to scale.
+- A wall 0.30 meters thick is 15 drawing pixels.
+- A wall 0.50 meters thick is 25 drawing pixels.
+- A doorway 1 meter wide spans 50 drawing pixels, but need not be centered on an edge marker.
+- Illustrative sizes are not building-code requirements and must be compatible with the actual construction, materials and setting.
+
+[Stage_Consequences]
+Foundation_Parameters:
+Record the proposed 2-meter indoor grid cell, 100-pixel drawing cell, units and any explicit DM changes.
+Structural_Shell:
+Define the unique physical geometry, material and true thickness of bearing walls, supports and foundations.
+Room_Geometry:
+Lay out nonbearing partitions and room boundaries; derive usable internal footprints from the actual physical wall faces.
+Access_And_Circulation:
+Create doorways and passages with explicit opening width and depth through the wall, clearances and actual traversal geometry; reference the existing wall ID.
+Final_Assembly:
+Render true-thickness wall shapes and openings consistently at 50 pixels per meter for the default 2-meter-per-cell view; maintain the source physical measurements regardless of visibility of markers.
+
+=== SECTION_BREAK ===
+
 === SECTION: INDOOR_STAGE_01_FOUNDATIONAL_PARAMETERS ===
 
 [Stage_Contract]
@@ -181,7 +232,7 @@ Writes_To:
 INDOOR_GENERATED_PARAMETERS
 Passes_Forward:
 - Primary purpose and building/site type.
-- Desired size, levels, gross dimension constraints and baseline indoor grid scale.
+- Desired size, levels and gross dimension constraints; working indoor scale of 2 meters per 100-pixel square unless revised by the DM.
 - Local-world assumptions, technological and cultural context.
 - Parent-map tie and placement if provided; otherwise standalone reference frame.
 - Nonnegotiable DM facts, constraints and stated unknowns.
@@ -298,7 +349,7 @@ INDOOR_GENERATED_SITE_AND_SUBSTRATE; INDOOR_GENERATED_SPACE_PROGRAM; INDOOR_ACTI
 Writes_To:
 INDOOR_GENERATED_STRUCTURAL_SHELL
 Passes_Forward:
-- Footprint/perimeter, load-bearing wall and support identities, locations, material and physical thickness.
+- Footprint/perimeter, load-bearing wall and support identities, locations, materials, real physical thickness and occupied wall-face geometry, including a stable shared-wall reference.
 - Foundation, major beams, columns, spans, floors and structural safety constraints.
 - Anticipated shafts, large equipment clearances, hearth/chimney routes and stairs from the space program.
 - Clear references to shared edges and load-bearing boundaries.
@@ -344,7 +395,7 @@ INDOOR_GENERATED_SPACE_PROGRAM; INDOOR_GENERATED_STRUCTURAL_SHELL; INDOOR_GENERA
 Writes_To:
 INDOOR_GENERATED_ROOM_GEOMETRY
 Passes_Forward:
-- Named room identities and exact polygons/cell coverage by level.
+- Named room identities and exact measured polygons/cell coverage by level, with clear interior dimensions computed from the actual wall faces.
 - Partitions, usable floor area, functional boundaries and room extents.
 - Intended major furniture/fixture clearance zones.
 - Consistent function-to-room assignment, including shared or multifunctional spaces.
@@ -368,7 +419,7 @@ Writes_To:
 INDOOR_GENERATED_ACCESS_AND_CIRCULATION
 Passes_Forward:
 - Hallways, stairs, ladders, ramps, elevators, crawl passages and connecting paths.
-- Door and window opening references, thresholds and traversability.
+- Door and window opening references that cut through actual wall thickness, thresholds and traversability.
 - Opening dimensions, hinge/swing or sliding motion, clearances and baseline state.
 - Intended privacy, security and environmental separation at access boundaries.
 Scientific_Foundations:
@@ -658,7 +709,7 @@ Out_Of_Scope_For_Initial_Prototype:
 [Questions_To_Resolve_During_Implementation]
 Open_Items:
 - Choose the final authoring-stage count and exact scientific foundations for each COT.
-- Choose stable geometry/ID conventions for edges, polygons, measured positions, levels, thickness and openings.
+- Specify measured geometry and shared-wall IDs for edges, polygons, wall faces, levels, real thickness and apertures on the proposed 2-meter indoor grid.
 - Choose how DM modifications to early layers are represented cleanly in later outputs.
 - Choose each map's preserved asset-library packaging, inheritance conventions, local adaptation and drawing-stamp/renderer conventions.
 - Choose representation of environmental bands, source strengths, uncertainty and starting-time conditions.
