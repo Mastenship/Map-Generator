@@ -1,0 +1,952 @@
+=== SECTION: SCIENTIFIC_FOUNDATIONS_PASSTHROUGH_COMPANION ===
+
+[Document_Control]
+Status:
+PROPOSED_WORKING_DRAFT
+Date:
+2026-10-21
+Companion_To:
+DESIGN_NOTES/REVISED_COT_PASSTHROUGH_WORKING_DRAFT.txt
+Historical_Source:
+SOURCE/merged_output.txt
+Coverage:
+Nine outdoor authoring COTs, seventeen proposed indoor authoring COTs, and their final map assemblies.
+Intent:
+Specify which scientific and interpretive disciplines each COT should consult, which causal questions it should resolve, and what knowledge must be written into its scratchpad destination. This is not a wholesale replacement of the existing COT bodies or a demand for the model to perform precise engineering simulation.
+Approval:
+All proposed additions and stage allocations remain open to DM review. The historical source remains unchanged.
+
+=== SECTION_BREAK ===
+
+=== SECTION: DISCIPLINE_APPLICATION_PROTOCOL ===
+
+[[LLM_INSTRUCTION]]: Apply each listed discipline to the actual building or world described by the current scratchpad. Do not merely restate a theory's name or populate generic examples. Choose world-specific consequences justified by the inputs and the setting. Distinguish physical fact, authoring assumption, approximate inference and unresolved detail. Preserve the DM's explicit constraints over generated defaults.
+
+[Application_Requirements]
+Scientific_Foundation:
+A body of scientific, engineering or interpretive knowledge that helps explain mechanisms and constraints relevant to the stage.
+Reasoning_Questions:
+Concrete issues the model must settle by connecting its disciplinary foundations with actual earlier layer results.
+Scratchpad_Consequences:
+The domain and physical facts the stage owns and writes for later stages to consume.
+Cross_Domain_Boundaries:
+Distinguish facts belonging to this COT from those another stage will author or refine.
+Model_Limitations:
+- A conceptual COT is not a licensed structural calculation, electrical safety design, infectious-disease model or high-fidelity fluid dynamics simulator.
+- When geometry, distance, unit conversion, flow capacity or other precise computations materially affect correctness, write measurable parameters or a pending calculation rather than presenting false numerical precision.
+- A scientific framework may be applicable only to certain technologies, climates, cultures or building functions; do not apply it as an unconditional universal rule.
+- The world may be magical, extraterrestrial or counterfactual. Establish the DM's physical departures first, then reason consistently within those departures.
+- Materials, social practices, historical interpretations and personal significance are not deducible from physical climate alone.
+- No model may infer a feature is absent solely because it is not mentioned by another scratchpad stage.
+- Environmental descriptions are DM-world facts; character perceptions, inferences and secret knowledge are selected later by the parser.
+Scratchpad_Continuity:
+- Read the current relevant scratchpad layers before each COT.
+- Reuse previous decisions, objects, site history, causal conditions, assumptions and exact spatial references.
+- Do not repeatedly regenerate the entire world from scratch.
+- Immediately write each completed COT's Output_Data into its designated section, then show the DM what changed.
+- On revision, retain DM corrections unless the DM explicitly changes them. Resolve affected downstream dependencies as needed.
+Attention_And_Context:
+The scratchpad is durable shared authoring memory, not proof that an LLM has an unlimited context window. Read relevant sections, summaries and linked definitions, while keeping the full stored record available to final synthesis.
+Decision_Types:
+- Established by DM or inherited authoritative map.
+- Generated consequence supported by the stage's applied foundations.
+- Working approximation requiring later refinement.
+- Unspecified or DM-reserved.
+Do_Not_Require:
+Do not mandate every sensory modality, dramatic event, object, person, hidden clue or scientific measurement in every room. Require adequate causal specificity for the actual place being authored.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_01_PHYSICS ===
+
+[Scientific_Foundations]
+Planetary_Formation_Theory:
+Accretion, internal differentiation, rotation and orbital conditions when the world is planetary.
+Gravitational_Physics:
+How gravity and planetary scale affect weight, erosion, construction, fluid movement and atmosphere retention.
+Atmospheric_Evolution:
+Atmospheric sources, composition, pressure, planetary history and plausible long-term change.
+Energy_Balance_And_Climate_Forcing:
+Energy received, reflected, stored and reradiated; roles of illumination, albedo and orbital configuration.
+Hydrological_Cycle:
+Evaporation, condensation, precipitation, runoff, infiltration and storage, for the defined liquid and setting.
+
+[Reasoning_Questions]
+- What physical laws and environmental parameters does the DM intend to resemble or depart from?
+- What gravity, atmosphere, illumination, surface liquids and geological timescales constrain later geography?
+- Which physical parameters are globally stable and which depend on region or epoch?
+- If the setting is nonplanetary or magical, which models are inapplicable or modified?
+
+[Scratchpad_Consequences]
+Writes_To:
+GENERATED_PHYSICS
+Output_Responsibilities:
+Define consistent global premises and known deviations, with approximate or exact values only where supported. Later outdoor and indoor stages inherit these conditions but need not rerun planetary formation.
+Source_Lineage:
+Retains the original COT_PHYSICS interest in planetary formation, atmospheres, gravity and hydrology. Adds explicit treatment of model applicability.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_02_TERRAIN ===
+
+[Scientific_Foundations]
+Plate_Tectonics_And_Crustal_Deformation:
+Mountain building, subsidence, faulting, basin development and tectonically constrained relief.
+Geomorphology_And_Erosion:
+Weathering; fluvial, aeolian, coastal, glacial and gravitational mass-movement processes.
+Rock_Cycle_And_Lithology:
+Igneous, sedimentary and metamorphic formation, competence, weathering and visible exposures.
+Isostasy_And_Long_Term_Relief:
+Broad uplift/subsidence relationships where geologically applicable.
+Landform_Evolution_And_Scale:
+Geological age, relief maturity and spatial continuity of terrain forms.
+
+[Reasoning_Questions]
+- What geologic history can produce the requested terrain and landforms?
+- Where do exposed rock, steep relief, sediment, erosion and deposition plausibly occur?
+- Which landforms change at local versus regional scales?
+- Do the measured geometry and neighboring regions meet without artificial seams?
+
+[Scratchpad_Consequences]
+Writes_To:
+GENERATED_TERRAIN
+Output_Responsibilities:
+Elevation, landform geometry, material/rock zones and relevant causal descriptions. Do not force terrain geometry to follow display hex directions.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_03_CLIMATE ===
+
+[Scientific_Foundations]
+Atmospheric_Circulation_And_Pressure:
+Wind belts, air-mass movement and pressure-driven weather, relative to the world's planetary premises.
+Orography:
+Rising, cooling, precipitation and rain shadows associated with relief.
+Radiative_Balance_And_Albedo:
+Latitude or lighting geometry, incoming energy and reflected energy.
+Thermal_Inertia_And_Continentality:
+Heating/cooling differences between water, land and elevated terrain.
+Seasonality_And_Local_Microclimate:
+Climate variability from axial tilt or defined equivalents, elevation, shade and local moisture.
+
+[Reasoning_Questions]
+- What winds, moisture sources and terrain barriers produce the regional climate?
+- Where are wet/dry, cold/warm and seasonal gradients physically justified?
+- What environmental exposures will later influence ecosystems and settlement design?
+
+[Scratchpad_Consequences]
+Writes_To:
+GENERATED_CLIMATE
+Output_Responsibilities:
+Climate zones, seasons, precipitation and wind assumptions used downstream; do not confuse long-term climate with the exact weather at the moment a map begins.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_04_HYDROLOGY ===
+
+[Scientific_Foundations]
+Watershed_Delineation:
+Drainage divides, runoff capture, tributary connectivity and outlets.
+Surface_And_Groundwater_Hydrology:
+Runoff, infiltration, groundwater, springs, water tables and recharge.
+Fluvial_Geomorphology:
+Erosion, deposition, channels, meanders, floodplains and sediment transport.
+Stream_Network_Topology:
+Stream ordering, confluences and continuous drainage networks.
+Lake_And_Wetland_Formation:
+Topographic, tectonic, glacial or artificial basins; seasonal and long-term water storage.
+
+[Reasoning_Questions]
+- Where does water come from, flow to and accumulate under current terrain and climate?
+- Which routes are permanent, intermittent, artificial or subterranean?
+- How do rivers, wetlands, flood risks and groundwater affect roads, settlements and foundations?
+
+[Scratchpad_Consequences]
+Writes_To:
+GENERATED_HYDROLOGY
+Output_Responsibilities:
+Connected waterway geometries, basin conditions and water-related constraints. River paths may be continuous spatial curves; grid edge anchors must not become mandatory zigzag geography.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_05_BIOME ===
+
+[Scientific_Foundations]
+Bioclimatic_Ecology:
+Temperature, precipitation and available energy as constraints on ecological communities.
+Holdridge_Life_Zones:
+A useful classification heuristic where temperature and precipitation data fit; not a universal rule for every environment.
+Pedology:
+Soil formation, drainage, fertility, mineral composition and biologically altered substrates.
+Biogeography:
+Species dispersal, habitat connectivity, isolation, ecological boundaries and historical contingency.
+Ecological_Succession_And_Disturbance:
+Responses to fire, flooding, settlement, clearing, abandonment and natural recovery.
+
+[Reasoning_Questions]
+- Which ecological communities are plausible under the terrain, climate and hydrology?
+- How do soils and disturbance change productivity and resource availability?
+- Where are transitions gradual, abrupt because of a genuine barrier, or historically altered?
+
+[Scratchpad_Consequences]
+Writes_To:
+GENERATED_BIOME
+Output_Responsibilities:
+Ecological zones, resources and meaningful transitional habitats. This output must precede the original outdoor Asset Library Builder because that COT requests Biome_Data.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_06_ASSET_LIBRARY ===
+
+[Scientific_Foundations]
+Architectural_Anthropology:
+How built forms interact with human activities, social norms and organization.
+Cultural_Ecology_And_Material_Culture:
+How technology, material availability, adaptation and use shape artifacts and practices.
+Historical_Geography_And_Cultural_Diffusion:
+Migration, trade, borrowed styles, long-distance influences and region-specific adaptation.
+Technological_History:
+Tools, fabrication methods, infrastructure and feasible construction techniques.
+Taphonomy_And_Archaeological_Context:
+Material survival, transformation and contextual clues left by occupation and abandonment.
+
+[Reasoning_Questions]
+- What asset definitions are plausible for this society, technology, economy and environment?
+- Which definitions are imported, which are local variants and which will be specific placements later?
+- How can historical or cultural influence cross environmental boundaries without copying entire landscapes?
+- Which properties are reusable definitions rather than facts unique to one map instance?
+
+[Scratchpad_Consequences]
+Writes_To:
+ACTIVE_ASSET_LIBRARY
+Output_Responsibilities:
+Portable definitions, lineage, material traits, relevant sensory/mechanical affordances and justified variations.
+Source_Correction:
+Replace the historical source's unconditional Environmental_Determinism model with an interaction of environment, migration, social organization, technology, exchange and historical choice.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_07_SETTLEMENT ===
+
+[Scientific_Foundations]
+Human_Geography_And_Settlement_Geography:
+Site choice, density, land use and the relationships among settlements.
+Central_Place_Theory:
+One possible account of service-centre relationships where geography, trade patterns and social organization fit its assumptions.
+Economic_Geography_And_Access:
+Resources, labor, transport costs, exchange, infrastructure and market access.
+Historical_Geography_And_Political_Organization:
+Founding, migration, land control, warfare, institutions, ceremonial sites and later changes.
+Hazard_And_Defensive_Geography:
+Flood risk, exposed terrain, defensive positions and access restrictions.
+
+[Reasoning_Questions]
+- Why was this settlement founded here and how did it change?
+- What practical, social or historical reasons explain its footprint, scale and neighboring towns?
+- Which groups occupy it and how do cultural practices influence its built form?
+
+[Scratchpad_Consequences]
+Writes_To:
+GENERATED_SETTLEMENTS
+Output_Responsibilities:
+Settlement identity, regional location, culture, economy, historical context and land-use requirements.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_08_INFRASTRUCTURE ===
+
+[Scientific_Foundations]
+Transportation_Geography:
+Movement demand between settlements, resource sites and regional destinations.
+Civil_And_Hydraulic_Engineering:
+Road grades, bridge spans, culverts, flood paths, cuts and embankments.
+Network_Theory_And_Route_Planning:
+Connectivity, redundancy, chokepoints, accessibility and movement cost.
+Historical_Technology_And_Logistics:
+Construction means, transport mode, upkeep, trade and military priorities.
+Landscape_Archaeology:
+Old routes, reconstructed roads, re-used crossings and abandoned infrastructure.
+
+[Reasoning_Questions]
+- Which destinations need connection and by what transport technologies?
+- Where can routes cross slopes, rivers, wetlands, ridges and political boundaries?
+- What historic or current motives explain expensive detours or unfinished links?
+
+[Scratchpad_Consequences]
+Writes_To:
+GENERATED_INFRASTRUCTURE
+Output_Responsibilities:
+Continuous routes, junctions, bridges, gradients, ownership or use where relevant.
+Source_Correction:
+The malformed historical COT_INFRASTRUCTURE_LOGIC section header must be repaired in the future revised module.
+
+=== SECTION_BREAK ===
+
+=== SECTION: OUTDOOR_09_LANDMARKS ===
+
+[Scientific_Foundations]
+Landscape_Interpretation:
+Visual prominence, distinctive form, orientation and navigational affordances.
+Toponymy:
+Names derived from language, history, land use, folklore and local perspectives.
+Cultural_Geography_And_Place_Attachment:
+Symbolic value, memory, identity and contested meaning.
+Historical_Archaeology:
+Remnants of activity, memorials, buried or abandoned structures and temporal layers.
+Geomorphology_And_Ecology:
+Natural landmark formation and significance.
+
+[Reasoning_Questions]
+- What physical or cultural features deserve identity and orientation value?
+- Does a name come from a visible trait, history, usage or legend?
+- What evidence of its age, maintenance or social significance survives?
+
+[Scratchpad_Consequences]
+Writes_To:
+GENERATED_LANDMARKS
+Output_Responsibilities:
+Named physical landmarks, location, reasons for significance and relevant traces without requiring a plot.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_01_FOUNDATIONAL_PARAMETERS ===
+
+[Scientific_Foundations]
+Architectural_Functionalism:
+Relationships between intended activities and the general form that supports them; retain original COT_INDOOR_FOUNDATIONAL_PARAMETERS foundation.
+Building_Science:
+A building as a system of interacting structure, enclosure, climate, services, materials and occupants.
+Historical_Archaeology_Of_Structures:
+Building phases, re-use, transformations and traces from previous occupants; retain original foundation.
+Historical_Geography_And_Cultural_Context:
+Influence of settlement patterns, economies, cultural practices and technological traditions on building types.
+Systems_Requirements_Analysis:
+Turn DM requests, inherited facts and world constraints into explicit design requirements before detailed placement.
+
+[Reasoning_Questions]
+- What is being built or mapped, for whom, in what era and within what physical/cultural constraints?
+- What is its primary function, and what secondary uses are plausible?
+- Does the DM provide an existing footprint, age, parent map, entrances or fixed facts?
+- Which assumptions are needed for a standalone map without outdoor context?
+- What conditions must the later COTs preserve regardless of their own preferences?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_GENERATED_PARAMETERS
+Must_Preserve:
+Building identity, technological period, dimensional requirements, scale/orientation, relevant historical context, input assumptions, explicit constraints and referenced site.
+Ownership_Limit:
+Broad requirements here, not specific load-bearing wall lines or final furnishing layout.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_02_SITE_AND_SUBSTRATE ===
+
+[Scientific_Foundations]
+Engineering_Geology_And_Geotechnics:
+Bedrock, soil, bearing conditions, excavation constraints, settlement and stable ground.
+Geomorphology:
+Slope, erosion, cut-and-fill, terrain stability and adjacent surface features.
+Hydrology_And_Hydrogeology:
+Water table, groundwater, drainage, flooding, infiltration and dampness sources.
+Microclimatology:
+Local solar exposure, prevailing wind, shade, temperature and weather exposure at site scale.
+Landscape_Archaeology:
+Prior construction, buried debris, reclaimed foundations and past site modifications.
+
+[Reasoning_Questions]
+- What lies physically under and around the intended building?
+- How can the foundation bear on this ground, given the culture's construction capacity?
+- Which side is uphill, wet, sunlit, sheltered or connected to a road?
+- How might earlier occupation have changed the substrate?
+- Which site features must constrain excavation, entries, cellars, sewers, vents and windows?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_GENERATED_SITE_AND_SUBSTRATE
+Must_Preserve:
+Ground conditions, relevant terrain and water relationships, adjacent physical features, exposure and bearing/drainage constraints.
+Ownership_Limit:
+Do not decide the full load-bearing system or invent lab-grade soil constants absent DM evidence.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_03_HABITATION_AND_HISTORY ===
+
+[Scientific_Foundations]
+Human_Geography:
+Human activities, settlement, routines and movement through occupied places.
+Architectural_Anthropology_And_Ethnography:
+Use of domestic, work, ceremonial and communal spaces; values, customs and everyday material practices.
+Environmental_Psychology:
+Privacy, perceived comfort, territoriality, social distance, familiarity and place attachment.
+Material_Culture_Studies:
+How objects, arrangement, repairs and possession reflect practices, resources and personal significance.
+Historical_Archaeology_And_Building_Biography:
+Construction phases, successive functions, occupants, abandonment and changes over time.
+Causal_Historical_Interpretation:
+Distinguish an established event, its plausible physical consequences, surviving evidence and uncertain interpretation.
+
+[Reasoning_Questions]
+- Who built, used, maintained and currently occupies this place?
+- How does daily work or domestic life shape routines, access, room requirements and likely possessions?
+- What habits, tastes, individual circumstances or community customs may leave physical traces?
+- Has the building changed uses or undergone identifiable repairs or significant incidents?
+- If the location is a ruin or disaster site, which earlier normal routines existed before its current condition?
+- Which historical facts are objective DM knowledge, and which will merely be clues for a future character?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_GENERATED_HABITATION_AND_HISTORY
+Must_Preserve:
+Occupant roles, daily activity patterns, personal or social needs, phases of use, significant history if any, current occupancy and historical constraints for later furnishings or damage.
+Ownership_Limit:
+No mandatory dramatic storyline. Do not already place every item or invent full biographies. History is an explanatory substrate for later physical decisions.
+Test_Example:
+Black Mesa's abandoned cards, open book and face-down photograph matter because ordinary lives were interrupted; an active family home also leaves evidence of individuals without disaster.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_04_ARCHITECTURAL_SPACE_PROGRAM ===
+
+[Scientific_Foundations]
+Architectural_Programming:
+Translate activities and occupants into rooms, space requirements and relationships.
+Ergonomics_And_Anthropometrics:
+Bodies, tools, workstations, reach, movement, equipment footprints and activity clearance.
+Functional_Adjacency_Analysis:
+Which processes should be near one another, separated, share infrastructure or connect by a specific route.
+Proxemics_And_Spatial_Behavior:
+Human privacy, group interaction, territoriality and social comfort; original room function and circulation COT concepts.
+Workflow_And_Task_Analysis:
+Order of production, use of resources, storage, waste removal and occupational processes.
+Safety_And_Compartmentation:
+Identify incompatible functions such as food with contamination, sleeping with furnace exhaust, or public access with private storage.
+
+[Reasoning_Questions]
+- Which activities must the building serve, and how many people or objects must each space support?
+- What approximate areas, clearances, levels and room relationships are implied?
+- What needs access to water, exhaust, daylight, waste discharge, heavy loads or security?
+- Which connections must be direct and which must remain separate?
+- What must the structural designer anticipate before fixing columns, stairs, chimneys and load-bearing walls?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_GENERATED_SPACE_PROGRAM
+Must_Preserve:
+Named required spaces, approximate size requirements, activity zones, adjacency/separation needs and early building-system reservations.
+Ownership_Limit:
+These are preliminary requirements, not final walls, exact circulation or measured room polygons.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_05_ASSET_LIBRARY_BUILDER ===
+
+[Scientific_Foundations]
+Archaeological_Typology_And_Material_Culture:
+Classify artifacts, materials, architectural components and variants by purpose and historical context.
+Materials_Science:
+Properties relevant to construction or interaction, including density, thermal behavior, durability, combustibility or corrosion where established.
+History_Of_Technology_And_Craft:
+Feasible fabrication methods, tool technology, finishes and construction traditions.
+Architectural_Anthropology:
+Connections among social structure, resources, aesthetic choices and artifact use.
+Cultural_Diffusion_And_Trade_Networks:
+Origins, imported forms, imitated design and local adaptation without equating culture with biome.
+Knowledge_Organization_And_Provenance:
+Definitions, type-instance distinctions, reusable property inheritance and lineage.
+
+[Reasoning_Questions]
+- What construction materials, fittings, machinery, furniture and object types are possible in this context?
+- Which definitions already exist in portable libraries, and which require local variants?
+- How do manufacturing method, age, use and environment affect likely properties?
+- Which traits belong to the reusable asset kind versus a unique placed object or historical event?
+- Which nominal parameters should later map/parser systems be able to interpret explicitly?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_ACTIVE_ASSET_LIBRARY
+Must_Preserve:
+Reusable definitions, relevant measured or qualitative properties, lineage, setting suitability, variants and expected affordances.
+Ownership_Limit:
+Do not generate map-specific coordinates for asset definitions. Do not mistake an SVG icon/stamp for the physical object itself.
+Source_Correction:
+Replace deterministic climate-to-culture logic in old COT_INDOOR_ASSET_LIBRARY_BUILDER with environmental constraint plus human history and cultural adaptation.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_06_STRUCTURAL_SHELL ===
+
+[Scientific_Foundations]
+Statics_And_Structural_Mechanics:
+Gravity loads, shear, bending, compression, tension, stability and forces through supports.
+Structural_Load_Paths:
+Transfer from roof/floor to beams, columns, walls, foundations and ground.
+Construction_Materials_Engineering:
+Timber, masonry, earth, metal, concrete or fictional materials and their plausible structural roles.
+Geotechnical_Foundation_Principles:
+Foundation types and bearing relationships appropriate to actual substrate.
+Historical_Construction_Traditions:
+Available spans, joinery, vaulting, framing, reinforcement, fire considerations and construction limits.
+Structural_Hierarchy_And_Compartmentation:
+Primary support versus removable partition; effects of penetrations, openings and heavy installations.
+
+[Reasoning_Questions]
+- How are loads transferred to stable ground, given building size and technology?
+- Where must continuous bearing walls, posts, beams, arches or buttresses occur?
+- What roof/floor spans are plausible with these materials and methods?
+- Which walls can accept openings, and what reinforcing details are necessary?
+- Do heavy machinery, lofts, chimneys or multi-level stairs require explicit structural allowances?
+- How thick or deep must important structural components be, qualitatively or with justified measurements?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_GENERATED_STRUCTURAL_SHELL
+Must_Preserve:
+Physical perimeter, canonical structural IDs, material, thickness, locations, level extents, structural elements and reserved openings.
+Ownership_Limit:
+Do not equate every partition with a bearing wall. Engineering plausibility is not a code-certified structure; historic code equivalents are context-dependent.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_07_ENVELOPE_AND_LEVELS ===
+
+[Scientific_Foundations]
+Building_Envelope_Physics:
+Heat, air and moisture transport across roofs, walls, windows, joints and exterior openings.
+Roofing_And_Weatherproofing:
+Pitch, roof form, shedding or retaining rain/snow, flashing, historical roofing materials and drainage.
+Architectural_Section_And_Vertical_Geometry:
+Heights, elevations, headroom, floor thicknesses, shafts, mezzanines and usable upper stories.
+Daylighting_Geometry:
+Window orientation, opening shapes, solar access and obstruction relationships.
+Structural_And_Thermal_Bridging:
+Interfaces among walls, roof, floors and envelope components that change structure or heat flow.
+
+[Reasoning_Questions]
+- What roof and exterior closure are plausible for the building type, environment and era?
+- Where can windows, roof vents, clerestories, chimneys and vertical voids physically fit?
+- What are the actual floor and ceiling heights, roof slope and level connections?
+- How will envelope choices influence later light, water intrusion, drafts and acoustic isolation?
+- Do existing load paths and site exposures support these decisions?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_GENERATED_ENVELOPE_AND_LEVELS
+Must_Preserve:
+Roof geometry, materials, openings, level elevations, ceilings, voids, shafts and physically relevant enclosure properties.
+Ownership_Limit:
+Describe the envelope's causal properties, not the final light and temperature distribution, which later environmental stages resolve.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_08_ROOM_GEOMETRY ===
+
+[Scientific_Foundations]
+Architectural_Space_Planning:
+Translate a space program into room extents, shapes, adjacencies and usable floor plans.
+Space_Syntax_And_Configurational_Analysis:
+How enclosure, connectivity, depth and arrangement influence accessibility and likely movement.
+Ergonomics_And_Usable_Clearance:
+Furniture, machinery, occupation, turning, standing and working zones.
+Social_Spatial_Hierarchy:
+Public, private, service, intimate, sacred and restricted arrangements according to culture and purpose.
+Functional_Zoning_And_Flexibility:
+Shared activities, partitioning, reconfiguration, multifunctional rooms and historic modifications.
+Planar_Geometry:
+Polygons, shared boundaries, levels, free space and consistent dimensional references.
+
+[Reasoning_Questions]
+- How should the preliminary rooms fit inside the completed shell without invalidating load-bearing elements?
+- Which partitions, floors and clearances are required to define actual usable spaces?
+- What topological connections and hierarchy of rooms support inhabitants' functions?
+- Does the design reflect the building's age, changes of use and culture?
+- Which compartments must be true physical rooms versus open zones within one room?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_GENERATED_ROOM_GEOMETRY
+Must_Preserve:
+Named room IDs, physical boundaries, exact footprints, levels, partitions and relation to the original space program.
+Ownership_Limit:
+Do not use settlement-scale Central Place Theory as the primary indoor planning law. Do not require all rooms to be rectangular or all features to occupy cell centers.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_09_ACCESS_AND_CIRCULATION ===
+
+[Scientific_Foundations]
+Circulation_And_Wayfinding:
+Route clarity, movement demand, circulation hierarchy and legible navigation.
+Graph_Theory_And_Network_Connectivity:
+Rooms as connected regions, doorways/transitions as links, isolation and alternate routes.
+Ergonomics_And_Accessibility:
+Passage width, usable clearance, headroom, body/equipment dimensions and movement constraints.
+Egress_And_Compartmentation:
+Emergency movement, smoke barriers, doors and exit design; apply the standards of the actual setting.
+Security_And_Threshold_Design:
+Locks, privacy, access restriction, guard sightlines, concealment and border control.
+Historical_Building_Practice:
+Stairs, galleries, doors and service circulation consistent with period and function.
+
+[Reasoning_Questions]
+- Which spaces must connect and which must stay intentionally isolated?
+- Can occupants, carts, animals or machines physically traverse every intended route?
+- Does each passage have an accurate opening, width, swing/clearance and vertical transition?
+- How do public/private, secure/insecure and hazardous/safe areas connect?
+- Which exterior entry and evacuation paths exist, and under what baseline states?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_GENERATED_ACCESS_AND_CIRCULATION
+Must_Preserve:
+Continuous navigable network, openings, stair transitions, door IDs and mechanical states, route width and security context.
+Ownership_Limit:
+The same physical shared edge or wall must be referenced; do not duplicate contradictory directional wall declarations. Numeric minimum door/corridor standards from a modern source must not be universally imposed on an ancient or fantasy structure.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_10_FIXED_INSTALLATIONS ===
+
+[Scientific_Foundations]
+Industrial_Engineering_And_Process_Layout:
+Relative placement of workstations, machinery, tools and fixed production steps.
+Mechanical_Engineering_And_Equipment_Loads:
+Mass, anchorage, vibration, clearances, maintenance access and supporting structure.
+Human_Factors_And_Ergonomics:
+Reach, movement, posture, operation and use in domestic or industrial spaces.
+Historical_Construction_And_Craft:
+Plausible fixed fixtures, hearths, benches, drainage fittings and device designs.
+Thermal_And_Fire_Systems:
+Heating, combustion and separation requirements when the setting includes heat sources.
+Affordance_Theory:
+Physical actions an installation can enable, constrain or prevent.
+
+[Reasoning_Questions]
+- What fixed features does each room's function actually require?
+- What footprint, orientation, material and anchorage should each installation have?
+- How does each installation interact with structural supports, doors and users?
+- Which sources and sinks require supply, exhaust, water or mechanical connections?
+- Which furnishings are structurally integrated rather than removable objects?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_GENERATED_FIXED_INSTALLATIONS
+Must_Preserve:
+Named fixed instances, measured footprint or cell coverage, orientation, attachment, practical use, support and service requirements.
+Ownership_Limit:
+The physical forge is an installation; its running fire is an environmental source with a separate operating condition.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_11_UTILITIES_AND_FLOWS ===
+
+[Scientific_Foundations]
+Hydraulics_And_Gravity_Drainage:
+Supply head, slope, drainage, traps, flow direction, pressure and plausible waste conveyance.
+Fluid_Dynamics_And_Ventilation:
+Air movement, pressure differences, wind-driven flow, stack effect and ducts.
+Heat_Transfer_And_Chimney_Draft:
+Thermal buoyancy, exhaust paths, flues, combustion products and backdraft constraints.
+Building_Services_And_System_Reliability:
+Routing, joints, capacity, separation, maintenance and failure conditions.
+Electrical_And_Technological_Infrastructure:
+Power distribution, grounding/isolation, conduit pathways and technology-appropriate equivalents.
+Historical_Infrastructure_And_Construction:
+Cisterns, wells, cesspits, smoke hoods, gravity drains, pumps and period-appropriate networks.
+
+[Reasoning_Questions]
+- Which fixture uses, exhausts or transmits what substance, energy or service?
+- What route connects source, distribution, destination and outlet without impossible jumps?
+- What vertical slope, head, duct clearance or structural penetration is required?
+- How do service channels affect room usage, smell, temperature, moisture or hazards?
+- What happens to the environment if the baseline service is off, broken or partially blocked?
+- Where should a previous shell or room stage be revised rather than hiding a physical conflict?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_GENERATED_UTILITIES_AND_FLOWS
+Must_Preserve:
+Networks, nodes, pathways, heights/slopes where known, source/sink references, service states and physical penetrations.
+Ownership_Limit:
+Secret *walking* passages belong to access/security, not automatically to plumbing. An illustrative 1/4-inch-per-foot drain slope in the historical template is a setting-specific construction example, not a global physical law.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_12_MOVABLE_CONTENTS ===
+
+[Scientific_Foundations]
+Material_Culture_And_Household_Archaeology:
+Objects as evidence of ordinary life, work, status, value, habit and personal preference.
+Activity_Area_Analysis:
+Where tools, food, garments, supplies or play objects tend to be used, stored or temporarily left.
+Ergonomics_And_Workflow:
+Likely reach, work sequence, storage access, congestion and clearance.
+Ethnography_And_Domestic_Practice:
+Culturally and personally variable ways people arrange inhabited spaces.
+Object_Affordances_And_Use:
+What an item physically permits and how it relates to other objects or containers.
+Contextual_Provenance:
+Ownership, significance and history when known, without reducing persons to stereotypical possessions.
+
+[Reasoning_Questions]
+- Which objects would reasonably exist here given actual activities, technology and available resources?
+- Where would residents normally keep, display, use or leave them?
+- Which things are personal, inherited, cherished, neglected, ordinary or purely functional?
+- Are footprints, access and containment consistent with the room and circulation geometry?
+- What contents are known to the DM, physically present and not automatically visible to a character?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_GENERATED_MOVABLE_CONTENTS
+Must_Preserve:
+Placed item IDs, exact locations and footprints, material/condition, container links, owner or significance where established, and action affordances.
+Ownership_Limit:
+Do not force game loot into every room, make every possession narratively meaningful or treat mundane equipment as a character Alteration. Do not decide later in-play possession or transfer.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_13_TAPHONOMY_AND_TRACES ===
+
+[Scientific_Foundations]
+Archaeological_Formation_Processes:
+Primary deposition, secondary displacement, abandonment, maintenance, later disturbance and interpretation of spatial assemblages.
+Taphonomy:
+Physical, chemical, biological and human modification of objects and remains over time.
+Materials_Degradation:
+Oxidation, corrosion, cracking, fatigue, abrasion, soot deposition, rot, moisture damage and weathering.
+Building_Archaeology:
+Identifying repair phases, modifications, tool marks, patched walls and structural chronology.
+Forensic_Scene_Reasoning:
+Causally plausible relationships among damage, event mechanisms, positions and residue, with explicit uncertainty about reconstructed events.
+Material_And_Activity_Sequence:
+How normal habits and later interruptions produce spatial distributions of objects and traces.
+
+[Reasoning_Questions]
+- What does ordinary occupation, use and maintenance physically do to these materials over time?
+- Which surfaces, objects or openings would show wear given actual workflows?
+- What established repairs, accidents, changes of use or severe incidents could explain visible traces?
+- If people were suddenly interrupted, which prior ordinary arrangements remain recognizable?
+- Can several clues support a coherent hypothesis without making that hypothesis an omniscient fact available to every observer?
+- How do traces relate to exact already placed objects, walls, openings, bodies or equipment?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_GENERATED_TAPHONOMY_AND_TRACES
+Must_Preserve:
+Affected feature IDs, physical trace locations, kind of alteration, material mechanism, age/condition when known and supported historical relationships.
+Ownership_Limit:
+Distinguish established DM history from a plausible but unconfirmed explanation. Do not invent mandatory catastrophe or tell the observer what conclusions they must reach. Updates to geometry or an object's current condition must reconcile with the owning source record.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_14_ECOLOGY_AND_BIOLOGY ===
+
+[Scientific_Foundations]
+Indoor_Microbial_Ecology:
+Microorganism growth shaped by available water, nutrients, temperature and substrates.
+Ecology_And_Habitat_Selection:
+Food, shelter, disturbance, nesting, symbiosis and habitat connectivity for relevant organisms.
+Mycology_And_Decomposition:
+Fungal colonization and the breakdown of organic materials under suitable conditions.
+Entomology_And_Vertebrate_Ecology:
+Pests, scavengers, animals and plausible evidence they leave within or around the structure.
+Biogeochemistry_And_Organic_Decay:
+Production of residues, gases and odors from relevant decomposing matter.
+Environmental_Health_And_Contamination:
+Where dampness, organic material and pollutants support hazards or observable biological conditions.
+
+[Reasoning_Questions]
+- Which organisms or biological traces are plausible given location, climate, water, food and occupancy?
+- Where could they enter, nest, grow or spread?
+- How do biological processes interact with material damage, waste, food storage and ventilation?
+- Are plant/fungal/animal traces current, historical or contingent on an inactive source?
+- Which physical sources or hazards should later environmental COTs incorporate?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_GENERATED_ECOLOGY_AND_BIOLOGY
+Must_Preserve:
+Initial organisms/traces where relevant, sources/substrates, exact locations, connections to conditions and potential emission or hazard relationships.
+Ownership_Limit:
+Do not fabricate pathogens or health outcomes from vague odor cues. The static generator does not simulate autonomous life cycles, character infection or in-play creature schedules.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_15_SECURITY_HAZARDS_AND_INTERACTIONS ===
+
+[Scientific_Foundations]
+Security_Engineering_And_Access_Control:
+Physical protection, barriers, locks, exposure, concealment and deliberate restriction of access.
+Mechanical_Design_And_Kinematics:
+Triggers, moving parts, linkage, counterweights and mechanical actions.
+Failure_Mode_And_Risk_Analysis:
+How systems fail, what states matter and what physical consequences could follow.
+Human_Factors_And_Misuse:
+Intended interaction, foreseeable mistakes, bypass paths and user constraints.
+Forensic_And_Archaeological_Evidence:
+Physical traces of forced access, improvised safeguards, emergency closures and concealment.
+Tabletop_Interaction_Design:
+Meaningful affordances and discoverable consequences appropriate to the DM's scenario; design objective, not a natural science.
+
+[Reasoning_Questions]
+- What access controls or protective measures logically follow from this site's purpose and history?
+- Which threats or hazardous conditions physically exist at the baseline?
+- What can trigger a mechanism and what physical objects does it affect?
+- Are hazards discoverable through ordinary or altered senses without declaring them automatically noticed?
+- Which dangerous features result from failure or neglect rather than intentionally placed game traps?
+- Do secret rooms or passages fit the established walls, structure and circulation network?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_GENERATED_SECURITY_HAZARDS_AND_INTERACTIONS
+Must_Preserve:
+Hazard/lock/mechanism IDs, locations, component relationships, baseline states, conditions, consequences, concealment, clues and available interactions.
+Ownership_Limit:
+Do not force high-risk/high-reward treasure patterns or hidden traps where the building's use does not warrant them. Game design can inform a DM request without overriding environmental plausibility.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_16_ENVIRONMENTAL_SOURCES ===
+
+[Scientific_Foundations]
+Radiative_And_Illumination_Source_Physics:
+Visible and non-visible emission by lamps, flames, windows, hot surfaces and technological devices.
+Thermodynamics_And_Heat_Generation:
+Active heating, residual thermal energy, conduction, convection and radiative emission.
+Acoustic_Emission_And_Vibration:
+Sources of airborne sound, impacts, machinery noise and structure-borne vibration.
+Chemistry_And_Odorant_Sources:
+Volatile compounds, smoke, gases, evaporation and emission from relevant materials or reactions.
+Electromagnetism_And_Radiation:
+Technology-specific fields or ionizing/nonionizing emissions when established by the setting.
+Biological_Emissions:
+Relevant odors, heat, movement, animal sounds, decomposition and microbial activity.
+Nonstandard_Setting_Mechanisms:
+Magical or fictional sensory emissions with DM-defined causal behavior rather than silently assigning real-world physics.
+
+[Reasoning_Questions]
+- Which placed objects, weather connections, creatures, surfaces and systems generate which kinds of signals?
+- What are each source's origin, location, physical operating state and time pattern?
+- How much can be specified quantitatively or by justified qualitative bands?
+- Does a supposedly broken machine still emit residual heat or electrical hum?
+- Are secondary effects, attenuation barriers or transmissions left for the field synthesis stage?
+- Which special senses could later exploit a signal without granting omniscience?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_GENERATED_ENVIRONMENTAL_SOURCES
+Must_Preserve:
+Source IDs, position/extent, modality, intensity or explicit mechanics where known, source conditions, operating assumptions and owner/object references.
+Ownership_Limit:
+This stage defines causes and initial operation, not the complete distribution of effects or what any specific character knows. A torch's nominal light radius is distinct from its actual illumination result and its current lit/unlit state.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_17_ENVIRONMENTAL_FIELDS ===
+
+[Scientific_Foundations]
+Heat_Transfer_And_Thermodynamics:
+Conduction through boundaries, convection in air, radiation and thermal storage.
+Psychrometrics_And_Moisture_Transport:
+Temperature, humidity, condensation, wet materials and airflow-mediated moisture movement.
+Optics_And_Illumination:
+Light geometry, attenuation, reflection, shadowing and physical occlusion.
+Room_Acoustics_And_Sound_Transmission:
+Reflection, absorption, reverberation, transmission through openings and building materials.
+Ventilation_And_Indoor_Air_Quality:
+Air exchange, pressure, mixing, pollutant transport and barriers.
+Diffusion_Advection_And_Transport:
+Movement and attenuation of odorants, smoke, dust and heat-bearing air.
+Electromagnetic_And_Thermal_Field_Interpretation:
+Relevant radiative and conductive mechanisms that may support nonhuman or cybernetic sensory modalities.
+Uncertainty_And_Approximation:
+Use source-bounded, spatially consistent estimates where exact physical calculation is unavailable.
+
+[Reasoning_Questions]
+- Given the completed geometry, source states, materials and vents, how do light, heat, sound and odors vary across rooms?
+- What passes through an open doorway, a closed wooden door, a metal wall, a duct or a crack, and what does not?
+- Where are colder pockets, hotter surfaces, dark areas, echoes, smells, drafts or vibration strongest?
+- Which properties are local fields, which are source signals, and which require active observation or contact?
+- Do future sensory modalities have enough objective source and obstruction data to be computed without inventing an observer-specific map?
+- If a source is off or a door is closed at baseline, are environmental fields derived from that actual state?
+- Where must an approximation or unresolved datum be kept explicit?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_GENERATED_ENVIRONMENTAL_FIELDS
+Must_Preserve:
+Zone defaults, gradients and point exceptions with references to causal sources, geometry, conditions, scope and uncertainty.
+Ownership_Limit:
+World facts, not a character's subjective experience. Sensory data should not assert the perceived state of observers whose ability, location and prior knowledge are unspecified. No false claims of exact CFD or ray-traced results without numerical tools.
+
+=== SECTION_BREAK ===
+
+=== SECTION: INDOOR_FINAL_MAP_ASSEMBLY ===
+
+[Foundations_And_Methods]
+Computational_Geometry:
+Room polygons, footprint containment, intersecting shapes, transforms, scale and vertical sections.
+Topology_And_Graph_Theory:
+Connected spaces, doors, routes, service networks, shared walls, room adjacency and isolation.
+Constraint_Consistency:
+Physical fit, explicit relationships, clearance conflicts, identical references and dependencies among layers.
+Cartography_And_Architectural_Drafting:
+Readable map conventions, meaningful symbols, layer hierarchy, labels, scale, orientation and dimensional fidelity.
+Information_Modeling_And_Referential_Integrity:
+One stable physical object per ID, defined asset instances, sensible zone defaults, local overrides and cross-references.
+Information_Design_And_Visual_Communication:
+DM readability, distinguishing mundane detail from hazards, viewing scale and secret/visible overlays.
+Epistemic_Boundaries:
+Maintain DM-world truth separately from character-observable slices and uncertain historical interpretations.
+
+[Reasoning_Questions]
+- Do the authored scratchpad sections together describe a physically coherent site?
+- Can every named room, wall, route, important object, hidden feature, height and environmental source be located without a fresh guess?
+- Are individual boundaries and object references noncontradictory?
+- Are present states and source-driven environmental descriptions mutually consistent?
+- Are enough dimensions and metadata available for a deterministic drawing of the floor plan and overlays?
+- What human-facing DM information is needed alongside the final spatial records?
+- Does final assembly preserve the world facts without exposing them as automatic character knowledge?
+
+[Scratchpad_Consequences]
+Writes_To:
+INDOOR_FINAL_MAP_DATA
+Must_Preserve:
+Consolidated current world-state baseline, stable identities, full geometry, separate zone and object details, environmental facts, DM metadata and renderable spatial records.
+Ownership_Limit:
+No autonomous rewriting of mutually contradictory DM facts and no replacement of parser adjudication. Return material ambiguities to the DM, revise the owning scratchpad section and reassemble.
+
+=== SECTION_BREAK ===
+
+=== SECTION: PRIORITY_REFINEMENTS_FOR_FULL_COT_DRAFTING ===
+
+[Reuse_And_Corrections]
+Old_Indoor_Foundational_Parameters:
+Retain Architectural_Functionalism, Building_Science and Historical_Archaeology_of_Structures; give them concrete questions.
+Old_Indoor_Structural_Shell:
+Retain structural engineering and hierarchical support; make code/historical equivalents conditional on setting and clarify canonical wall/opening geometry.
+Old_Indoor_Environmental_Conditions:
+Retain building physics, indoor air quality, psychrometrics, lighting and acoustics, but separate causal source declaration from resulting field distribution.
+Old_Indoor_Plumbing_Flows:
+Retain hydraulics, thermal draft, natural ventilation and fluid dynamics; remove rigid topology assumptions from physical conduits and route secret human passages through circulation/security.
+Old_Indoor_Asset_Library_Builder:
+Retain architectural anthropology, technology, cultural context and taphonomy; replace unconditional environmental determinism with cultural-historical interaction.
+Old_Indoor_Room_Function_Generator:
+Retain functionalism, proxemics, workflow and zoning; split preliminary programming from final geometric allocation.
+Old_Indoor_Corridor_Logic:
+Retain wayfinding, access, ergonomics, security and routing; replace arbitrary universal width values with setting-specific requirements.
+Old_Indoor_Major_Rooms_Logic:
+Retain spatial hierarchy, room purpose and workflow, but use architectural planning and space syntax instead of treating settlement Central Place Theory as an indoor law.
+Old_Indoor_Key_Feature_Populator:
+Retain material culture, affordance theory, taphonomy and contextual storytelling; distribute this stage's objects, hazards, biological traces and physical use into their genuine domain owners rather than forcing a plot.
+Black_Mesa_Reference:
+REFERENCE_MAPS/Black_Mesa_Facility.txt is the deliberately simple historical benchmark. The old COT chain produced implied containment failure and ordinary lives interrupted without an explicitly mandated dramatic narrative.
+Context_Use:
+The scratchpad accumulates previous layers and DM corrections. Each new COT applies disciplinary mechanisms to those specific facts rather than writing a standalone unrelated scene.
+Forward_Compatibility:
+A rich authored world may include infrared, odor, structural vibration, heat, emissions, personal context or secret history before current ChaOS can use them. The parser—not the map generator—selects character access during play.
+
+=== SECTION_BREAK ===
+
+[KEY_TERM: Document Complete]
