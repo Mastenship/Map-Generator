@@ -331,6 +331,36 @@ Named physical landmarks, location, reasons for significance and relevant traces
 
 === SECTION_BREAK ===
 
+=== SECTION: INDOOR_TWO_METER_GRID_PHYSICAL_WALL_MODEL ===
+
+[Scientific_Spatial_Parameters]
+Working_Grid_Choice:
+A standard indoor square covers 2 meters by 2 meters; the existing SVG draws this as 100 pixels by 100 pixels, or 50 pixels per meter. Retain its center, edge-midpoint and lower-offset reference dots. This is the DM-directed working scale for new indoor COT drafting.
+Mechanism_Not_Tile_Limit:
+Grid squares and anchor dots provide recognizable location references; the physical building is constructed in continuous measurable space. Neither wall solids nor openings are constrained to grid midpoints or full-cell increments.
+Wall_Section_Science:
+A building wall has both a position and an actual material cross-section. Depending on its material, role and technology, its thickness affects load transfer, usable room space, heat and sound transmission, apertures, sightlines, passage depth, and hidden voids.
+Projection:
+At this working scale, a 0.10-meter wall occupies about 5 SVG pixels across its thickness; 0.30 meters occupies 15 pixels; 0.50 meters occupies 25 pixels. These figures are visual checks only, not prescriptive structural standards.
+Surface_Geometry:
+Room floor polygons must use the actual inside faces of boundary walls. A building's outer dimensions must not be copied as net internal room dimensions. An opening has an explicit width, wall-depth, placement, topological connection and operational state.
+Feature_Resolution:
+Physical dimensions and feature IDs survive even if a tiny object cannot be drawn faithfully at this particular pixel scale. Increasing drawing pixels or local magnification is a renderer concern; increasing cell size does not itself increase precise physical resolution.
+Cross_Stage_Contract:
+- Foundational parameters own the grid cell physical size and drawing ratio.
+- Structural shell owns major walls, load-bearing solids, wall identities and physical thickness.
+- Room geometry owns usable interior footprints and non-load-bearing partitions.
+- Access and circulation own precise door/passage apertures in the shared wall, wall crossing and clearance.
+- Environmental source/field reasoning uses material boundaries and real openings rather than abstract zero-width edges.
+Unit_Open_Item:
+A uniform metric convention outdoors would simplify continuity with the indoor two-meter grid, but outdoor physical units, global reference coordinates and projection have not yet been ratified.
+Historical_Compatibility:
+Earlier original-source five-foot indoor squares are superseded for this working rebuild scale, not removed or rewritten from the historical source.
+Boundary:
+Do not certify actual building safety or universal wall sizes from generalized COT reasoning.
+
+=== SECTION_BREAK ===
+
 === SECTION: INDOOR_01_FOUNDATIONAL_PARAMETERS ===
 
 [Scientific_Foundations]
