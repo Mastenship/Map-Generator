@@ -140,6 +140,34 @@ Distinct scientific, historical and domain foundations belong inside the full in
 
 === SECTION_BREAK ===
 
+=== SECTION: INHERITED_MAP_ASSETS_AND_LOCAL_ADAPTATION ===
+
+[Map_Package_Inheritance]
+DM_Accepted_Intent:
+Every completed map, including country, river valley, settlement, neighborhood, individual site and indoor map, preserves its own asset library so later maps can inherit its world-building.
+Parent_Inputs:
+- An indoor COT sequence may begin from a country, valley, town, neighborhood, street or site map where context exists.
+- At initiation, retrieve the relevant parent's preserved asset definitions and established spatial, historical, environmental and cultural facts, selecting by the new site's extent and purpose.
+- An indoor map may also be standalone if the DM supplies no larger map.
+- The local building's identity, location, orientation, exposed surroundings, cultural influences and established site facts come from the source map when specified.
+Local_Asset_Library:
+- The indoor asset-library COT creates or extends a distinct library for the new map, adapting inherited material or cultural prototypes to the actual building.
+- An imported building type may require different local stone, joinery, roof treatment or layout; do not inherit a foreign source map's damage, ownership history or coordinates without a reason.
+- Actual placements, room dimensions and inherited features belong to the current building's spatial record; the asset library is not a substitute for them.
+Boundary_Contexts:
+- A building or street positioned between distinct neighborhoods may receive influences from more than one source library.
+- Architectural mixing, reuse and adaptation require consideration of migration, trade, artisans, regulations, property constraints, economic history and occupants' deliberate choices.
+- Distinct influences can also remain separate or form a sharp physical boundary. Do not force stylistic blending.
+Identity:
+- Retain parent feature and asset references where a child map represents an already established location or physical object in greater detail.
+- New local variants become candidates for reuse when the new map and its own library are finalized.
+Coordination:
+Do not require a separate World Geographic Record, completed dynamic WorldState, or cross-project governance apparatus for map inheritance. Preserved map packages and their asset libraries supply authoring context.
+Status:
+Working pass-through clarification; file/library serializations and exact parent-child transforms remain unratified.
+
+=== SECTION_BREAK ===
+
 === SECTION: INDOOR_STAGE_01_FOUNDATIONAL_PARAMETERS ===
 
 [Stage_Contract]
@@ -148,7 +176,7 @@ COT_INDOOR_FOUNDATIONAL_PARAMETERS
 Owns:
 Building or site identity, requested purpose, overall scale, orientation, technological period, cultural premises, user constraints and contextual assumptions.
 Reads:
-User prompt, generation parameters, optional parent outdoor asset and environment.
+User prompt, generation parameters, optional completed parent/neighbor map packages and their preserved asset libraries, and relevant inherited location/environment/cultural facts.
 Writes_To:
 INDOOR_GENERATED_PARAMETERS
 Passes_Forward:
@@ -243,7 +271,7 @@ COT_INDOOR_ASSET_LIBRARY_BUILDER
 Owns:
 Reusable building-specific definitions, adapted from available imported assets or created locally.
 Reads:
-INDOOR_GENERATED_PARAMETERS; INDOOR_GENERATED_HABITATION_AND_HISTORY; INDOOR_GENERATED_SPACE_PROGRAM; optional ACTIVE_ASSET_LIBRARY.
+INDOOR_GENERATED_PARAMETERS; INDOOR_GENERATED_HABITATION_AND_HISTORY; INDOOR_GENERATED_SPACE_PROGRAM; relevant selected asset libraries from existing parent/neighbor maps, including ACTIVE_ASSET_LIBRARY where available.
 Writes_To:
 INDOOR_ACTIVE_ASSET_LIBRARY
 Passes_Forward:
@@ -632,7 +660,7 @@ Open_Items:
 - Choose the final authoring-stage count and exact scientific foundations for each COT.
 - Choose stable geometry/ID conventions for edges, polygons, measured positions, levels, thickness and openings.
 - Choose how DM modifications to early layers are represented cleanly in later outputs.
-- Choose reusable asset definitions and drawing-stamp/renderer conventions.
+- Choose each map's preserved asset-library packaging, inheritance conventions, local adaptation and drawing-stamp/renderer conventions.
 - Choose representation of environmental bands, source strengths, uncertainty and starting-time conditions.
 - Decide how much physical and historical fact to include in the compact final-map packet versus referenced asset/zone definitions.
 
