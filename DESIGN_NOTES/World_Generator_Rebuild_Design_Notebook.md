@@ -408,6 +408,16 @@ The Map Generator can author **more physical, environmental, historical and sens
 
 **Still open:** final number/order of indoor COTs; optional standalone versus inherited outdoor context inputs; physical coordinate convention and precise schema; shared wall identities and opening references; previsualization frequency; SVG renderer/translator implementation; stamps and label aesthetics; 2.5D level linking; persistence/reuse/versioning of asset definitions; how history and occupant significance are represented without compulsorily making a narrative; rules for sources versus environmental fields; and exact future parser contracts. Each should be resolved against practical DM use, not a prematurely comprehensive governance or full 3D application.
 
+## COT pass-through revision — working draft (2026-10-21)
+
+**Working draft, not approved final architecture:** [Revised COT Pass-through](https://github.com/Mastenship/Map-Generator/blob/main/DESIGN_NOTES/REVISED_COT_PASSTHROUGH_WORKING_DRAFT.txt). This new file is written in the original generator's marker/field conventions and leaves `SOURCE/merged_output.txt` intact. It audits the real historical stage inputs, output destinations and scratchpad updates.
+
+**Corrections now recorded:** fix outdoor Biome→Asset Library dependency and malformed infrastructure header; make indoor purpose/site/inhabitants/history/space requirements precede exact structural geometry; move exact rooms and circulation ahead of utilities and object placements; compute environmental sources then fields after their causal features are established; and assemble the completed static map from one consistent, DM-corrected scratchpad. Explicitly preserve immediate scratchpad writes, post-write DM review, and the human-readable map requirement.
+
+**Sequence proposed for testing:** 17 indoor authoring COTs plus final assembly, revising the earlier unratified 16+assembly sketch by making `HABITATION_AND_HISTORY` an early distinct contributor. The extra stage is intended to preserve ordinary life, inhabitants' routines and causal evidence without forcing tragedy or a scripted plot. Stage count, names, granularity, coordinate format and final scratchpad schema remain open. The draft defines responsibilities and pass-through, **not** the complete rebuilt COT bodies.
+
+**Immediate test:** author a small standalone building with early foundational/planning/geometry stages, then draw it with the existing square-grid/SVG tools before pursuing a full suite. Preserve Black Mesa as the simple benchmark of emergent traces of interrupted lives, not as the map complexity ceiling.
+
 ## Reference materials
 
 - Archived reference **[REFERENCE_MAPS/Black_Mesa_Facility.txt](https://github.com/Mastenship/Map-Generator/blob/main/REFERENCE_MAPS/Black_Mesa_Facility.txt)** (source: user-provided `Black_Mesa_Facility(1).txt`, preserved byte-for-byte): deliberately simple historical baseline for room connectivity, sensory detail, occupants' personal traces, and emergent evidence of a containment disaster; not a target complexity level. Room-local coordinates and overall geometry still need formalization.
