@@ -124,6 +124,47 @@ Indoor 2-meter square is the DM-directed working choice. Outdoor unit/projection
 
 === SECTION_BREAK ===
 
+=== SECTION: PROCEDURAL_PLANET_SOURCE_IMPORT_WORKING_OPTION ===
+
+[Design_Status]
+Status:
+PROPOSED_FOR_LATER_DM_INSPECTION
+Source_Observation:
+The DM identified a browser-based planetary generator offering adjustable randomized continent/world parameters and multiple saved outputs including climate, terrain and tectonics. The exact generator, available data layers, export format, projection, metadata, reproducibility, licensing and control details have not yet been inspected together. Do not claim verified capabilities beyond this observation.
+Purpose:
+Allow a world-level procedural generator to provide candidate large-scale terrain and environmental datasets that the DM and early outdoor scientific COTs can inspect, select, interpret, adjust and adopt. Preserve manual DM-directed generation as an alternative.
+Acceptance_Sequence:
+- Establish the planet's size, shape, geographic frame and location of the intended first regional map, where necessary.
+- Generate or review one or more planetary candidates; DM chooses whether to use one and what is authoritative.
+- Once selected, preserve actual accepted exports and metadata. Do not treat rerunning a random seed or changing controls as harmless after regional child maps inherit the planet.
+- The early geology, terrain, climate, hydrology, ecology and human geography COTs inspect relevant accepted input layers and use scientific reasoning rather than blindly trusting a decorative image.
+- Preserve established planetary premises, accepted data and interpretations as a reusable source package accessible through each completed map's asset library and parent map references.
+- Regional and local maps inherit relevant established physical features, conditions, names, identities and locations without silently overriding accepted parents.
+Distinct_Data_Kinds:
+- Visual PNG/image: human/LLM reference, not inherently numerical elevation or georeferenced data.
+- Heightmap: quantitative only if value-to-elevation convention, units and coverage/projection are known.
+- Climate/tectonic layers: map categories or numerical data only to the extent that their legends, formats and generation assumptions are known.
+- Structured geographic data: preferable for direct downstream coordinate use when actually exported; availability not assumed.
+Preserve_Source:
+Retain the accepted image files and any settings, generation seed, maps, original labels, legends, source/version information and projection metadata that can be captured. Record DM edits separately. Do not overwrite the imported original when refinements are authored.
+Working_Package_Name:
+PLANETARY_FOUNDATION_SOURCE_PACKAGE, a candidate concept for initial world-level saved assets; not a separate compulsory centralized World Geographic Record or a finalized file schema.
+Map_Georeferencing:
+An image can be aligned to planetary coordinates only after its projection, longitude seam/origin, axis orientation and spatial coverage are established or DM-approved assumptions are explicitly recorded. Planet diameter alone is insufficient to infer an image's projection.
+Scientific_Caution:
+A pretty tectonic or climate layer might be procedurally suggestive rather than physically validated. COTs should identify unrealistic or incompatible layers, show the DM options, and preserve intentional fictional exceptions.
+Next_Review:
+The DM will revisit the website, experiment with controls, inspect and possibly share saved exports. Evaluate actual source capabilities before specifying an importer, terrain stamp/rendering method, planetary map schema or workflow implementation.
+Open_Questions:
+- Which generator and which precise outputs/files are available?
+- Are the exports only pictures, or do they contain height data and spatial metadata?
+- Are projections known, and can the planet's radius, equator and prime meridian be aligned?
+- Are the layers mutually registered and scientifically compatible?
+- Can seed/settings and legal reuse/attribution information be preserved?
+- Which layers should remain reference suggestions versus accepted world facts?
+
+=== SECTION_BREAK ===
+
 === SECTION: SCALE_DEPENDENT_SCIENTIFIC_RESOLUTION ===
 
 [Scale_Model]
