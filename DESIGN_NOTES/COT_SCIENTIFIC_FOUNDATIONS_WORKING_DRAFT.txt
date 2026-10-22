@@ -57,6 +57,30 @@ Do not mandate every sensory modality, dramatic event, object, person, hidden cl
 
 === SECTION_BREAK ===
 
+=== SECTION: PROCEDURAL_PLANET_LAYERS_AS_SCIENTIFIC_INPUTS ===
+
+[Status]
+Design_State:
+OPEN_WORKING_OPTION
+Purpose:
+Permit early planetary and regional scientific COTs to work from accepted procedural source layers rather than having to invent planetary terrain entirely from prose. A world generator's output is input evidence and inspiration, not proof of physically valid geology or climate.
+Relevant_Source_Layers:
+- Topography/height data can constrain landforms, coastlines, basins, slopes and hydrologic drainage only to the precision actually supported by the exported data and legend.
+- Tectonic maps can suggest plates, margins and regional uplift histories, subject to checking correspondence with existing landforms.
+- Climate outputs can suggest thermal and precipitation patterns, but must be checked against planet size, geography, ocean arrangement and intended setting physics.
+- Future hydrology and ecology stages reason from the combined accepted sources and appropriate physical constraints; they must not assume missing datasets were exported.
+COT_Protocol:
+- Identify file provenance, projection, scale, extent, units, color legend and confidence before numerical or geographical inference.
+- Distinguish source-generated data from DM-established facts and newly authored scientific explanations.
+- Point out contradictions or missing inputs for DM resolution instead of silently rerolling an already accepted world.
+- At country and local scales inherit relevant planetary/parent layers and local map asset libraries while increasing detail.
+- Preserve the source files and accepted interpretations in the map's own asset library and related map package; parent originals remain intact.
+- A visual PNG alone does not uniquely encode absolute planetary position or meters of elevation without further metadata.
+Open:
+Verify actual generator/export content after the DM experiments and shares files. Exact importer method, accepted layer interpretation, planetary reference frame and stage order remain to be decided.
+
+=== SECTION_BREAK ===
+
 === SECTION: MULTISCALE_SCIENTIFIC_APPLICATION ===
 
 [Scale_And_Inheritance]
